@@ -4,14 +4,19 @@
 <style>
 
 	body{
-		background-color: black;
-		color: white;
+		background-image: url("./resized-images/Wall.png");
+		color: #4f351f;
+		font-family: sans-serif,Lato,LatoExtended,sans-serif;
+		font-size: 18px;
+		font-weight: bold;
 		text-align: left;
 		margin-top: 50px;
 	}
 
-	table, th, td {
-	  border: 1px solid white;
+	table, th {
+	  border: 2px solid #4f351f;
+	  background-color: rgba(228, 185, 113, 0.93);
+	  opacity: 90%;
 	}
 
 </style>
@@ -24,29 +29,36 @@
 <a href="./hero-play.html">PLAY</a>
 <br>
 <br>
-<table>
+<table width="80%" align="center">
 	<tr>
 		<td colspan="2">
-			<h1 style="text-align:center;">Information:</h1>
+			<h1 style="text-align:center;"><img src="./resized-images/torch.png">Information:<img src="./resized-images/torch.png"></h1>
+			<hr>
 		</td>
 	</tr>
-	<tr>
+	<tr style="text-align:center;">
 		<td colspan="2">
 			Combining Roguelites and the classic Word Munchers gameplay,
+			<br>
 			to create a game to play while learning English-Japanese words. 
 		 	<br>
 			ローグライトと古典的なワードマンチャーズのゲームプレイを組み合わせて、
+			<br>
 			英和単語を学習しながらプレイできるゲームを作成しました。
+			<hr width="95%">
 		</td>
 	</tr>
 	<tr>
-		<td style="text-align:right;">
+		<td style="text-align:right;" width="100px">
 			<img src="./resized-images/Stairs.png">
 		</td>
 		<td>
 			Select all the correct tiles to open the stairs.
 			<br>
 			正しいタイルをすべて選択して階段を開きます。
+			<br>
+			<br>
+			<hr width="95%">
 		</td>
 	</tr>
 	<tr>
@@ -60,114 +72,384 @@
 		</td>
 	</tr>
 </table>
-
-Controls:
-　Press "WASD" to move. 
-　　　　　Press any key to open the main menu.
-　　　　　Press "SPACE" or "ENTER" to select menu options.
-　　　　　Press "R" to go back in the menu.
-　　　　　「WASD」を押して移動します。
-　　　　　　任意のキーを押すと、メイン メニューが開きます。
-　　　　　　メニューオプションを選択するには「SPACE」又は「ENTER」を押します。
-　　　　　　メニューに戻るには、「R」を押します。
-
-Press [ 1 - 8 ] number keys to use your items and scrolls.
-　[ 1 ～ 8 ] 数字キーを押して、アイテムとスクロールを使用します。
-
-
-     Use "SPACE" or "ENTER" to select the tile vocabulary you are on.
-　　　　　　「SPACE」または「ENTER」を使用して、現在のタイル語彙を選択します。
-    Correct selections heal you. 
-　　　　　　正しい選択があなたを癒します。
-    Wrong selections decrease your score, and will eventually hurt you.
-　　　　　　間違った選択をするとスコアが下がり、最終的には損害を被ることになります。
- Collecting gold can protect you and increase your score, but it also makes more monsters come for you. 
-　　　　　ゴールドを集めるとあなたを守り、スコアを増やすことができますが、
-　　　　　より多くのモンスターがあなたを探しに来るようになります。
-There are bonuses for perfect games with no mistakes. Try to get them all!
-　ミスのない完璧なゲームにはボーナスがあります。 全部ゲットしてみてください！
-Monsters:
-Different monsters roam the dungeon: 
-　ダンジョン内にはさまざまなモンスターが徘徊しています。
-Bat: a generic monster, no special actions or abilities.    
-
-          　　　コウモリ: 一般的なモンスターで、特別なアクションや能力はありません。
-
-Wizard: swaps correct tile words and incorrect ones, cannot be stun-locked.    
-
-          　　　ウィザード: 正しいタイルの単語と間違った単語を交換します。スタンロックはできません。
-
-Thief: steals gold from you before hurting you.    
-
-         　　　 泥棒: あなたを傷つける前に金を盗みます。
-
-Skeleton: slow-moving, but strong with high health.    
-
-         　　　スケルトン：動きは遅いが、体力が高くて、強い。
-
-Drops:
-　　　　Some monsters drop items or scrolls of magic:
-　　　　　　　　　　　　　一部のモンスターはアイテムや魔法の巻物をドロップします。
-Item: アイテム:
-Potion: Heals your HP.
-
-         　　　ポーション：HPを回復します。
-
-Repel: Repels monsters for a short time.
-
-         　　　よけ：短時間モンスターを撃退します。
-
-Sword: Increases your attack power, but wears down eventually.
-
-        　　　剣：攻撃力が上昇しますが、やがて使い古します。
-
-Armor: Increases your defense ability, but wears down eventually.
-
-         　　　よろい：防御力が上がりますが、やがて着潰します。
-
-Magic Scroll 魔法の巻物:
-Warp: Moves you to a random tile.
-         ワープ: ランダムなタイルに移動させます。
-
-Storm: Moves all monsters to a random tile.
-         ストーム: すべてのモンスターをランダムなタイルに移動させます。
-
-Aura: Heals yours, and surrounding monsters' HP.
-         オーラ：自分と周囲のモンスターのHPを回復します。
-
-Thunder: Shoots lightning in four directions around you.
-         サンダー：周囲4方向に稲妻を発射します。
-
-Fireball: Shoots a ball of fire in the last direction that you moved.
-         ファイアボール: この前に移動した方向に火の玉を発射します。
-
-Freeze: Freezes monsters for a short time.
-         フリーズ：モンスターを短時間凍結させます。
-
-Steal: All enemies drop some gold.
-         ぬすむ：すべての敵がゴールドを落とします。
-
-Study: Clears some incorrect answer tiles.
-         がくしゅう: いくつかの不正解なタイルを消去します。
-
-Copy: Copies one of another scroll in your bag.
-         コピー: バッグ内の別の巻物を 1 つをコピーします。
-
-Cheat: Highlights all remaining correct answer tiles, but has a random penalty.
-         チート: 残りの正解なタイルをすべて強調表示しますが、ランダムなペナルティがかかります。
-
-
-
-
-
-
-
-Thank you for reading this far.
-
-ここまで読んでくれてありがとうございます。
-
-(Try adding a * to your code when selecting contents.
-コンテンツを選ぶとき、コードに「*」をつけてみてください。）
+<br>
+<br>
+<table width="80%" align="center">
+	<tr>
+		<td colspan="2">
+			<h2 style="text-align: center;"><img src="./resized-images/torch.png">Controls:<img src="./resized-images/torch.png"></h2>
+			<hr>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center; vertical-align: top;" width="100px">
+			<img src="./resized-images/Player.png">
+			<br>
+		</td>
+		<td>
+			<li>
+				Press "WASD" to move.
+				<br>
+				&nbsp&nbsp「WASD」を押して移動します。
+			</li>
+			<br>
+			<li>
+				Press any key to open the main menu.
+				<br>
+				&nbsp&nbsp任意のキーを押すと、メイン メニューが開きます。
+			</li>
+　　　　　	<br>
+			<li>
+				Press "SPACE" or "ENTER" to select menu options.
+				<br>
+				&nbsp&nbspメニューオプションを選択するには「SPACE」又は「ENTER」を押します。
+			</li>
+　　　　　	<br>
+			<li>
+				Press "R" to go back in the menu.
+				<br>
+				&nbsp&nbspメニューに戻るには、「R」を押します。
+			</li>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td >
+			<hr width="95%">
+			<img src="./resized-images/item-button.png"><img src="./resized-images/scroll-button.png">
+			<li>
+				Press [ 1 - 8 ] number keys to use your items and scrolls.
+				<br>
+				&nbsp&nbsp[ 1 ～ 8 ] 数字キーを押して、アイテムとスクロールを使用します。
+			</li>
+			<br>
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center;">
+			<img src="./resized-images/vocab.png">
+		</td>
+		<td>
+			<li>
+				Use "SPACE" or "ENTER" to select the tile vocabulary you are on.
+				<br>
+				&nbsp&nbsp「SPACE」または「ENTER」を使用して、現在のタイル語彙を選択します。
+			</li>
+			<br>
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center;">
+			<img src="./resized-images/correct.png">
+		</td>
+		<td>
+			<li>
+				Correct selections heal you.
+				<br>
+				&nbsp&nbsp正しい選択があなたを癒します。
+			</li>
+			<br>
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center;">
+			<img src="./resized-images/incorrect.png">
+		</td>
+		<td>
+			<li>
+				Wrong selections decrease your score, and will eventually hurt you.
+				<br>
+				&nbsp&nbsp間違った選択をするとスコアが下がり、最終的には損害を被ることになります。
+			</li>
+			<br>
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center;">
+			<img src="./resized-images/gold.png">
+		</td>
+		<td>
+			<li>
+				Collecting gold can protect you and increase your score, but it also makes more monsters come for you.
+				<br>
+				ゴールドを集めるとあなたを守り、スコアを増やすことができますが、
+				<br>
+				&nbsp&nbspより多くのモンスターがあなたを探しに来るようになります。
+			</li>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+			<br>
+			<hr width="95%">
+			There are bonuses for perfect games with no mistakes. Try to get them all!
+			<br>
+			&nbsp&nbspミスのない完璧なゲームにはボーナスがあります。 全部ゲットしてみてね！
+		</td>
+	</tr>
+</table>
+<br>
+<table width="80%" align="center">
+	<tr>
+		<td colspan="2">
+			<h2 style="text-align: center;"><img src="./resized-images/torch.png">Monsters:<img src="./resized-images/torch.png"></h2>
+			<hr>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" style="text-align:center;">
+			<br>
+			Different monsters roam the dungeon:
+			<br>
+			ダンジョン内にはさまざまなモンスターが徘徊しています。
+			<br>
+			<hr width="95%">
+		</td>
+		<td>
+			
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="./resized-images/bat.png">
+		</td>
+		<td>
+			Bat: a generic monster, no special actions or abilities.
+			<br>
+			コウモリ: 一般的なモンスターで、特別なアクションや能力はありません。
+			<br>
+			<br>
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="./resized-images/wizard.png">
+		</td>
+		<td>
+			Wizard: swaps correct tile words and incorrect ones, cannot be stun-locked.    
+			<br>
+			ウィザード: 正しいタイルの単語と間違った単語を交換します。スタンロックはできません。
+			<br>
+			<br>
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="./resized-images/thief.png">
+		</td>
+		<td>
+			Thief: steals gold from you before hurting you.    
+			<br>
+			泥棒: あなたを傷つける前に金を盗みます。
+			<br>
+			<br>
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="./resized-images/skeleton.png">
+		</td>
+		<td>
+			Skeleton: slow-moving, but strong with high health.    
+			<br>
+			スケルトン：動きは遅いが、体力が高くて、強い。
+			<br>
+			<br>
+		</td>
+	</tr>
+</table>
+<br>
+<table width="80%" align="center">
+	<tr>
+		<td colspan="2">
+			<h2 style="text-align: center;"><img src="./resized-images/torch.png">Drops:<img src="./resized-images/torch.png"></h2>
+			<hr>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src="./resized-images/chest.png"><img src="./resized-images/scroll.png">
+		</td>
+		<td>
+			<br>
+			Some monsters drop items or scrolls of magic:
+			<br>
+			一部のモンスターはアイテムや魔法の巻物をドロップします。
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<h3 style="text-align: center;"><img src="./resized-images/torch.png">Items: アイテム:<img src="./resized-images/torch.png"></h2>
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center;">
+			<img src="./resized-images/potion.png">
+		</td>
+		<td>
+			Potion: Heals your HP.
+			<br>
+			ポーション：HPを回復します。
+			<br>
+			<br>
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center;">
+			<img src="./resized-images/repel.png">
+		</td>
+		<td>
+			Repel: Repels monsters for a short time.
+			<br>
+			よけ：短時間モンスターを撃退します。
+			<br>
+			<br>
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center;">
+			<img src="./resized-images/sword.png">
+		</td>
+		<td>
+			Sword: Increases your attack power, but wears down eventually.
+			<br>
+			剣：攻撃力が上昇しますが、やがて使い古します。
+			<br>
+			<br>
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center;">
+			<img src="./resized-images/armor.png">
+		</td>
+		<td>
+			Armor: Increases your defense ability, but wears down eventually.
+			<br>
+			よろい：防御力が上がりますが、やがて着潰します。
+			<br>
+			<br>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<h3 style="text-align: center;"><img src="./resized-images/torch.png">Magic Scrolls 魔法の巻物:<img src="./resized-images/torch.png"></h2>
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr>
+		<td>
+		</td>
+		<td>
+			Warp: Moves you to a random tile.
+			<br>
+			ワープ: ランダムなタイルに移動させます。
+			<br>
+			<br>
+			<hr width="95%">
+			Storm: Moves all monsters to a random tile.
+			<br>
+			ストーム: すべてのモンスターをランダムなタイルに移動させます。
+			<br>
+			<br>
+			<hr width="95%">
+			Aura: Heals yours, and surrounding monsters' HP.
+			<br>
+			オーラ：自分と周囲のモンスターのHPを回復します。
+			<br>
+			<br>
+			<hr width="95%">
+			Thunder: Shoots lightning in four directions around you.
+			<br>
+			サンダー：周囲4方向に稲妻を発射します。
+			<br>
+			<br>
+			<hr width="95%">
+			Fireball: Shoots a ball of fire in the last direction that you moved.
+			<br>
+			ファイアボール: この前に移動した方向に火の玉を発射します。
+			<br>
+			<br>
+			<hr width="95%">
+			Freeze: Freezes monsters for a short time.
+			<br>
+			フリーズ：モンスターを短時間凍結させます。
+			<br>
+			<br>
+			<hr width="95%">
+			Steal: All enemies drop some gold.
+			<br>
+			ぬすむ：すべての敵がゴールドを落とします。
+			<br>
+			<br>
+			<hr width="95%">
+			Study: Clears some incorrect answer tiles.
+			<br>
+			がくしゅう: いくつかの不正解なタイルを消去します。
+			<br>
+			<br>
+			<hr width="95%">
+			Copy: Copies one of another scroll in your bag.
+			<br>
+			コピー: バッグ内の別の巻物を 1 つをコピーします。
+			<br>
+			<br>
+			<hr width="95%">
+			Cheat: Highlights all remaining correct answer tiles, but has a random penalty.
+			<br>
+			チート: 残りの正解なタイルをすべて強調表示しますが、ランダムなペナルティがかかります。
+			<br>
+			<br>
+			<hr width="95%">
+		</td>
+	</tr>
+</table>
+<br>
+<table width="80%" align="center">
+	<tr style="text-align:center;">
+		<td>
+			Thank you for reading this far.
+			<br>
+			ここまで読んでくれてありがとうございます。
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<hr width="95%">
+		</td>
+	</tr>
+	<tr style="text-align:center;">
+		<td>
+			(Try adding a * to your code when selecting contents.
+			<br>
+			コンテンツを選ぶとき、コードに「*」をつけてみてください。）
+		</td>
+	</tr>
+</table>
 
 </body>
 </html>
