@@ -94,6 +94,11 @@ gfx_loader = {
 		title_logo.width = 954;
 		title_logo.height = 272;
 
+		ui_spritesheet = new Image();
+		ui_spritesheet.src = 'gfx/gui_16x16.png';
+		ui_spritesheet.tw = 8;
+		ui_spritesheet.th = 6;
+
 		gui_spritesheet = new Image();
 		gui_spritesheet.src = 'gfx/GUI0.png';
 		gui_spritesheet.tw = 16;
