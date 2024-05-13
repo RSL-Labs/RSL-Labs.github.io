@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<title>ENGLISH HERO</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<style>
+	canvas{
+		outline: 1px solid white;
+	}
+
+	body{
+		background-color: black;
+		text-align: center;
+		margin-top: 50px;
+	}
+
+</style>
+
+<canvas>
+</canvas>
+<script src="js/gfx_loader.js"></script>
+<script src="js/transition.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/listeners.js"></script>
+<script src="js/game.js"></script>
+<script src="js/entity.js"></script>
+<script src="js/monster.js"></script>
+<script src="js/player.js"></script>
+<script src="js/map.js"></script>
+<script src="js/generate.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/messages.js"></script>
+<script src="js/spell.js"></script>
+<script src="js/item.js"></script>
+<script src="js/tile.js"></script>
+<script src="js/util.js"></script>
+
+<script src="js/LIBRARIES/test_library.js"></script>
+
+<script charset="euc-jp">
+	function setupGlobals(){
+		globalDebug = true;
+		globalDebug = false;
+
+		let windowWidth = window.screen.availWidth;
+		let windowHeight = window.screen.availHeight;
+		tileSize = Math.floor(windowHeight/10);
+		spacing = (units) => ((tileSize))*0.25*units;
+		numTiles = 8;
+		numTilesX = numTiles + 1;
+		numTilesY = numTiles;
+		uiStart = numTilesX+0.5;
+		uiTop = tileSize*0.125;
+		viewSize = 8;
+		viewHalf = Math.floor(viewSize/2);
+		viewQrtr = Math.floor(viewSize/4);
+		viewDiff = (numTiles-viewSize)*2;
+
+		uiWidth = 6;
+		ui={currentButton:-1, buttons:[]};
+		setupSettings = {
+			library:"textbook_lib",
+			code:"BVH",
+			difficulty:1,
+			vocab_method:1, //1: KEY in JP, ANSWERS in EN / 2: KEY in EN, ANSWERS in JP
+			special_dungeon:false,
+		}
+
+		shakeAmount = 0;
+		shakeX = 0;
+		shakeY = 0;
+	}
+
+	setupGlobals();
+
+	let gameMenu = new GameMenu();
+
+	gameState = "loading";
+
+	gfx_loader.load_gfx();
+	game.initSounds();
+	draw.setupCanvas();
+	game.showLoading();
+
+	
+	function checkRemaining(goal){
+		let remaining = [];
+		
+		for(let i=0; i<numTiles; i++){
+			for(let j=0; j<numTiles; j++){
+				if(map.getTile(i,j) instanceof Floor){
+					console.log(map.getTile(i,j))
+					remaining.push(map.getTile(i,j).name[0]);
+
+				}
+			}
+		}
+
+		remaining = remaining.filter(e => e == goal)
+
+		return remaining.length
+	}
+
+	setupListeners();
+	setInterval(draw.drawScreen, 15)
+	
+
+</script>
+

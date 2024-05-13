@@ -1,0 +1,866 @@
+textbook_lib = [
+
+//TEXTBOOK YEAR 1
+	{
+		NAME:"YEAR 1 UNIT 1 PART 1",
+		CODE:"Y1U1P1",
+		LIB: [
+				{EN:"call", JP:"呼ぶ・名づける"},
+				{EN:"often", JP:"しばしば・よく"},
+				{EN:"Margaret", JP:"マーガレット"},
+				{EN:"Brown", JP:"ブラウン"},
+				{EN:"Meg", JP:"メグ"},
+				{EN:"Australia", JP:"オーストラリア"},
+				{EN:"call me", JP:"～と呼んで"},
+				{EN:"I'm", JP:"I am-の短縮形"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 1 PART 2",
+		CODE:"Y1U1P2",
+		LIB: [
+				{EN:"so", JP:"だから・では"},
+				{EN:"fan", JP:"ファン"},
+				{EN:"just", JP:"ただ・ちょうど"},
+				{EN:"Sydney", JP:"シドニー"},
+				{EN:"How -about～", JP:"～はどう？"},
+				{EN:"don't", JP:"do not-の短縮形"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 1 PART 3",
+		CODE:"Y1U1P3",
+		LIB: [
+				{EN:"there", JP:"そこに・(で、へ)"},
+				{EN:"little", JP:"小さい"},
+				{EN:"every~", JP:"毎~・~ごとに"},
+				{EN:"but", JP:"しかし・けれども"},
+				{EN:"cannot", JP:"~できない"},
+				{EN:"Me, too.", JP:"私も。"},
+				{EN:"Thank -you", JP:"ありがとう"},
+				{EN:"a little", JP:"少し"},
+				{EN:"you're", JP:"you are-の短縮形"},
+				{EN:"can't", JP:"cannot-の短縮形"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 2 PART 1",
+		CODE:"Y1U2P1",
+		LIB: [
+				{EN:"America", JP:"アメリカ-合衆国"},
+				{EN:"market", JP:"市場"},
+				{EN:"wow", JP:"うわあ"},
+				{EN:"popular", JP:"人気がある"},
+				{EN:"crowded", JP:"込み合った"},
+				{EN:"Cook", JP:"クック「姓」"},
+				{EN:"Nice to -meet you.", JP:"はじめまして"},
+				{EN:"He's", JP:"He is-の短縮形"},
+				{EN:"She's", JP:"She is-の短縮形"},
+				{EN:"It's", JP:"It is-の短縮形"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 2 PART 2",
+		CODE:"Y1U2P2",
+		LIB: [
+				{EN:"symbol", JP:"シンボル・記号"},
+				{EN:"picnic", JP:"ピクニック・遠足"},
+				{EN:"area", JP:"区域・地域"},
+				{EN:"hey", JP:"やあ・おい"},
+				{EN:"Josh", JP:"ジョシュ「名」"},
+				{EN:"The -Philippines", JP:"フィリピン"},
+				{EN:"I see.", JP:"なるほど"},
+				{EN:"Good -morning", JP:"おはよう-ございます"},
+				{EN:"what's", JP:"What is-の短縮形"},
+				{EN:"who's", JP:"Who is-の短縮形"},
+				{EN:"That's", JP:"That is-の短縮形"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 2 PART 3",
+		CODE:"Y1U2P3",
+		LIB: [
+				{EN:"around", JP:"～の近く・～の周り"},
+				{EN:"come", JP:"来る"},
+				{EN:"toast", JP:"トースト"},
+				{EN:"yogurt", JP:"ヨーグルト"},
+				{EN:"also", JP:"...もまた・そのうえ"},
+				{EN:"an", JP:"１つの・１人の"},
+				{EN:"sounds", JP:"に聞こえる"},
+				{EN:"How about -you?", JP:"あなたはどう？"},
+				{EN:"Sounds～.", JP:"～そうです。"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 3 PART 1",
+		CODE:"Y1U3P1",
+		LIB: [
+				{EN:"trumpet", JP:"トランペット"},
+				{EN:"brass -band", JP:"吹奏楽"},
+				{EN:"before", JP:"～の前に「の」"},
+				{EN:"concert", JP:"演奏会"},
+				{EN:"next", JP:"次の・今度の"},
+				{EN:"fifth", JP:"５日・５番めの"},
+				{EN:"hall", JP:"会館・ホール"},
+				{EN:"near", JP:"の近くに"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 3 PART 2",
+		CODE:"Y1U3P2",
+		LIB: [
+				{EN:"excited", JP:"わくわく-した"},
+				{EN:"today", JP:"今日は・現在では"},
+				{EN:"yeah", JP:"うん・そう"},
+				{EN:"win", JP:"(~に)勝つ"},
+				{EN:"someday", JP:"いつか"},
+				{EN:"World -Cup", JP:"ワールドカップ"},
+				{EN:"How are -you?", JP:"お元気-ですか？"},
+				{EN:"Good luck.", JP:"がんばって。"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 3 PART 3",
+		CODE:"Y1U3P3",
+		LIB: [
+				{EN:"bring", JP:"～を持って-いく"},
+				{EN:"shoe", JP:"くつ"},
+				{EN:"towel", JP:"タオル"},
+				{EN:"bottle", JP:"ボトル"},
+				{EN:"week", JP:"週・一週間"},
+				{EN:"off", JP:"休んで"},
+				{EN:"those", JP:"あれらの・それらの"},
+				{EN:"man", JP:"男性・男の人"},
+				{EN:"men", JP:"man-の複数形"},
+				{EN:"woman", JP:"女性・女の人"},
+				{EN:"women", JP:"woman-の複数形"},
+				{EN:"they", JP:"彼らは(が)"},
+				{EN:"coach", JP:"コーチ"},
+				{EN:"we're", JP:"we are-の短縮形"},
+				{EN:"they're", JP:"they are-の短縮形"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 4 PART 1",
+		CODE:"Y1U4P1",
+		LIB: [
+				{EN:"front", JP:"前・正面"},
+				{EN:"nervous", JP:"緊張して"},
+				{EN:"worry", JP:"心配する・悩む"},
+				{EN:"yourself", JP:"あなた自身を"},
+				{EN:"David", JP:"ディビッド「名」"},
+				{EN:"Green", JP:"グリーン「姓」"},
+				{EN:"enjoy -yourself", JP:"楽しく-過ごす"},
+				{EN:"How's", JP:"How is-の短縮形"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 4 PART 2",
+		CODE:"Y1U4P2",
+		LIB: [
+				{EN:"a.m.", JP:"午前"},
+				{EN:"p.m.", JP:"午後"},
+				{EN:"now", JP:"今・今すぐ"},
+				{EN:"noon", JP:"正午"},
+				{EN:"o'clock", JP:"...時"},
+				{EN:"break", JP:"休憩"},
+				{EN:"after", JP:"～の後に"},
+				{EN:"period", JP:"時限"},
+				{EN:"some", JP:"いくつかの"},
+				{EN:"or", JP:"...や～"},
+				{EN:"during", JP:"～の間に"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 4 PART 3",
+		CODE:"Y1U4P3",
+		LIB: [
+				{EN:"kiwi", JP:"キウイ-(フルーツ)"},
+				{EN:"right", JP:"正しい・正確な"},
+				{EN:"round", JP:"まるい"},
+				{EN:"like", JP:"好む・～のような"},
+				{EN:"national", JP:"国の・国家の"},
+				{EN:"mean", JP:"～を意味する"},
+				{EN:"Emma", JP:"エマ「名」"},
+				{EN:"netball", JP:"ネットボール"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 5 PART 1",
+		CODE:"Y1U5P1",
+		LIB: [
+				{EN:"quiet", JP:"静かな"},
+				{EN:"jog", JP:"ジョギング-する"},
+				{EN:"pond", JP:"池"},
+				{EN:"bench", JP:"ベンチ"},
+				{EN:"over", JP:"向こうへ・～をこえて"},
+				{EN:"hair", JP:"髪"},
+				{EN:"people", JP:"人々"},
+				{EN:"stage", JP:"舞台・ステージ"},
+				{EN:"over -there", JP:"あそこに・向こうでは"},
+				{EN:"look at", JP:"～を見る"},
+				{EN:"Where's", JP:"Where is-の短縮形"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 5 PART 2",
+		CODE:"Y1U5P2",
+		LIB: [
+				{EN:"umm", JP:"ううん・ええ"},
+				{EN:"shy", JP:"内気な"},
+				{EN:"something", JP:"何か・あるもの"},
+				{EN:"idea", JP:"考え・アイディア"},
+				{EN:"thirsty", JP:"のどが-かわいた"},
+				{EN:"need", JP:"～を必要-とする"},
+				{EN:"fried -noodles", JP:"やきそば"},
+				{EN:"be good at", JP:"～が得意"},
+				{EN:"Thanks.", JP:"ありがとう。"},
+				{EN:"Come on.", JP:"さあ。・がんばれ。"},
+				{EN:"No, thank -you.", JP:"結構です"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 5 PART 3",
+		CODE:"Y1U5P3",
+		LIB: [
+				{EN:"yesterday", JP:"昨日"},
+				{EN:"went", JP:"go-の過去形"},
+				{EN:"ate", JP:"eat-の過去形"},
+				{EN:"candy", JP:"キャンディー"},
+				{EN:"end", JP:"終わり・最後"},
+				{EN:"saw", JP:"see-の過去形"},
+				{EN:"lots of", JP:"たくさんの"},
+				{EN:"lot(s)", JP:"たくさん"},
+				{EN:"had", JP:"have-の過去形"},
+				{EN:"enjoy -...ing", JP:"～して-楽しむ"},
+				{EN:"have a -～time", JP:"~な時間-を過ごす"},
+			]
+	},
+	{
+		NAME:"YEAR 1 STAGE ACTIVITY 1",
+		CODE:"Y1SA1",
+		LIB: [
+				{EN:"poster", JP:"ポスター・広告"},
+				{EN:"starter", JP:"先発メンバー"},
+				{EN:"tell", JP:"教える・伝える"},
+				{EN:"comic", JP:"マンガ"},
+				{EN:"movie", JP:"映画"},
+				{EN:"other", JP:"他の人・他のもの"},
+				{EN:"age", JP:"年齢"},
+				{EN:"stadium", JP:"スタジアム"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 6 PART 1",
+		CODE:"Y1U6P1",
+		LIB: [
+				{EN:"language", JP:"言語・言葉"},
+				{EN:"Asian", JP:"アジア(人)の"},
+				{EN:"student", JP:"学生・生徒"},
+				{EN:"weekday", JP:"平日"},
+				{EN:"weekend", JP:"週末"},
+				{EN:"scuba -diving", JP:"スキューバ-ダイビング"},
+				{EN:"has", JP:"haveの-３単現形"},
+				{EN:"his", JP:"彼の・彼のもの"},
+				{EN:"dive -diving", JP:"潜水・ダイビング"},
+				{EN:"Cebu", JP:"セブ"},
+				{EN:"~years old", JP:"～歳"},
+				{EN:"go ~ing", JP:"~しに行く"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 6 PART 2",
+		CODE:"Y1U6P2",
+		LIB: [
+				{EN:"blog", JP:"ブログ"},
+				{EN:"local", JP:"地方の・地元の"},
+				{EN:"spot", JP:"地点・場所"},
+				{EN:"does", JP:"doの3単現形"},
+				{EN:"comment", JP:"論評・コメント"},
+				{EN:"post", JP:"掲示"},
+				{EN:"waterproof", JP:"防水の"},
+				{EN:"camera", JP:"カメラ"},
+				{EN:"a lot -of...", JP:"たくさんの"},
+				{EN:"very much", JP:"とても・たいへん"},
+				{EN:"doesn't", JP:"does not-の短縮形"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 6 PART 3",
+		CODE:"Y1U6P3",
+		LIB: [
+				{EN:"anyone", JP:"だれか・だれも"},
+				{EN:"any", JP:"いくらかの"},
+				{EN:"question", JP:"質問"},
+				{EN:"mix", JP:"混合"},
+				{EN:"Filipino", JP:"フィリピンの"},
+				{EN:"sinigang", JP:"シニガン"},
+				{EN:"halohalo", JP:"ハロハロ"},
+				{EN:"and so on", JP:"...など"},
+			]
+	},
+	{
+		NAME:"YEAR 1 LET'S TALK 1",
+		CODE:"Y1LT1",
+		LIB: [
+				{EN:"fan", JP:"扇・扇風機"},
+				{EN:"dad", JP:"お父さん"},
+				{EN:"mom", JP:"お母さん"},
+				{EN:"sure", JP:"もちろん"},
+				{EN:"problem", JP:"問題"},
+				{EN:"moment", JP:"瞬間"},
+				{EN:"borrow", JP:"借りる"},
+				{EN:"open", JP:"開く・あく"},
+				{EN:"door", JP:"ドアー・戸"},
+				{EN:"turn on~", JP:"～をつける・入れる"},
+				{EN:"No problem.", JP:"いいですよ。"},
+				{EN:"help…-with~", JP:"…を～…で手伝う"},
+				{EN:"All right.", JP:"よろしい"},
+				{EN:"Just a -moment.", JP:"ちょっと待って"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 7 PART 1",
+		CODE:"Y1U7P1",
+		LIB: [
+				{EN:"him", JP:"彼を「に」"},
+				{EN:"pottery", JP:"陶器・陶芸"},
+				{EN:"piece", JP:"作品"},
+				{EN:"useful", JP:"役に立つ"},
+				{EN:"them", JP:"彼らはを「に」"},
+				{EN:"performer", JP:"演技者"},
+				{EN:"perform", JP:"演じる"},
+				{EN:"her", JP:"彼女の・彼女を「に」"},
+				{EN:"show", JP:"ショー"},
+				{EN:"Euan Craig", JP:"ユアン・クレイグ「人名」"},
+				{EN:"Diane", JP:"ダイアン「名」"},
+				{EN:"The U.K.", JP:"イギリス"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 7 PART 2",
+		CODE:"Y1U7P2",
+		LIB: [
+				{EN:"cushion", JP:"クッション・座布団"},
+				{EN:"role", JP:"役・役割"},
+				{EN:"only", JP:"ただ…だけ"},
+				{EN:"prop", JP:"小道具"},
+				{EN:"which", JP:"どちら・どれ"},
+				{EN:"comic story-telling", JP:"話芸"},
+				{EN:"Why don't -we…", JP:"…しましょうか？"},
+			]
+	},
+	{
+		NAME:"YEAR 1 UNIT 7 PART 3",
+		CODE:"Y1U7P3",
+		LIB: [
+				{EN:"minute", JP:"時間の分"},
+				{EN:"wait", JP:"待つ"},
+				{EN:"whose", JP:"だれの"},
+				{EN:"ticket", JP:"切符・チケット"},
+				{EN:"yours", JP:"あなた(たち)-のもの"},
+				{EN:"mine", JP:"私のもの"},
+				{EN:"maybe", JP:"たぶん・もしかすると"},
+				{EN:"oops", JP:"おっと・しまった"},
+				{EN:"careful", JP:"注意深い"},
+				{EN:"history", JP:"歴史"},
+				{EN:"still", JP:"まだ・今でも"},
+				{EN:"(Kaito)'s", JP:"(海斗)の"},
+				{EN:"be careful -with～", JP:"～の扱いに-気を付ける"},
+			]
+	},
+	{
+		NAME:"YEAR 1 LET'S TALK 2",
+		CODE:"Y1LT2",
+		LIB: [
+				{EN:"wrong", JP:"具合が悪い"},
+				{EN:"headache", JP:"頭痛"},
+				{EN:"bad", JP:"悪い。よくない"},
+				{EN:"rest", JP:"休み・休憩"},
+				{EN:"hour", JP:"1時間"},
+				{EN:"stomach-ache", JP:"胃痛・腹痛"},
+				{EN:"fever", JP:"熱"},
+				{EN:"toothache", JP:"歯痛"},
+				{EN:"What's -wrong?", JP:"どうしたの？"},
+				{EN:"That's too -bad.", JP:"いけませんね"},
+				{EN:"take a rest", JP:"一休みする"},
+			]
+	},
+
+
+//TEXTBOOK YEAR 2
+
+//TEXTBOOK YEAR 3
+
+//GRAMMAR AND PARTS OF SPEECH
+	{
+		NAME:"PRONOUNS 1/2 PERSON 代名詞",
+		CODE:"GPRO12",
+		LIB: [
+				{EN:"I", JP:"私は・私が"},
+				{EN:"me", JP:"私に"},
+				{EN:"my", JP:"私の"},
+				{EN:"mine", JP:"私の-(もの)"},
+				{EN:"You", JP:"あなたは・あなたが"},
+				{EN:"you", JP:"あなたに"},
+				{EN:"your", JP:"あなたの"},
+				{EN:"yours", JP:"あなたの-(もの)"},
+				{EN:"We", JP:"私たちは・私たちが"},
+				{EN:"us", JP:"私たちに"},
+				{EN:"our", JP:"私たちの"},
+				{EN:"ours", JP:"私たちの-(もの)"},
+			]
+	},
+	{
+		NAME:"PRONOUNS 3rd PERSON 代名詞",
+		CODE:"GPRO3",
+		LIB: [
+				{EN:"He", JP:"彼は・彼が"},
+				{EN:"him", JP:"彼に"},
+				{EN:"This is-(his)pen.", JP:"彼の"},
+				{EN:"The book -is (his).", JP:"彼の-(もの)"},
+				{EN:"She", JP:"彼女は・彼女が"},
+				{EN:"Talk with-(her).", JP:"彼女に"},
+				{EN:"That is-(her) dog.", JP:"彼女の"},
+				{EN:"hers", JP:"彼女の-(もの)"},
+				{EN:"It", JP:"それは・それが"},
+				{EN:"it", JP:"それに"},
+				{EN:"its", JP:"それの"},
+				{EN:"They", JP:"彼らは・彼らが"},
+				{EN:"them", JP:"彼らに"},
+				{EN:"their", JP:"彼らの"},
+				{EN:"theirs", JP:"彼らの-(もの)"},
+			]
+	},
+
+//VOCABULARY
+	{
+		NAME:"NUMBERS 1-10 数字",
+		CODE:"NUM0",
+		LIB: [
+				{EN:"one", JP:"いち"},
+				{EN:"two", JP:"に"},
+				{EN:"three", JP:"さん"},
+				{EN:"four", JP:"し・よん"},
+				{EN:"five", JP:"ご"},
+				{EN:"six", JP:"ろく"},
+				{EN:"seven", JP:"しち・なな"},
+				{EN:"eight", JP:"はち"},
+				{EN:"five", JP:"きゅう"},
+				{EN:"ten", JP:"じゅう"},
+			]
+	},
+	{
+		NAME:"NUMBERS 11-19 数字",
+		CODE:"NUM10",
+		LIB: [
+				{EN:"eleven", JP:"じゅういち"},
+				{EN:"twelve", JP:"じゅうに"},
+				{EN:"thirteen", JP:"じゅうさん"},
+				{EN:"fourteen", JP:"じゅうよん"},
+				{EN:"fifteen", JP:"じゅうご"},
+				{EN:"sixteen", JP:"じゅうろく"},
+				{EN:"seventeen", JP:"じゅうなな"},
+				{EN:"eighteen", JP:"じゅうはち"},
+				{EN:"nineteen", JP:"じゅうきゅう"},
+			]
+	},
+	{
+		NAME:"NUMBERS 10-100 数字",
+		CODE:"NUM100",
+		LIB: [
+				{EN:"ten", JP:"じゅう"},
+				{EN:"twenty", JP:"にじゅう"},
+				{EN:"thirty", JP:"さんじゅう"},
+				{EN:"fourty", JP:"よんじゅう"},
+				{EN:"fifty", JP:"ごじゅう"},
+				{EN:"sixty", JP:"ろくじゅう"},
+				{EN:"seventy", JP:"ななじゅう"},
+				{EN:"eighty", JP:"はちじゅう"},
+				{EN:"ninety", JP:"きゅうじゅう"},
+				{EN:"one -hundred", JP:"ひゃく"},
+
+			]
+	},
+	{
+		NAME:"NUMBERS BIG 数字",
+		CODE:"NUMBIG",
+		LIB: [
+				{EN:"1 -hundred", JP:"百"},
+				{EN:"1 -thousand", JP:"一千"},
+				{EN:"10 -thousand", JP:"一万"},
+				{EN:"100 -thousand", JP:"十万"},
+				{EN:"1 -million", JP:"百万"},
+				{EN:"10 -million", JP:"千万"},
+				{EN:"100 -million", JP:"一億"},
+				{EN:"1 -billion", JP:"十億"},
+				{EN:"10 -brillion", JP:"百億"},
+				{EN:"100 -billion", JP:"千億"},
+				{EN:"1 -trillion", JP:"兆"},
+			]
+	},
+	{
+		NAME:"WEEKDAYS 曜日",
+		CODE:"WEEKDAYS",
+		LIB: [
+				{EN:"Sunday", JP:"日曜日"},
+				{EN:"Monday", JP:"月曜日"},
+				{EN:"Tuesday", JP:"火曜日"},
+				{EN:"Wednesday", JP:"水曜日"},
+				{EN:"Thursday", JP:"木曜日"},
+				{EN:"Friday", JP:"金曜日"},
+				{EN:"Saturday", JP:"土曜日"},
+			]
+	},
+	{
+		NAME:"MONTHS 月の名前",
+		CODE:"MONTHS",
+		LIB: [
+				{EN:"January", JP:"一月"},
+				{EN:"February", JP:"二月"},
+				{EN:"March", JP:"三月"},
+				{EN:"April", JP:"四月"},
+				{EN:"May", JP:"五月"},
+				{EN:"June", JP:"六月"},
+				{EN:"July", JP:"七月"},
+				{EN:"August", JP:"八月"},
+				{EN:"September", JP:"九月"},
+				{EN:"October", JP:"十月"},
+				{EN:"November", JP:"十一月"},
+				{EN:"December", JP:"十二月"},
+			]
+	},
+	{
+		NAME:"ADJECTIVES 形容詞1",
+		CODE:"ADJ1",
+		LIB: [
+				{EN:"bright", JP:"明るい"},
+				{EN:"clean", JP:"きれいな"},
+				{EN:"cold", JP:"冷たい・寒い"},
+				{EN:"cool", JP:"かっこいい"},
+				{EN:"fast", JP:"速い"},
+				{EN:"few", JP:"少しの"},
+				{EN:"great", JP:"すばらしい"},
+				{EN:"hard", JP:"熱心に・硬い"},
+				{EN:"high", JP:"高い"},
+				{EN:"light", JP:"軽い"},
+				{EN:"long", JP:"長い"},
+				{EN:"low", JP:"低い"},
+			]
+	},
+	{
+		NAME:"ADJECTIVES 形容詞2",
+		CODE:"ADJ2",
+		LIB: [
+				{EN:"near", JP:"近い"},
+				{EN:"new", JP:"新しい"},
+				{EN:"old", JP:"古い"},
+				{EN:"short", JP:"短い"},
+				{EN:"small", JP:"小さい"},
+				{EN:"soon", JP:"すぐに"},
+				{EN:"strong", JP:"強い"},
+				{EN:"tall", JP:"背が高い"},
+				{EN:"warm", JP:"暖かい"},
+				{EN:"weak", JP:"弱い"},
+				{EN:"young", JP:"若い"},
+				{EN:"big", JP:"大きい"},
+			]
+	},
+	{
+		NAME:"ADJECTIVES 形容詞3",
+		CODE:"ADJ3",
+		LIB: [
+				{EN:"hot", JP:"熱い・暑い"},
+				{EN:"large", JP:"大きい"},
+				{EN:"late", JP:"遅れた"},
+				{EN:"safe", JP:"安全な"},
+				{EN:"simple", JP:"単純な"},
+				{EN:"wide", JP:"広い"},
+				{EN:"busy", JP:"忙しい"},
+				{EN:"early", JP:"早い"},
+				{EN:"easy", JP:"簡単な"},
+				{EN:"funny", JP:"おかしな"},
+				{EN:"happy", JP:"幸せな"},
+				{EN:"heavy", JP:"重い"},
+			]
+	},
+	{
+		NAME:"ADJECTIVES 形容詞4",
+		CODE:"ADJ4",
+		LIB: [
+				{EN:"bad", JP:"悪い"},
+				{EN:"worse", JP:"もっと悪い"},
+				{EN:"worst", JP:"最悪の・最低な"},
+				{EN:"good/well", JP:"良い・良く"},
+				{EN:"better", JP:"もっと良い"},
+				{EN:"best", JP:"最良"},
+				{EN:"little", JP:"少し・小さい"},
+				{EN:"less", JP:"より小さい"},
+				{EN:"least", JP:"最小"},
+				{EN:"many/much", JP:"多くの・たくさん"},
+				{EN:"more", JP:"もっと・より"},
+				{EN:"most", JP:"最も"},
+			]
+	},
+	{
+		NAME:"ADJECTIVES 形容詞5",
+		CODE:"ADJ5",
+		LIB: [
+				{EN:"beautiful", JP:"美しい"},
+				{EN:"careful", JP:"注意深い"},
+				{EN:"difficult", JP:"難しい"},
+				{EN:"exciting", JP:"興奮させる-ような"},
+				{EN:"expensive", JP:"高価な"},
+				{EN:"famous", JP:"有名な"},
+				{EN:"important", JP:"重要な"},
+				{EN:"interested", JP:"興味が-持っている"},
+				{EN:"interesting", JP:"面白い"},
+			]
+	},
+	{
+		NAME:"ADJECTIVES 形容詞6",
+		CODE:"ADJ6",
+		LIB: [
+				{EN:"necessary", JP:"必要な"},
+				{EN:"popular", JP:"人気のある"},
+				{EN:"quickly", JP:"速く"},
+				{EN:"serious", JP:"重大な"},
+				{EN:"slowly", JP:"ゆっくりと"},
+				{EN:"terrible", JP:"ひどい"},
+				{EN:"tired", JP:"疲れた"},
+				{EN:"useful", JP:"役に立つ"},
+				{EN:"wonderful", JP:"すばらしい"},
+			]
+	},
+	{
+		NAME:"VERBS AAA-ABA 動詞",
+		CODE:"VAABA",
+		LIB: [
+				{EN:"beat", JP:"どきどきする・叩く"},
+				{EN:"cut", JP:"切る"},
+				{EN:"hurt", JP:"傷つける"},
+				{EN:"let", JP:"～させる"},
+				{EN:"put", JP:"置く・つける"},
+				{EN:"read", JP:"読む"},
+				{EN:"set", JP:"準備する"},
+				{EN:"spread", JP:"広がる"},
+				{EN:"become", JP:"～になる"},
+				{EN:"come", JP:"来る"},
+				{EN:"run", JP:"走る"},
+			]
+	},
+	{
+		NAME:"VERBS ABB 動詞1",
+		CODE:"VABB1",
+		LIB: [
+				{EN:"bring", JP:"持ってくる"},
+				{EN:"build", JP:"建てる"},
+				{EN:"buy", JP:"買う"},
+				{EN:"catch", JP:"捕まえる"},
+				{EN:"feel", JP:"感じる"},
+				{EN:"fight", JP:"戦う"},
+				{EN:"find", JP:"見つける"},
+				{EN:"forget", JP:"忘れる"},
+				{EN:"get", JP:"得る"},
+				{EN:"have", JP:"持っている"},
+				{EN:"hear", JP:"聞く"},
+			]
+	},
+	{
+		NAME:"VERBS ABB 動詞2",
+		CODE:"VABB2",
+		LIB: [
+				{EN:"hold", JP:"持つ・行う"},
+				{EN:"keep", JP:"保つ"},
+				{EN:"lead", JP:"導く"},
+				{EN:"leave", JP:"出発する"},
+				{EN:"lose", JP:"失う・負ける"},
+				{EN:"make", JP:"作る"},
+				{EN:"mean", JP:"意味する"},
+				{EN:"meet", JP:"会う"},
+				{EN:"mis-understand", JP:"誤解する"},
+				{EN:"pay", JP:"払う"},
+				{EN:"say", JP:"言う"},
+			]
+	},
+	{
+		NAME:"VERBS ABB 動詞3",
+		CODE:"VABB3",
+		LIB: [
+				{EN:"sell", JP:"売る"},
+				{EN:"send", JP:"送る"},
+				{EN:"sit", JP:"座る"},
+				{EN:"sleep", JP:"寝る"},
+				{EN:"spend", JP:"過ごす"},
+				{EN:"stand", JP:"立っている"},
+				{EN:"teach", JP:"教える"},
+				{EN:"tell", JP:"話す・伝える"},
+				{EN:"think", JP:"考える"},
+				{EN:"touch", JP:"触る"},
+				{EN:"understand", JP:"理解する"},
+				{EN:"win", JP:"勝つ"},
+			]
+	},
+	{
+		NAME:"VERBS ABC 動詞1",
+		CODE:"VABC1",
+		LIB: [
+				{EN:"be", JP:"～である"},
+				{EN:"begin", JP:"始める"},
+				{EN:"break", JP:"破る・壊す"},
+				{EN:"choose", JP:"選ぶ"},
+				{EN:"do", JP:"する"},
+				{EN:"draw", JP:"描く"},
+				{EN:"drink", JP:"飲む"},
+				{EN:"drive", JP:"運転する"},
+				{EN:"eat", JP:"食べる"},
+				{EN:"fall", JP:"落ちる"},
+			]
+	},
+		{
+		NAME:"VERBS ABC 動詞2",
+		CODE:"VABC2",
+		LIB: [
+				{EN:"fly", JP:"飛ぶ"},
+				{EN:"give", JP:"与える"},
+				{EN:"go", JP:"行く"},
+				{EN:"grow", JP:"(しだいに)-～になる"},
+				{EN:"know", JP:"知っている"},
+				{EN:"ride", JP:"乗る"},
+				{EN:"rise", JP:"のぼる"},
+				{EN:"see", JP:"見る"},
+				{EN:"show", JP:"見せる"},
+				{EN:"sing", JP:"歌う"},
+			]
+	},
+		{
+		NAME:"VERBS ABC 動詞3",
+		CODE:"VABC3",
+		LIB: [
+				{EN:"sink", JP:"しずむ"},
+				{EN:"speak", JP:"話す"},
+				{EN:"steal", JP:"盗む"},
+				{EN:"swim", JP:"泳ぐ"},
+				{EN:"take", JP:"持っていく・取る"},
+				{EN:"throw", JP:"投げる"},
+				{EN:"wake", JP:"目が覚める"},
+				{EN:"wear", JP:"着ている"},
+				{EN:"write", JP:"書く"},
+			]
+	},
+
+//PRIVATE LIBRARIES FOR TESTING
+	{
+		NAME:"TEMPLATE",
+		CODE:"!TEMP",
+		LIB: [
+				{EN:"A", JP:"あ"},
+				{EN:"I", JP:"い"},
+				{EN:"U", JP:"う"},
+				{EN:"E", JP:"え"},
+				{EN:"O", JP:"お"},
+			]
+	},
+	{
+		NAME:"BASIC VERBS ROMAJI",
+		CODE:"!BVROMA",
+		LIB: [
+				{EN:"go", JP:"iku"},
+				{EN:"eat", JP:"taberu"},
+				{EN:"drink", JP:"nomu"},
+				{EN:"see", JP:"miru"},
+				{EN:"run", JP:"hashiru"},
+				{EN:"hear", JP:"kiku"},
+				{EN:"read", JP:"yomu"},
+				{EN:"sleep", JP:"neru"},
+				{EN:"use", JP:"tsukau"},
+				{EN:"do", JP:"suru"},
+				{EN:"wait", JP:"matsu"},
+				{EN:"have", JP:"motsu"},
+			]
+	},
+	{
+		NAME:"BASIC VERBS HIRAGANA",
+		CODE:"!BVHIRA",
+		LIB: [
+				{EN:"go", JP:"いく"},
+				{EN:"eat", JP:"たべる"},
+				{EN:"drink", JP:"のむ"},
+				{EN:"see", JP:"みる"},
+				{EN:"run", JP:"はしる"},
+				{EN:"hear", JP:"きく"},
+				{EN:"read", JP:"よむ"},
+				{EN:"sleep", JP:"ねる"},
+				{EN:"use", JP:"つかう"},
+				{EN:"do", JP:"する"},
+				{EN:"wait", JP:"まつ"},
+				{EN:"have", JP:"もつ"},
+			]
+	},
+	{
+		NAME:"BASIC VERBS KANJI",
+		CODE:"!BVKAN",
+		LIB: [
+				{EN:"go", JP:"行く"},
+				{EN:"eat", JP:"食べる"},
+				{EN:"drink", JP:"飲む"},
+				{EN:"see", JP:"見る"},
+				{EN:"run", JP:"走る"},
+				{EN:"hear", JP:"聞く"},
+				{EN:"read", JP:"読む"},
+				{EN:"sleep", JP:"寝る"},
+				{EN:"use", JP:"使う"},
+				{EN:"do", JP:"する"},
+				{EN:"wait", JP:"待つ"},
+				{EN:"have", JP:"持つ"},
+			]
+	},
+	{
+		NAME:"NUMBERS ROMAJI",
+		CODE:"!NUMROMA",
+		LIB: [
+				{EN:"one", JP:"ichi"},
+				{EN:"two", JP:"ni"},
+				{EN:"three", JP:"san"},
+				{EN:"four", JP:"shi/yon"},
+				{EN:"five", JP:"go"},
+				{EN:"six", JP:"roku"},
+				{EN:"seven", JP:"shichi・nana"},
+				{EN:"eight", JP:"hachi"},
+				{EN:"five", JP:"kyuu"},
+				{EN:"ten", JP:"juu"},
+			]
+	},
+	{
+		NAME:"NUMBERS HIRAGANA",
+		CODE:"!NUMHIRA",
+		LIB: [
+				{EN:"one", JP:"いち"},
+				{EN:"two", JP:"に"},
+				{EN:"three", JP:"さん"},
+				{EN:"four", JP:"し・よん"},
+				{EN:"five", JP:"ご"},
+				{EN:"six", JP:"ろく"},
+				{EN:"seven", JP:"しち・なな"},
+				{EN:"eight", JP:"はち"},
+				{EN:"five", JP:"きゅう"},
+				{EN:"ten", JP:"じゅう"},
+			]
+	},
+	{
+		NAME:"NUMBERS KANJI",
+		CODE:"!NUMKAN",
+		LIB: [
+				{EN:"one", JP:"一"},
+				{EN:"two", JP:"二"},
+				{EN:"three", JP:"三"},
+				{EN:"four", JP:"四"},
+				{EN:"five", JP:"五"},
+				{EN:"six", JP:"六"},
+				{EN:"seven", JP:"七"},
+				{EN:"eight", JP:"八"},
+				{EN:"five", JP:"九"},
+				{EN:"ten", JP:"十"},
+			]
+	},
+	]
