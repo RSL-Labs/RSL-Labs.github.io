@@ -20,10 +20,6 @@ class Player extends Monster{
 	}
 
 	tryMove(dx, dy){
-		if(this.lastMove[0]!=dx || this.lastMove[1]!=dy){
-			this.lastMove = [dx,dy];
-			return;	
-		}
 		this.lastMove = [dx,dy];
 		if(super.tryMove(dx, dy)){
 			game.tick();

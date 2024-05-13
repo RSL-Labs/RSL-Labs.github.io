@@ -14,8 +14,10 @@ class GameEngine{
 
 		let instanced_library = window[setupSettings.library][window[setupSettings.library].findIndex(e => e.CODE == setupSettings.code)]
 		for(let entry of instanced_library.LIB){
-			this.current_library.push(entry);
-			this.current_list.push({EN:[entry.EN],JP:[entry.JP]})
+			let insertion_index = roll(this.current_library.length);
+
+			this.current_library.splice(insertion_index, 0, entry);
+			this.current_list.splice(insertion_index, 0, {EN:[entry.EN],JP:[entry.JP]});
 		}
 
 		this.vocab_method = setupSettings.vocab_method;
@@ -24,10 +26,10 @@ class GameEngine{
 
 		this.settings = {};
 		this.settingsTable = {
-					EASY: 	{name:"EASY", 	difficulty: 1,	map_size: 8,	target_tiles: 3,	startingHP: 7,	score_penalty: 0, 	hp_penalty: 0, 	enemy_speed:3, 	enemy_count:3,	hint: "show"},
-					MEDIUM: {name:"MEDIUM", difficulty: 2,	map_size: 8, 	target_tiles: 4,	startingHP: 6,	score_penalty: 100, hp_penalty: 0,	enemy_speed:3, 	enemy_count:4,	hint: "mistake"},
-					HARD: 	{name:"HARD", 	difficulty: 3,	map_size: 8, 	target_tiles: 5,	startingHP: 5,	score_penalty: 100, hp_penalty: 1, 	enemy_speed:2, 	enemy_count:5,	hint: "mistake"},
-					CRAZY: 	{name:"CRAZY", 	difficulty: 4,	map_size: 8, 	target_tiles: 5,	startingHP: 4,	score_penalty: 200,	hp_penalty: 1, 	enemy_speed:2, 	enemy_count:6,	hint: "off"},
+					EASY: 	{name:"EASY", 	difficulty: 1,	map_size: 8,	target_tiles: 3,	choice_count: 3,	startingHP: 7,	score_penalty: 0, 	hp_penalty: 0, 	enemy_speed:3, 	enemy_count:3,	hint: "show"},
+					MEDIUM: {name:"MEDIUM", difficulty: 2,	map_size: 8, 	target_tiles: 4,	choice_count: 4,	startingHP: 6,	score_penalty: 100, hp_penalty: 0,	enemy_speed:3, 	enemy_count:4,	hint: "mistake"},
+					HARD: 	{name:"HARD", 	difficulty: 3,	map_size: 8, 	target_tiles: 5,	choice_count: 6,	startingHP: 5,	score_penalty: 100, hp_penalty: 1, 	enemy_speed:2, 	enemy_count:5,	hint: "mistake"},
+					CRAZY: 	{name:"CRAZY", 	difficulty: 4,	map_size: 8, 	target_tiles: 5,	choice_count: 9,	startingHP: 4,	score_penalty: 200,	hp_penalty: 1, 	enemy_speed:2, 	enemy_count:6,	hint: "off"},
 		}
 		this.messages = new messageLog("WELCOME!", "gold");
 	}
@@ -102,7 +104,6 @@ draw = {
 			player.draw();
 
 			draw.drawUI();
-			//draw.drawPerspective();
 
 
 		}else if(gameState == "loading"){
@@ -206,119 +207,6 @@ draw = {
 			})
 		}
 
-	},
-
-	drawPerspective: function(){
-		let perspectiveGrid = map.getViewTiles(player.lastMove);
-
-		ctx.drawImage(
-				first_overlay_bg,
-				32,	//imagesubsectX
-				32, //imagesubsectY
-				192, //imagesubsectW
-				192, //imagesubsectH
-				0+shakeX, //destX
-				0+shakeY, //destY
-				tileSize*1.5, //destW
-				tileSize*1.5, //destH
-			)
-		ctx.drawImage(
-				first_overlay_fc,
-				32,
-				32,
-				192,
-				192,
-				0+shakeX,
-				0+shakeY,
-				tileSize*1.5,
-				tileSize*1.5,
-			)
-
-		for(let y = 3; y >=0; y--){
-			for(let x = -4; x <= 0; x++){
-				let [pix, piy] = [x+4, 3-y];
-				let numToText = ["zero", "one", "two", "three", "four"];
-				let [textX, textY] = [numToText[Math.abs(x)], numToText[Math.abs(y)]];
-				let neg_graphic = window[`first_overlay_neg${textX}_${textY}`];
-				let pos_graphic = window[`first_overlay_${textX}_${textY}`];
-
-				let [pgridX, pgridY] = [pix, piy];
-				let wallCheck = perspectiveGrid[pgridY][pgridX];
-
-				if(neg_graphic != undefined && wallCheck == 1){
-					ctx.drawImage(
-						neg_graphic,
-						32,
-						32,
-						192,
-						192,
-						0+shakeX,
-						0+shakeY,
-						tileSize*1.5,
-						tileSize*1.5,
-					)				
-				}
-
-				pgridX = Math.abs(x)+4;
-				wallCheck = perspectiveGrid[pgridY][pgridX];
-				if(pos_graphic != undefined && wallCheck == 1){
-					ctx.drawImage(
-						pos_graphic,
-						32,
-						32,
-						192,
-						192,
-						0+shakeX,
-						0+shakeY,
-						tileSize*1.5,
-						tileSize*1.5,
-					)				
-				}
-
-			}
-		}
-
-		let faced_tile = tiles[player.tile.x+player.lastMove[0]][player.tile.y+player.lastMove[1]]
-		if(faced_tile.entity){
-			draw.drawSprite(	
-								faced_tile.entity.spritesheet, 
-								faced_tile.entity.sprite, 
-								0.35, 
-								0.6, 
-								0.75,
-						);
-		}else if(faced_tile.loot.length){
-			if(faced_tile.loot.some(e => e == "CHALICE")){
-				draw.drawSprite(	tileset_spritesheet, 
-									palettes["HERO"]["CHALICE"], 
-									0.5, 
-									0.75, 
-									0.5,
-								);
-
-			}else if(faced_tile.loot.length == 1 && faced_tile.loot[0] in palettes["HERO"]){
-				draw.drawSprite(	tileset_spritesheet, 
-									palettes["HERO"][faced_tile.loot[0]], 
-									0.5, 
-									0.85, 
-									0.5,
-								);					
-
-			}else{
-				draw.drawSprite(	tileset_spritesheet, 
-									palettes["HERO"]["CHEST"], 
-									0.5, 
-									0.75, 
-									0.5,
-								);
-
-			}
-		}
-
-		perspectiveGrid.forEach((y, indexY) => y.forEach((x, indexX) => {
-
-		}))
-		
 	},
 
 	drawSprite: function(spritesheet, sprite_index, x, y, scale=1, colorWithAlpha="rgba(0,0,0,0)"){

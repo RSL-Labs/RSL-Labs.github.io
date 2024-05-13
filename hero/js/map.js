@@ -80,6 +80,14 @@ map = {
 	},
 
 	nameTiles: function(){
+		let tilenamelist = gameEngine.current_list.map((e) => { 
+																if (gameEngine.vocab_method == 1){
+																	return e["EN"]
+																}else{
+																	return e["JP"]
+																}
+															}).slice(0, gameEngine.settings.choice_count)
+		//tilenamelist = gameEngine.vocab_method == 1 ? tilenamelist[roll(tilenamelist.length)-1]["EN"] : tilenamelist[roll(tilenamelist.length)-1]["JP"]
 		shuffle(floor_tiles).forEach((e,i) => {
 			if(i<gameEngine.settings.target_tiles){
 				e.name = gameEngine.goal[0];
@@ -87,18 +95,15 @@ map = {
 
 			}else{
 				//e.name = gameEngine.vocab_method == 1 ? shuffle(gameEngine.current_list)[0]["EN"] : shuffle(gameEngine.current_list)[0]["JP"];
-				e.name = gameEngine.vocab_method == 1 ? gameEngine.current_list[roll(gameEngine.current_list.length)-1]["EN"] : gameEngine.current_list[roll(gameEngine.current_list.length)-1]["JP"];
+				//e.name = gameEngine.vocab_method == 1 ? gameEngine.current_list[roll(gameEngine.current_list.length)-1]["EN"] : gameEngine.current_list[roll(gameEngine.current_list.length)-1]["JP"];
+				e.name = tilenamelist[roll(tilenamelist.length)-1];
 
 				while(e.name == gameEngine.goal[0]){
-									e.name = gameEngine.vocab_method == 1 ? gameEngine.current_list[roll(gameEngine.current_list.length)-1]["EN"] : gameEngine.current_list[roll(gameEngine.current_list.length)-1]["JP"];
-
-
+					//e.name = gameEngine.vocab_method == 1 ? gameEngine.current_list[roll(gameEngine.current_list.length)-1]["EN"] : gameEngine.current_list[roll(gameEngine.current_list.length)-1]["JP"];
+					e.name = tilenamelist[roll(tilenamelist.length)-1];
 				}
-
 			}
-
 		})
-
 	},
 
 	inBounds: function(x, y){

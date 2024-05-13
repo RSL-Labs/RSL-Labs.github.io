@@ -1,3 +1,76 @@
+GTDICT = {
+
+	//DISPLAY TEXT
+	DISP1:{
+		EN:"",
+		JP:"",
+	},
+	DISP2:{
+		EN:"",
+		JP:"",
+	},
+	DISP3:{
+		EN:"",
+		JP:"",
+	},
+
+	//SYSTEM TEXT
+	MAINMENU:{
+		EN:"MAIN MENU",
+		JP:"メイン　メニュー",
+	},
+	GAMEMENU:{
+		EN:"MENU",
+		JP:"メニュー",
+	},
+	BAG:{
+		EN:"BAG",
+		JP:"バッグ",
+	},
+	SETTINGS:{
+		EN:"SETTINGS",
+		JP:"設定",
+	},
+	LANGUAGE:{
+		EN:"LANGUAGE",
+		JP:"言語",
+	},
+
+	//DESCRIPTION TEXT
+	DESC1:{
+		EN:"",
+		JP:"",
+	},
+
+	//UI TEXT
+	UI1:{
+		EN:"",
+		JP:"",
+	},
+	UI2:{
+		EN:"",
+		JP:"",
+	},
+	UI3:{
+		EN:"",
+		JP:"",
+	},
+
+	//GAME TEXT
+	GAME1:{
+		EN:"",
+		JP:"",
+	},
+	GAME2:{
+		EN:"",
+		JP:"",
+	},
+	GAME3:{
+		EN:"",
+		JP:"",
+	},
+}
+
 class textBox{
 	constructor(opts){
 	this.name = opts.name;
