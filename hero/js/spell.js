@@ -2,40 +2,23 @@ class SPELL{
 	constructor(args){
 		this.name = args.name;
 		this.itemType = "SCROLL";
-		this.desc = spellList[args.name].desc;
 	}
-}
-
-scroll_Translation={
-	WARP:"ワープ",
-	STORM:"ストーム",
-	AURA:"オーラ",
-	THUNDER:"サンダー",
-	FIREBALL:"ファイボール",
-	FREEZE:"フリーズ",
-	STEAL:"ぬすむ",
-	STUDY:"がくしゅう",
-	COPY:"コピー",
-	CHEAT:"チート",
 }
 
 spellList = {
 	WARP:  {
-		desc: () => {return gameMenu.language == "ja" ? "ランダムなタイルに移動させます。" : "Moves you to a random tile."},
 		func: function(entity){
 			entity.move(map.randomPassableTile());
 		},
 	},
 
 	STORM:  {
-		desc: () => {return gameMenu.language == "ja" ? "すべてのモンスターをランダムなタイルに移動させます。" : "Moves all monsters to a random tile."},
 		func: function(entity){
 			monsters.forEach(m => {m.move(map.randomPassableTile()); m.moveCooldown+=2})
 		},
 	},
 
 	AURA:  {
-		desc: () => {return gameMenu.language == "ja" ? "自分と周囲のモンスターのHPを回復します。" : "Heals yours, and surrounding monsters' HP."},
 		func: function(entity){
 			entity.heal(1);
 			player.tile.setEffect(palettes["HERO"]["EFFECTS"]["HEAL"]);
@@ -55,7 +38,6 @@ spellList = {
 	},
 
 	THUNDER:  {
-		desc: () => {return gameMenu.language == "ja" ? "周囲4方向に稲妻を発射します。" : "Shoots lightning in four directions around you."},
 		func: function(entity){
 			let directions = [
 					[0, -1],
@@ -71,7 +53,6 @@ spellList = {
 	},
 
 	FIREBALL:  {
-		desc: () => {return gameMenu.language == "ja" ? "この前に移動した方向に火の玉を発射します。" : "Shoots a ball of fire in the last direction that you moved."},
 		func: function(entity){
 			//ballTravel(entity.lastMove, palettes["HERO"]["EFFECTS"]["FIREBOLT_H"]-Math.abs(entity.lastMove[1]), 3);
 			ballTravel(entity.lastMove, palettes["HERO"]["EFFECTS"]["FIREBALL"], 3);
@@ -79,7 +60,6 @@ spellList = {
 	},
 
 	FREEZE:  {
-		desc: () => {return gameMenu.language == "ja" ? "モンスターを短時間凍結させます。" : "Freezes monsters for a short time."},
 		func: function(entity){
 			monsters.forEach(m => {
 				m.moveCooldown+=3;
@@ -89,7 +69,6 @@ spellList = {
 	},
 
 	STEAL:  {
-		desc: () => {return gameMenu.language == "ja" ? "すべての敵がゴールドを落とします。" : "All enemies drop some gold."},
 		func: function(entity){
 			monsters.forEach(m => {
 				m.tile.loot.push("GOLD")
@@ -100,7 +79,6 @@ spellList = {
 	},
 
 	STUDY:  {
-		desc: () => {return gameMenu.language == "ja" ? "いくつかの不正解なタイルを消去します。" : "Clears some incorrect answer tiles."},
 		func: function(entity){
 			let wrong_tiles = floor_tiles.filter(t => t.name[0] != "" && !t.isGoal);
 			wrong_tiles = shuffle(wrong_tiles);
@@ -115,7 +93,6 @@ spellList = {
 	},
 
 	COPY:  {
-		desc: () => {return gameMenu.language == "ja" ? "バッグ内の別の巻物を 1 つをコピーします。" : "Copies one of another scroll in your bag."},
 		func: function(entity, index){
 			let spellInventory = entity.items.filter(e => e != undefined && e.itemType == "SCROLL" && e.name != "CHEAT").map(e => e.name);
 
@@ -125,7 +102,6 @@ spellList = {
 	},
 
 	CHEAT:  {
-		desc: () => {return gameMenu.language == "ja" ? "残りの正解タイルをすべて強調表示しますが\n　　ランダムなペナルティがかかります。" : "Highlights all remaining correct answer tiles,\n　　but has a random penalty."},
 		func: function(entity){
 			let penalty = shuffle(["GOLD", "HP", "SPAWN", "SCORE", "ITEM", "BONUS"])[0]
 			entity.tile.setEffect(palettes["HERO"]["EFFECTS"]["CHEAT"]);

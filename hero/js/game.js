@@ -220,7 +220,7 @@ draw = {
 		if(player.items.some(e => e != undefined)){
 			player.items.forEach((e, i, a) => {
 				if(e != undefined){
-					let itemName = gameMenu.language == "ja" ? window[`${e.itemType.toLowerCase()}_Translation`][e.name] : e.name;
+					let itemName = GTDICT(e.name);
 					let itemText = `(${i+1}) ${itemName}  `;
 					let itemPanelBox = new textBox({
 													name:[itemText], 
@@ -278,7 +278,7 @@ draw = {
 			(16*indexOffsetY),								//sheet y
 			16,												//sprite width
 			16,												//sprite height
-			Math.floor(x*tileSize*stretchScale)+shakeX,							//actual x
+			Math.floor(x*tileSize*stretchScale)+shakeX+(8*stretchScale),							//actual x
 			Math.floor(y*tileSize)+shakeY,							//actual y
 			tScale,											//scale x
 			tScale,											//scale y
@@ -483,7 +483,9 @@ game = {
 
 		spawnCounter--;
 		if(spawnCounter <= 0){
-			map.spawnMonster();
+			if(gameEngine.remaining > 0){
+				map.spawnMonster();
+			}
 			spawnCounter = spawnRate;
 			spawnRate = Math.max(5, spawnRate-1);
 		}
@@ -557,13 +559,13 @@ game = {
 
 		map.generateLevel();
 
+		// if(map.getTile(1,numTilesY-2).entity){
+		// 	map.getTile(1,numTilesY-2).entity.dead = true;
+		// 	map.getTile(1,numTilesY-2).entity = null
+		// };
 		player = new Player(map.randomPassableTile());
-		if(map.getTile(1,numTilesY-2).entity){
-			map.getTile(1,numTilesY-2).entity.dead = true;
-			map.getTile(1,numTilesY-2).entity = null
-		};
 
-		player.warp(map.getTile(1,numTilesY-2));
+		//player.warp(map.getTile(1,numTilesY-2));
 		let neighbor = player.tile.getAdjacentPassableNeighbors()[0];
 		player.lastMove = [neighbor.x-player.tile.x, neighbor.y-player.tile.y];
 		player.hp = playerHP;
@@ -582,12 +584,12 @@ game = {
 		map.generateLevel();
 		//player = new Player(map.randomPassableTile());
 		//player.warp(map.randomPassableTile());
-		if(map.getTile(1,numTilesY-2).entity){
-			map.getTile(1,numTilesY-2).entity.dead = true;
-			map.getTile(1,numTilesY-2).entity = null
-		};
+		// if(map.getTile(1,numTilesY-2).entity){
+		// 	map.getTile(1,numTilesY-2).entity.dead = true;
+		// 	map.getTile(1,numTilesY-2).entity = null
+		// };
 
-		player.warp(map.getTile(1,numTilesY-2));
+		player.warp(map.randomPassableTile());
 		let neighbor = player.tile.getAdjacentPassableNeighbors()[0];
 		player.lastMove = [neighbor.x-player.tile.x, neighbor.y-player.tile.y];
 		player.hp = playerHP;

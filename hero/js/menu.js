@@ -23,7 +23,7 @@ function GTDICT(indexText){
 						JP:"",
 					},
 
-			//SYSTEM TEXT
+			//MENU TEXT
 					MAINMENU:{
 						EN:"MAIN MENU",
 						JP:"メイン　メニュー",
@@ -36,6 +36,18 @@ function GTDICT(indexText){
 						EN:"CHOOSE YOUR CONTENTS",
 						JP:"コンテンツを選ぼう",
 					},
+					CODE:{
+						EN:"ENTER A CODE",
+						JP:"コード入力",
+					},
+					ENTERCODE:{
+						EN:"Please Enter the code.",
+						JP:"コードを入力してください。",
+					},
+					CODEERROR:{
+						EN:"Wrong or Unknown Code, Please Try Again!",
+						JP:"コードが間違っているか不明です。もう一度入力してください。",
+					},
 					DIFFICULTY:{
 						EN:"CHOOSE YOUR DIFFICULTY",
 						JP:"難易度を選ぼう",
@@ -44,29 +56,29 @@ function GTDICT(indexText){
 						EN:"EASY",
 						JP:"かんたん",
 					},
-					MEDIUM:{
-						EN:"MEDIUM",
-						JP:"ふつう",
-					},
-					HARD:{
-						EN:"HARD",
-						JP:"むずかしい",
-					},
-					CRAZY:{
-						EN:"CRAZY",
-						JP:"おバカ",
-					},
 					EASYDESC:{
 						EN:["   Answers: 3",	"   HP: +7", "   Mistake: No Penalty ", 			"   Enemy Speed: Slow", 		"   Enemy Count: 3", 	"   Hint: Always"],
 						JP:["   答えの数: 3",		"   HP: +7", "   間違え: ペナルティなし ", 				"   敵の速さ: おそい", 				"   敵の数: 3", 			"   ヒント: ずっと"],
+					},
+					MEDIUM:{
+						EN:"MEDIUM",
+						JP:"ふつう",
 					},
 					MEDIUMDESC:{
 						EN:["   Answers: 4",	"   HP: +6", "   Mistake: Score ⁻100", 				"   Enemy Speed: Normal", 		"   Enemy Count: 4", 	"   Hint: On Mistake"],
 						JP:["   答えの数: 4",		"   HP: +6", "   間違え: スコアー　 ⁻100", 				"   敵の速さ: ふつう", 				"   敵の数: 4", 			"   ヒント: 間違えから"],
 					},
+					HARD:{
+						EN:"HARD",
+						JP:"むずかしい",
+					},
 					HARDDESC:{
 						EN:["   Answers: 5",	"   HP: +5", "   Mistake: Score ⁻100 ➜ HP ⁻1 ", 	"   Enemy Speed: Normal", 		"   Enemy Count: 5", 	"   Hint: On Mistake"],
 						JP:["   答えの数: 5",		"   HP: +5", "   間違え: スコアー　 ⁻100 ➜ HP ⁻1 ", 	"   敵の速さ: ふつう", 				"   敵の数: 5", 			"   ヒント: 間違えから"],
+					},
+					CRAZY:{
+						EN:"CRAZY",
+						JP:"おバカ",
 					},
 					CRAZYDESC:{
 						EN:["   Answers: 5",	"   HP: +4", "   Mistake: Score ⁻100 & HP ⁻1", 		"   Enemy Speed: Fast Speed", 	"   Enemy Count: 5", 	"   Hint: None"],
@@ -76,30 +88,33 @@ function GTDICT(indexText){
 						EN:"CHOOSE YOUR STYLE:",
 						JP:"様式を選ぼう",
 					},
-					 
 					STYLETEXTEN:{
 						EN:"JAPANESE to ENGLISH",
 						JP:"日本語　=>　英語",
-					},
-					STYLETEXTJP:{
-						EN:"ENGLISH to JAPANESE",
-						JP:"英語　　=>　日本語",
 					},
 					STYLEDESCEN:{
 						EN:["Goal Word in Japanese", "Map Answers in English."],
 						JP:["ゴールは日本語", "マップは英語"],
 					},
+					STYLETEXTJP:{
+						EN:"ENGLISH to JAPANESE",
+						JP:"英語　　=>　日本語",
+					},
 					STYLEDESCJP:{
 						EN:["Goal Word in English", "Map Answers in Japanese."],
 						JP:["ゴールは英語", "マップは日本語"],
 					},
-					GAMEMENU:{
+					MENU:{
 						EN:"MENU",
 						JP:"メニュー",
 					},
 					BAG:{
 						EN:"BAG",
 						JP:"バッグ",
+					},
+					EMPTYBAG:{
+						EN:"The bag is empty.",
+						JP:"バッグが空です。",
 					},
 					SETTINGS:{
 						EN:"SETTINGS",
@@ -109,8 +124,26 @@ function GTDICT(indexText){
 						EN:"LANGUAGE",
 						JP:"言語",
 					},
-
-			//DESCRIPTION TEXT
+					QUIT:{
+						EN:"QUIT",
+						JP:"やめる",
+					},
+					QUITTEXT:{
+						EN:"Do you want to quit?",
+						JP:"このゲームをやめましょうか？",
+					},
+					CONFIRM:{
+						EN:"Confirm?",
+						JP:"よろしい？",
+					},
+					CANCEL:{
+						EN:"CANCEL",
+						JP:"キャンセル",
+					},
+					ACCEPT:{
+						EN:"ACCEPT",
+						JP:"はい",
+					},
 
 			//UI TEXT
 					HINT:{
@@ -124,6 +157,105 @@ function GTDICT(indexText){
 						JP:"",
 					},
 
+			//ITEM TEXT
+					POTION:{
+						EN:"POTION",
+						JP:"ポーション",
+					},
+					POTIONDESC:{
+						EN:"Heals your HP.",
+						JP:"HPを回復します。",
+					},
+					REPEL:{
+						EN:"REPEL",
+						JP:"化物よけ",
+					},
+					REPELDESC:{
+						EN:"Repels monsters for a short time.",
+						JP:"短時間モンスターを撃退します。",
+					},
+
+			//SCROLL TEXT
+					WARP:{
+						EN:"WARP",
+						JP:"ワープ",
+					},
+					WARPDESC:{
+						EN:"Moves you to a random tile.",
+						JP:"ランダムなタイルに移動させます。",
+					},
+					STORM:{
+						EN:"STORM",
+						JP:"ストーム",
+					},
+					STORMDESC:{
+						EN:"Moves all monsters to a random tile.",
+						JP:"すべてのモンスターをランダムなタイルに移動させます。",
+					},
+					AURA:{
+						EN:"AURA",
+						JP:"オーラ",
+					},
+					AURADESC:{
+						EN:"Heals yours, and surrounding monsters' HP.",
+						JP:"自分と周囲のモンスターのHPを回復します。",
+					},
+					THUNDER:{
+						EN:"THUNDER",
+						JP:"サンダー",
+					},
+					THUNDERDESC:{
+						EN:"Shoots lightning in four directions around you.",
+						JP:"周囲4方向に稲妻を発射します。",
+					},
+					FIREBALL:{
+						EN:"FIREBALL",
+						JP:"ファイボール",
+					},
+					FIREBALLDESC:{
+						EN:"Shoots a ball of fire in the last direction that you moved.",
+						JP:"先に移動した方向に火の玉を発射します。",
+					},
+					FREEZE:{
+						EN:"FREEZE",
+						JP:"フリーズ",
+					},
+					FREEZEDESC:{
+						EN:"Freezes monsters for a short time.",
+						JP:"モンスターを短時間凍結させます。",
+					},
+					STEAL:{
+						EN:"STEAL",
+						JP:"ぬすむ",
+					},
+					STEALDESC:{
+						EN:"All enemies drop some gold.",
+						JP:"すべての敵がゴールドを落とします。",
+					},
+					STUDY:{
+						EN:"STUDY",
+						JP:"がくしゅう",
+					},
+					STUDYDESC:{
+						EN:"Clears some incorrect answer tiles.",
+						JP:"いくつかの不正解なタイルを消去します。",
+					},
+					COPY:{
+						EN:"COPY",
+						JP:"コピー",
+					},
+					COPYDESC:{
+						EN:"Copies one of another scroll in your bag.",
+						JP:"バッグ内の別の巻物を 1 つをコピーします。",
+					},
+					CHEAT:{
+						EN:"CHEAT",
+						JP:"チート",
+					},
+					CHEATDESC:{
+						EN:"Highlights all remaining correct answer tiles,\n　　but has a random penalty.",
+						JP:"残りの正解タイルをすべて強調表示しますが\n　　ランダムなペナルティがかかります。",
+					},
 		}
 
 	return dictTable[indexText][indexLanguage];
@@ -431,48 +563,48 @@ class GameMenu{
 			},
 
 			gameMain : {
-				header : this.language == "ja" ? "メニュー" : "MENU",
+				header : GTDICT("MENU"),
 				text: "",
 				x : (numTilesX-3)*tileSize,
 				y : tileSize,
 				width : tileSize*2,
 				border : "default",
 				options:[ 
-					{menu_id:"BAG", 		text:this.language == "ja" ? "バッグ" : "BAG"},
+					{menu_id:"BAG", 		text:GTDICT("BAG")},
 					//{menu_id:"MESSAGE",		text:this.language == "ja" ? "メッセージ" : "MESSAGES"},
 					//{menu_id:"STATUS",		text:this.language == "ja" ? "情報" : "INFO"},
 					//{menu_id:"HELP",		text:this.language == "ja" ? "ヘルプ" : "HELP"},
-					{menu_id:"SETTINGS",	text:this.language == "ja" ? "設定" : "SETTINGS"},
-					{menu_id:"QUIT",		text:this.language == "ja" ? "やめる" : "QUIT"},
+					{menu_id:"SETTINGS",	text:GTDICT("SETTINGS")},
+					{menu_id:"QUIT",		text:GTDICT("QUIT")},
 					],
 			},
 
 			bag : {
-				header : this.language == "ja" ? "バッグ" : "BAG",
+				header : GTDICT("BAG"),
 				text: "",
 				x : (numTilesX-7)*tileSize,
 				y : tileSize,
 				width:tileSize*6,
-				heightOverride: spacing((numTilesY*4)-10),
+				heightOverride: spacing(16),
 				options:[{menu_id:"BAG", text:"DUMMY", icon:" ", color:"white", v_index:0, l_index:0}],
 				optionsDisplayLength:9,
 			},
 
-			message: {
-				header : this.language == "ja" ? "メッセージ" : "MESSAGE LOG",
-				x : viewHalf*tileSize-spacing(8),
-				y : tileSize,
-				width:spacing(30),
-				heightOverride: spacing(28),
-				options:[{menu_id:"MESSAGE",text:"MESSAGE", icon:" ", color:"white", v_index:0}],
-				optionsDisplayLength:12,
-				optionsSelectable:false,
-			},
+			// message: {
+			// 	header : this.language == "ja" ? "メッセージ" : "MESSAGE LOG",
+			// 	x : viewHalf*tileSize-spacing(8),
+			// 	y : tileSize,
+			// 	width:spacing(30),
+			// 	heightOverride: spacing(28),
+			// 	options:[{menu_id:"MESSAGE",text:"MESSAGE", icon:" ", color:"white", v_index:0}],
+			// 	optionsDisplayLength:12,
+			// 	optionsSelectable:false,
+			// },
 
-			status : {
-				header : this.language == "ja" ? "情報" : "STATUS",
-				text: "",
-			},
+			// status : {
+			// 	header : this.language == "ja" ? "情報" : "STATUS",
+			// 	text: "",
+			// },
 
 			gameMainCanvas : {
 				x : 20,
@@ -507,13 +639,13 @@ class GameMenu{
 			},
 
 			cancelOk : {
-				header : "Confirm?",
+				header : GTDICT("CONFIRM"),
 				text: "",
 				x : (viewHalf/2)*tileSize,
 				y : (viewHalf/2)*tileSize,
 				width : viewHalf*1.25*tileSize,
 				options: [
-					{menu_id:"CANCEL", text:"Cancel"},
+					{menu_id:"CANCEL", text:GTDICT("CANCEL")},
 					// {menu_id:"ACCEPT", text:"OK"},
 				],
 			},
@@ -636,7 +768,7 @@ class GameMenu{
 			})
 
 			//HEADER TEXT
-			ctx.font = "normal 20px Noto Sans Japanese";
+			ctx.font = "normal 20px Arial";
 			this.drawText({
 				text:menuSettings.header,
 				size:scaleFontToWidth(menuSettings.header, 20, menuSettings.width*0.8),
@@ -918,7 +1050,7 @@ class GameMenu{
 					// if(selection == "BKGD") this.settingsMenu("BKGD");
 					// if(selection == "TEXT") this.settingsMenu("TEXT");
 
-					if(selection == "QUIT") this.acceptMenu({msg:this.language == "ja" ? "このゲームをやめましょうか？" : "Do you want to quit?" ,func:this.quitMenu.bind(this)});
+					if(selection == "QUIT") this.acceptMenu({msg:GTDICT("QUITTEXT") ,func:this.quitMenu.bind(this)});
 
 					if(selection == "CANCEL") this.cancel();
 					if(selection == "ACCEPT") {menu.accept()}; //game.playSound("buttonAccept")};
@@ -967,18 +1099,18 @@ class GameMenu{
 		}else if(menu_id == "BAG"){
 			templist = list.map((x, index) => {
 													var d_ratio = x.durability !== undefined ? x.durability/x.max_durability : 1;
-													var title_text = this.language == "ja" ? window[`${x.itemtype.toLowerCase()}_Translation`][x.name] : x.name;
+													var title_text = GTDICT(x.name);
 													
 													//console.log(x.data.itemtype == "COLLECTIBLE" ? monsterIndex.filter(m => m.COLLECTIBLE.name == x.data.name)[0] : " ")
 													return {
 														menu_id:menu_id,
 														//name:x.data.name, //item name
-														name:this.language == "ja" ? window[`${x.itemtype.toLowerCase()}_Translation`][x.name] : x.name,
+														name:GTDICT(x.name),
 														icon:" ", //icon
 														text:title_text,
 														color:"white", //text color
 														desc: function(){
-															let description = [x.data.desc()]
+															let description = [GTDICT(`${x.name}DESC`)]
 															while(description.length<7){
 																description.push("\n ");
 															}
@@ -994,21 +1126,21 @@ class GameMenu{
 													}
 			})
 
-		}else if(menu_id == "MESSAGE"){
-			templist = list.map((x, index) => {
-													return {
-														menu_id:`${menu_id}_MSG`,
-														text:x[0], //text value
-														icon:" ", //no ICON
-														color:x[1], //text color value
-														v_index:index, //for whether it is in veiw scope
-														l_index:index, //for its order in the list after sorting
-														s_index:index, //for its order in the source data
-														sort:false, //SORTING INDICES (false if not sortable)
-														misc1:0,
-													}
+		// }else if(menu_id == "MESSAGE"){
+		// 	templist = list.map((x, index) => {
+		// 											return {
+		// 												menu_id:`${menu_id}_MSG`,
+		// 												text:x[0], //text value
+		// 												icon:" ", //no ICON
+		// 												color:x[1], //text color value
+		// 												v_index:index, //for whether it is in veiw scope
+		// 												l_index:index, //for its order in the list after sorting
+		// 												s_index:index, //for its order in the source data
+		// 												sort:false, //SORTING INDICES (false if not sortable)
+		// 												misc1:0,
+		// 											}
 
-			})
+		// 	})
 
 
 		}
@@ -1169,11 +1301,11 @@ class GameMenu{
 		var menuSettings = this.setupSubmenu("cancelOk");
 		let menu = this.menuData[this.currentMenus.at(-1)]
 		
-		menu.header = args.msg || "Confirm?";
+		menu.header = args.msg || GTDICT("CONFIRM");
 		menu.options = [
-				{menu_id:"CANCEL", text:this.language == "ja" ? "いいえ" : "CANCEL"},
+				{menu_id:"CANCEL", text:GTDICT("CANCEL")},
 				...(args.options != undefined ? args.options : []),
-				...(args.options == undefined ? [{menu_id:"ACCEPT", text:this.language == "ja" ? "はい" : "OK"}] : []),
+				...(args.options == undefined ? [{menu_id:"ACCEPT", text:GTDICT("ACCEPT")}] : []),
 			]
 
 		menu.accept = args.func || function(){return};
@@ -1229,7 +1361,7 @@ class GameMenu{
 			this.menuData.settings.options = [
 											{menu_id:"SFX", text:"SFX: "+(this.settings.sfx ? "On" : "Off")},
 											{menu_id:"MSC", text:"BGM: "+(this.settings.music ? "On" : "Off")},
-											{menu_id:"LANG", text:`${this.language == "ja" ? "言語" : "Language"}: ${(this.settings.language[0])}`},
+											{menu_id:"LANG", text:`${GTDICT("LANGUAGE")}: ${(this.settings.language[0])}`},
 											//{menu_id:"BKGD", text:"BACKGROUND: "+toTitleCase(this.settings.colorBkgd[0])},
 										];
 		};
@@ -1247,7 +1379,7 @@ class GameMenu{
 			//let descText = [`${"ENGLISH:"+}　　　　${"日本語:"}`];
 			let descText = [];
 			local_library.LIB.forEach(entry => {
-				ctxMenu.font = "14px Noto Sans Japanese";
+				ctxMenu.font = "14px Arial";
 				let [entryEN, entryJP] = [entry.EN, entry.JP];
 				let en_entry_width = ctx.measureText(entryEN).width;
 
@@ -1266,7 +1398,7 @@ class GameMenu{
 		libraries = libraries.filter(e => !e.code.includes("!"))
 
 		menuSettings.sub_current = selection?.l_index ?? 0;
-		menuSettings.options = [{menu_id:"CHOOSECONTENTS", text:`[ENTER A CODE]`, code:"UNKNOWN", detail:["=========================================="," ",`             ${gameMenu.language!="ja"?"ENTER A CODE":"コード入力"}`], icon:" ", color:"white", v_index:0, l_index:0}];
+		menuSettings.options = [{menu_id:"CHOOSECONTENTS", text:`[${GTDICT("CODE")}]`, code:"UNKNOWN", detail:["=========================================="," ",`             ${GTDICT("CODE")}`], icon:" ", color:"white", v_index:0, l_index:0}];
 		menuSettings.options = menuSettings.options.concat(this.util_scrollmenu("CHOOSECONTENTS", libraries, menuSettings.optionsDisplayLength, menuSettings.sub_current, menuSettings.current));
 		
 		var detail = !!option ? option.detail : menuSettings.options[this.currentOption].detail
@@ -1291,7 +1423,7 @@ class GameMenu{
 		game.playSound("buttonAccept");
 		var menuSettings = this.setupSubmenu("codeEntry");
 
-		let codePrompt = prompt(this.language != "ja" ? "Please Enter the code.": "コードを入力してください。",  "CODE") || "CANCEL";
+		let codePrompt = prompt(GTDICT("ENTERCODE"),  "") || GTDICT("CANCEL");
 
 		if(codePrompt.at(-1)=="*"){
 			setupSettings.special_dungeon = true;
@@ -1308,7 +1440,7 @@ class GameMenu{
 				this.difficultySelectMenu();
 
 			}else{
-				alert(this.language != "ja" ? "Wrong or Unknown Code, Please Try Again!" : "コードが間違っているか不明です。もう一度入力してください。")
+				alert(GTDICT("CODEERROR"));
 				this.cancel();
 
 			}
@@ -1341,38 +1473,38 @@ class GameMenu{
 		var playerItems = []; 
 		player.items.forEach((item, index) => {
 				if(item != undefined){
-					playerItems.push({display:`${item.itemType}: ${this.language == "ja" ? window[`${item.itemType.toLowerCase()}_Translation`][item.name] : item.name}`+item.name, name:item.name, itemtype:item.itemType, index:index, data: {...item} });
+					playerItems.push({display:`${item.itemType}: ${GTDICT(item.name)}`+item.name, name:item.name, itemtype:item.itemType, index:index, data: {...item} });
 				}
 			});
 
 		menuSettings.sub_current = selection?.l_index || 0;
 		if(!player.items.length){
-			playerItems = [{display:`${this.language == "ja" ? "ばっぐが空です。" : "The bag is empty."}`,name:`${this.language == "ja" ? "ばっぐが空です。" : "The bag is empty."}`, itemtype:"ITEM", index:0, data: {} }]
+			playerItems = [{display:`${GTDICT("EMPTYBAG")}`,name:`${GTDICT("EMPTYBAG")}`, itemtype:"ITEM", index:0, data: {} }]
 		}
 		menuSettings.options = this.util_scrollmenu("BAG", playerItems, menuSettings.optionsDisplayLength, menuSettings.sub_current, menuSettings.current);
 		menuSettings.sub_current = menuSettings.options[this.currentOption]?.l_index ?? 0;		
 	}
 
-	statusMenu(){
-		var menuSettings = this.setupSubmenu("status");
+	// statusMenu(){
+	// 	var menuSettings = this.setupSubmenu("status");
 
-		var statText = [
-				`   `,
-			];
+	// 	var statText = [
+	// 			`   `,
+	// 		];
 
-		statText.join("\n")
-		menuSettings.text = statText
-	}
+	// 	statText.join("\n")
+	// 	menuSettings.text = statText
+	// }
 
-	messageMenu(selection){
-		var menuSettings = this.setupSubmenu("message");
+	// messageMenu(selection){
+	// 	var menuSettings = this.setupSubmenu("message");
 		
-		menuSettings.sub_current = selection.l_index || 0;
-		menuSettings.options = [];
-		menuSettings.options = this.util_scrollmenu("MESSAGE", gameEngine.messages.log, menuSettings.optionsDisplayLength, menuSettings.sub_current);
-		menuSettings.sub_current = menuSettings.options[this.currentOption]?.l_index ?? 0;
+	// 	menuSettings.sub_current = selection.l_index || 0;
+	// 	menuSettings.options = [];
+	// 	menuSettings.options = this.util_scrollmenu("MESSAGE", gameEngine.messages.log, menuSettings.optionsDisplayLength, menuSettings.sub_current);
+	// 	menuSettings.sub_current = menuSettings.options[this.currentOption]?.l_index ?? 0;
 
-	}
+	// }
 
 	quitMenu(){
 		game.playSound("buttonAccept");
