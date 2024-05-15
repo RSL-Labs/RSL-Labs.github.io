@@ -55,8 +55,8 @@ draw = {
 		canvasDOM = document.querySelector("canvas");
 		ctxDOM = canvasDOM.getContext("2d");
 
-		canvasDOM.width = tileSize*(numTiles+uiWidth);
-		canvasDOM.height = tileSize*numTiles;
+		canvasDOM.width = tileSize*(numGrid+uiWidth);
+		canvasDOM.height = tileSize*numGrid;
 		canvasDOM.style.width = `${canvasDOM.width}px`;
 		canvasDOM.style.height = `${canvasDOM.height}px`;
 		ctxDOM.imageSmoothingEnabled = false;
@@ -66,8 +66,8 @@ draw = {
 		canvas = document.createElement("canvas");
 		ctx = canvas.getContext("2d");
 
-		canvas.width = tileSize*(numTiles+uiWidth);
-		canvas.height = tileSize*numTiles;
+		canvas.width = tileSize*(numGrid+uiWidth);
+		canvas.height = tileSize*numGrid;
 		canvas.style.width = `${canvas.width}px`;
 		canvas.style.height = `${canvas.height}px`;
 		ctx.imageSmoothingEnabled = false;
@@ -76,8 +76,8 @@ draw = {
 		canvasMenu = document.createElement("canvas");
 		ctxMenu = canvasMenu.getContext("2d");
 
-		canvasMenu.width = tileSize*(numTiles+uiWidth);
-		canvasMenu.height = tileSize*numTiles;
+		canvasMenu.width = tileSize*(numGrid+uiWidth);
+		canvasMenu.height = tileSize*numGrid;
 		canvasMenu.style.width = `${canvasMenu.width}px`;
 		canvasMenu.style.height = `${canvasMenu.height}px`;
 		ctxMenu.imageSmoothingEnabled = false;
@@ -148,7 +148,7 @@ draw = {
 	},
 
 	drawUI: function(){
-		let hintText = gameMenu.language == "ja" ? "ヒント: " : "Hint: ";
+		let hintText = `${GTDICT("HINT")}: `;
 		if(gameEngine.settings.hint == "show"){
 			hintText += `${gameEngine.goal[0][0]}`;
 
@@ -165,48 +165,100 @@ draw = {
 		}
 		hintText = hintText.replace(/[\-]/,"")
 
-		let goalBoxText = gameMenu.language == "ja"　?　`ゴール: "${gameEngine.goal[1]}"    後: ${gameEngine.remaining}    ${hintText}`
-														:`Goal: "${gameEngine.goal[1]}"    Remaining: ${gameEngine.remaining}    ${hintText}`;
-		let goalBox = new textBox({name:[goalBoxText.replace(/[\-]/,"")], colorText:"white", x:(numTiles*0.5)*tileSize-((numTiles-2)*tileSize)/2 ,y:uiTop ,w:(numTiles-1)*tileSize, h:spacing(2), centerX:true, centerY:true});
-		goalBox.drawSelf();
+		let topBoxText = gameMenu.language == "ja"　?　`レベル: ${gameEngine.level} / ${Object.keys(gameEngine.current_library).length}  ゴール: "${gameEngine.goal[1]}"    後: ${gameEngine.remaining}    ${hintText}`
+														:`Level: ${gameEngine.level} / ${Object.keys(gameEngine.current_library).length}  Goal: "${gameEngine.goal[1]}"    Remaining: ${gameEngine.remaining}    ${hintText}`;
+		let topBox = new textBox({
+									name:[topBoxText.replace(/[\-]/,"")], 
+									colorText:"white", 
+									//x:(numTiles*0.5)*tileSize*stretchScale-((numTiles-1)*tileSize*stretchScale)/2 ,
+									x:0.5*tileSize*stretchScale,
+									y:uiTop,
+									w:(numTiles)*tileSize*stretchScale, 
+									h:spacing(2), 
+									centerX:true, 
+									centerY:true,
+								});
+		topBox.drawSelf();
 
-		let currentTileText = gameMenu.language == "ja"　?　`現タイル: "${player.tile.name}"`
-														:`Current Tile: "${player.tile.name}"`;
-		let currentTile = new textBox({name:[currentTileText.replace(/[\-]/,"")], colorText:"white", x:(numTiles*0.5)*tileSize-((numTiles-4)*tileSize)/2 ,y:(numTilesY-1)*tileSize+spacing(1) ,w:(5)*tileSize, h:spacing(2), centerX:false, centerY:true});
-		currentTile.drawSelf();
+		let hpText = `HP: ${"❤︎".repeat(player.hp)}${"♡".repeat(player.maxHp-player.hp)}`;
+		let swordText = player.equip.SWORD > 0 ? `${gameMenu.language == "ja"?"攻撃":"ATK"}⇧ ${"▮".repeat(player.equip.SWORD)}${"▯".repeat(6-player.equip.SWORD)}` : "";
+		let armorText = player.equip.ARMOR > 0 ? `${gameMenu.language == "ja"?"防御":"DEF"}⇧ ${"▮".repeat(player.equip.ARMOR)}${"▯".repeat(6-player.equip.ARMOR)}` : "";
+		let bottomBoxText = gameMenu.language == "ja"　?　`スコアー: ${score}   ゴールド: ${gold}   ${hpText}   ${swordText}  ${armorText}`
+		 												:`Score: ${score}   Gold: ${gold}   ${hpText}   ${swordText}  ${armorText}`;
+		let bottomBox = new textBox({
+										name:[bottomBoxText.replace(/[\-]/,"")],
+										colorText:"white",
+										x:0.5*tileSize*stretchScale,
+										y:(numTilesY-1)*tileSize+spacing(1.5),
+										w:(numTiles)*tileSize*stretchScale,
+										h:spacing(2),
+										centerX:true,
+										centerY:true,
+									});
+		bottomBox.drawSelf();
 
 		//let hpText = `HP: ${"❤".repeat(player.hp)}${"♡".repeat(player.maxHp-player.hp)}`;
 		//let hpText = `HP: ${"▮".repeat(player.hp)}${"▯".repeat(player.maxHp-player.hp)}`;
-		let hpText = `HP: ${"❤︎".repeat(player.hp)}${"♡".repeat(player.maxHp-player.hp)}`;
 
 
-		let statPanelText = gameMenu.language == "ja"　? [`コード: ${setupSettings.code}`,`難易度: ${gameEngine.settings.name}`,"",`レベル: ${gameEngine.level} / ${Object.keys(gameEngine.current_library).length}`,`スコアー: ${score}`, `ゴールド: ${gold}`," "," ",`${hpText}`,` `]
-														:[`Code: ${setupSettings.code}`,`Difficulty: ${gameEngine.settings.name}`,"",`Level: ${gameEngine.level} / ${Object.keys(gameEngine.current_library).length}`, `Score: ${score}`,`Gold: ${gold}`," "," ",`${hpText}`,` `];
-		let statPanelBox = new textBox({name:statPanelText, colorText:"gold", x:(uiStart)*tileSize, y:uiTop, w:4*tileSize, h:spacing(12), centerY:true});
-		statPanelBox.drawSelf();
+		// let statPanelText = gameMenu.language == "ja"　? [`コード: ${setupSettings.code}`,`難易度: ${gameEngine.settings.name}`,"",`レベル: ${gameEngine.level} / ${Object.keys(gameEngine.current_library).length}`,`スコアー: ${score}`, `ゴールド: ${gold}`," "," ",`${hpText}`,` `]
+		// 												:[`Code: ${setupSettings.code}`,`Difficulty: ${gameEngine.settings.name}`,"",`Level: ${gameEngine.level} / ${Object.keys(gameEngine.current_library).length}`, `Score: ${score}`,`Gold: ${gold}`," "," ",`${hpText}`,` `];
+		// let statPanelBox = new textBox({name:statPanelText, colorText:"gold", x:(uiStart)*tileSize, y:uiTop, w:4*tileSize, h:spacing(12), centerY:true});
+		// statPanelBox.drawSelf();
 
-		if(player.equip.SWORD > 0){
-			let swordPanelBox = new textBox({name:[`        ${"▮".repeat(player.equip.SWORD)}${"▯".repeat(6-player.equip.SWORD)}   ${gameMenu.language == "ja"?"攻撃":"ATK"}⇧`], colorText:"gold", x:(uiStart)*tileSize, y:uiTop+spacing(13), w:4*tileSize, h:spacing(2), centerY:true});
-			swordPanelBox.drawSelf();
-			draw.drawSprite(tileset_spritesheet, palettes["HERO"]["SWORD"], (uiStart+(2/16)), 3+(3/8), (3/8));
-		}
-		if(player.equip.ARMOR > 0){
-			let armorPanelBox = new textBox({name:[`        ${"▮".repeat(player.equip.ARMOR)}${"▯".repeat(6-player.equip.ARMOR)}   ${gameMenu.language == "ja"?"防御":"DEF"}⇧`], colorText:"gold", x:(uiStart)*tileSize, y:uiTop+spacing(16), w:4*tileSize, h:spacing(2), centerY:true});
-			armorPanelBox.drawSelf();
-			draw.drawSprite(tileset_spritesheet, palettes["HERO"]["ARMOR"], (uiStart+(2/16)), 4+(1/8), (3/8));
+		// if(player.equip.SWORD > 0){
+		// 	let swordPanelBox = new textBox({name:[`        ${"▮".repeat(player.equip.SWORD)}${"▯".repeat(6-player.equip.SWORD)}   ${gameMenu.language == "ja"?"攻撃":"ATK"}⇧`], colorText:"gold", x:(uiStart)*tileSize, y:uiTop+spacing(13), w:4*tileSize, h:spacing(2), centerY:true});
+		// 	swordPanelBox.drawSelf();
+		// 	draw.drawSprite(tileset_spritesheet, palettes["HERO"]["SWORD"], (uiStart+(2/16)), 3+(3/8), (3/8));
+		// }
+		// if(player.equip.ARMOR > 0){
+		// 	let armorPanelBox = new textBox({name:[`        ${"▮".repeat(player.equip.ARMOR)}${"▯".repeat(6-player.equip.ARMOR)}   ${gameMenu.language == "ja"?"防御":"DEF"}⇧`], colorText:"gold", x:(uiStart)*tileSize, y:uiTop+spacing(16), w:4*tileSize, h:spacing(2), centerY:true});
+		// 	armorPanelBox.drawSelf();
+		// 	draw.drawSprite(tileset_spritesheet, palettes["HERO"]["ARMOR"], (uiStart+(2/16)), 4+(1/8), (3/8));
 
-		}
+		// }
 		if(player.items.some(e => e != undefined)){
 			player.items.forEach((e, i, a) => {
 				if(e != undefined){
 					let itemName = gameMenu.language == "ja" ? window[`${e.itemType.toLowerCase()}_Translation`][e.name] : e.name;
 					let itemText = `(${i+1}) ${itemName}  `;
-					let itemPanelBox = new textBox({name:[itemText], colorText:`${i<4?"aqua":"darkorange"}`, x:((i%2 == 0 ? 0 : (36/16))+uiStart)*tileSize, y:(uiTop+spacing(19))+(Math.floor(i/2)*spacing(3)), w:(14/8)*tileSize, h:spacing(2), centerY:true})
+					let itemPanelBox = new textBox({
+													name:[itemText], 
+													colorText:`${i<4?"aqua":"darkorange"}`, 
+													x:(uiStart-0.5)*tileSize, 
+													y:(uiTop)+(Math.floor(i/1)*spacing(3))+(i>3 ? spacing(4) : 0), 
+													w:(14/8)*tileSize, 
+													h:spacing(2), 
+													centerY:true})
 					itemPanelBox.drawSelf();
 				}
 			})
 		}
 
+	},
+
+	drawTile: function(spritesheet, sprite_index, x, y, scale=1, colorWithAlpha="rgba(0,0,0,0)"){
+		let indexOffsetY = 0;
+		let sw = spritesheet.tw;
+		let tScale = Math.floor(tileSize*scale) || tileSize;
+
+		if(sprite_index >= sw){
+			indexOffsetY = Math.floor(sprite_index/sw);
+		}else{
+			indexOffsetY = 0;
+		}
+
+		ctx.drawImage(
+			spritesheet, 									//sheetname
+			(((sprite_index%sw)/sw)*sw)*16,					//sheet x
+			(16*indexOffsetY),								//sheet y
+			16,												//sprite width
+			16,												//sprite height
+			Math.floor(x*tileSize*stretchScale)+shakeX,		//actual x
+			Math.floor(y*tileSize)+shakeY,					//actual y
+			tScale*stretchScale,											//scale x
+			tScale,							//scale y
+			);
 	},
 
 	drawSprite: function(spritesheet, sprite_index, x, y, scale=1, colorWithAlpha="rgba(0,0,0,0)"){
@@ -226,7 +278,7 @@ draw = {
 			(16*indexOffsetY),								//sheet y
 			16,												//sprite width
 			16,												//sprite height
-			Math.floor(x*tileSize)+shakeX,							//actual x
+			Math.floor(x*tileSize*stretchScale)+shakeX,							//actual x
 			Math.floor(y*tileSize)+shakeY,							//actual y
 			tScale,											//scale x
 			tScale,											//scale y
@@ -236,7 +288,7 @@ draw = {
 	drawText: function(text, size, centered, textX, textY, color, weight){
 		ctx.fillStyle = color;
 		const tWeight = weight || "normal"
-		const fFamily = "Noto Sans Japanese"
+		const fFamily = "Arial"
 		ctx.font = `${tWeight} ${size}px ${fFamily}`;
 		if(centered){
 			textX = (canvas.width-ctx.measureText(text).width)/2-tileSize;

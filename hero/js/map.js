@@ -27,10 +27,8 @@ map = {
       	let wall_tile_select = 0
       	let wall_tile_dict = ["", "_N", "_S", "_NS", "_W", "_NW", "_SW", "_NSW", "_E", "_NE", "_SE", "_NSE", "_EW", "_EWN", "_EWS", "_ALL", "_ERR"];
 
-		let shrink = numTiles-gameEngine.settings.map_size;
-
-      	for(let x=shrink; x<numTilesX-shrink; x++){
-			for(let y=shrink; y<numTilesY-shrink; y++){
+      	for(let x=0; x<numTilesX; x++){
+			for(let y=0; y<numTilesY; y++){
 				let check_tile = tiles[x][y];
 
 	            if( check_tile instanceof Wall ){
@@ -64,10 +62,8 @@ map = {
 	},
 
 	decorateTiles: function(){
-		let shrink = numTiles-gameEngine.settings.map_size;
-
-      	for(let x=shrink+1; x<numTilesX-shrink-1; x++){
-			for(let y=shrink; y<numTilesY-shrink-1; y++){
+      	for(let x=1; x<numTilesX-1; x++){
+			for(let y=1; y<numTilesY-1; y++){
 				let check_tile = tiles[x][y];
 				
 				if(check_tile instanceof Wall && !check_tile.no_decor){
@@ -107,21 +103,18 @@ map = {
 	},
 
 	inBounds: function(x, y){
-		let shrink = numTiles-gameEngine.settings.map_size;
 
-		return x>shrink && y>shrink && x<numTilesX-shrink-1 && y<numTilesY-shrink-1;
+		return x>0 && y>0 && x<numTilesX-1 && y<numTilesY-1;
 	},
 
 	outBounds: function(x, y){
-		let shrink = numTiles-gameEngine.settings.map_size;
 
-		return x<shrink || y<shrink || x>numTilesX-shrink-1 || y>numTilesY-shrink-1;
+		return x<0 || y<0 || x>numTilesX-1 || y>numTilesY-1;
 	},
 
 	onBounds: function(x, y){
-		let shrink = numTiles-gameEngine.settings.map_size;
 
-		return x>=shrink && y>=shrink && x<=numTilesX-shrink-1 && y<=numTilesY-shrink-1;
+		return x>=0 && y>=0 && x<=numTilesX-1 && y<=numTilesY-1;
 	},
 
 	getTile: function(x, y){

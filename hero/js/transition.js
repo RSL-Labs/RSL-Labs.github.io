@@ -21,9 +21,9 @@ Transition = {
 
 			this.fadeTimer ++
 
-			ctxMenu.clearRect(0, 0, viewSize*tileSize, viewSize*tileSize);
+			ctxMenu.clearRect(0, 0, numTilesX*tileSize*stretchScale, numTilesY*tileSize);
 			ctxMenu.beginPath();
-			ctxMenu.rect(0, 0, viewSize*tileSize, viewSize*tileSize);
+			ctxMenu.rect(0, 0, numTilesX*tileSize*stretchScale, numTilesY*tileSize);
 			ctxMenu.fillStyle = `rgba(0,0,0,${1*((this.fadeTimer)/timerMax)})`;
 			ctxMenu.fill();
 
@@ -65,9 +65,9 @@ Transition = {
 
 			this.fadeTimer ++
 
-			ctxMenu.clearRect(0, 0, viewSize*tileSize, viewSize*tileSize);
+			ctxMenu.clearRect(0, 0, numTilesX*tileSize*stretchScale, numTilesY*tileSize);
 			ctxMenu.beginPath();
-			ctxMenu.rect(0, 0, viewSize*tileSize, viewSize*tileSize);
+			ctxMenu.rect(0, 0, numTilesX*tileSize*stretchScale, numTilesY*tileSize);
 			ctxMenu.fillStyle = `rgba(0,0,0,${1-((this.fadeTimer)/timerMax)})`;
 			ctxMenu.fill();
 

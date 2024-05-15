@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<title>ENGLISH HERO</title>
+<title>PLAY ENGLISH HERO</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <style>
@@ -39,22 +39,24 @@
 
 <script charset="euc-jp">
 	function setupGlobals(){
-		globalDebug = true;
 		globalDebug = false;
+		globalDebug = true;
 
 		let windowWidth = window.screen.availWidth;
 		let windowHeight = window.screen.availHeight;
 		tileSize = Math.floor(windowHeight/10);
 		spacing = (units) => ((tileSize))*0.25*units;
-		numTiles = 8;
+		numGrid = 8;
+		numTiles = 7;
 		numTilesX = numTiles + 1;
-		numTilesY = numTiles;
-		uiStart = numTilesX+0.5;
+		numTilesY = numTiles + 1;
+		stretchScale = 1.5;
+		uiStart = (numTilesX*stretchScale)+0.5;
 		uiTop = tileSize*0.125;
 		viewSize = 8;
 		viewHalf = Math.floor(viewSize/2);
 		viewQrtr = Math.floor(viewSize/4);
-		viewDiff = (numTiles-viewSize)*2;
+		viewDiff = (numGrid-viewSize)*2;
 
 		uiWidth = 6;
 		ui={currentButton:-1, buttons:[]};
@@ -72,8 +74,13 @@
 	}
 
 	setupGlobals();
+	window.onload = function () {
+	  window.scrollTo(0, document.body.scrollHeight);
+	}
 
-	let gameMenu = new GameMenu();
+
+	let gameMenu;
+	gameMenu = new GameMenu();
 
 	gameState = "loading";
 
@@ -86,10 +93,10 @@
 	function checkRemaining(goal){
 		let remaining = [];
 		
-		for(let i=0; i<numTiles; i++){
-			for(let j=0; j<numTiles; j++){
+		for(let i=0; i<numTilesX; i++){
+			for(let j=0; j<numTilesY; j++){
 				if(map.getTile(i,j) instanceof Floor){
-					console.log(map.getTile(i,j))
+					//console.log(map.getTile(i,j))
 					remaining.push(map.getTile(i,j).name[0]);
 
 				}

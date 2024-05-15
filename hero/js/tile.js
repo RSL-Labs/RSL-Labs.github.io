@@ -20,36 +20,36 @@ class Tile{
 
 	draw(){
 		if(this instanceof Wall && !(this instanceof Void)){
-			draw.drawSprite(this.spritesheet, palettes["HERO"]["VOID"], this.x, this.y, 0.5);
-			draw.drawSprite(this.spritesheet, palettes["HERO"]["VOID"], this.x+0.5, this.y, 0.5);
-			draw.drawSprite(this.spritesheet, palettes["HERO"]["VOID"], this.x, this.y+0.5, 0.5);
-			draw.drawSprite(this.spritesheet, palettes["HERO"]["VOID"], this.x+0.5, this.y+0.5, 0.5);
+			draw.drawTile(this.spritesheet, palettes["HERO"]["VOID"], this.x, this.y, 0.5);
+			draw.drawTile(this.spritesheet, palettes["HERO"]["VOID"], this.x+0.5, this.y, 0.5);
+			draw.drawTile(this.spritesheet, palettes["HERO"]["VOID"], this.x, this.y+0.5, 0.5);
+			draw.drawTile(this.spritesheet, palettes["HERO"]["VOID"], this.x+0.5, this.y+0.5, 0.5);
 		}
-		draw.drawSprite(this.spritesheet, this.sprite, this.x, this.y);
+		draw.drawTile(this.spritesheet, this.sprite, this.x, this.y);
 		
 		if(this instanceof Floor){
 			if(this.name != ""){
-				draw.drawSprite(this.spritesheet, palettes["HERO"]["FLOOR_TILE_LIT"]+(setupSettings.special_dungeon==true?32:0), this.x, this.y);
+				draw.drawTile(this.spritesheet, palettes["HERO"]["FLOOR_TILE_LIT"]+(setupSettings.special_dungeon==true?32:0), this.x, this.y);
 			}else{
 				if(this.isGoal == true){
-					draw.drawSprite(this.spritesheet, palettes["HERO"]["FLOOR_TILE_CORRECT"]+(setupSettings.special_dungeon==true?32:0), this.x, this.y);
+					draw.drawTile(this.spritesheet, palettes["HERO"]["FLOOR_TILE_CORRECT"]+(setupSettings.special_dungeon==true?32:0), this.x, this.y);
 				}else{
-					draw.drawSprite(this.spritesheet, palettes["HERO"]["FLOOR_TILE_INCORRECT"]+(setupSettings.special_dungeon==true?32:0), this.x, this.y);
+					draw.drawTile(this.spritesheet, palettes["HERO"]["FLOOR_TILE_INCORRECT"]+(setupSettings.special_dungeon==true?32:0), this.x, this.y);
 				}
 
 			}
 
 			let displayName = this.name[0].split(/[\・|\/|-]/)
-			let scaledTextSize = scaleFontToWidth(displayName[0], 16, tileSize*0.8)
-			if(displayName.length>1 && scaleFontToWidth(displayName[1], 16, tileSize*0.8) < scaledTextSize){
+			let scaledTextSize = scaleFontToWidth(displayName[0], 22, tileSize*0.9*stretchScale)
+			if(displayName.length>1 && scaleFontToWidth(displayName[1], 22, tileSize*0.9*stretchScale) < scaledTextSize){
 				
-				scaledTextSize = scaleFontToWidth(displayName[1], 16, tileSize*0.8)
+				scaledTextSize = scaleFontToWidth(displayName[1], 22, tileSize*0.9*stretchScale)
 			}
 			displayName.forEach((e,i) => {
 				draw.drawText(	e, 
 								scaledTextSize,
 								false, 
-								this.x*tileSize-(tileSize*0.9)+shakeX, 
+								(this.x*tileSize*stretchScale)-(tileSize*0.9)+shakeX, 
 								this.y*tileSize-(tileSize/3)+shakeY+(tileSize*0.2*i), 
 								`${this.name[0] == gameEngine.goal[0][0] && (gameEngine.settings.hint != "off" && gameEngine.mistake_count > 3) ? colorShift("aqua") : (this.isGoal && gameEngine.cheat) ? colorShift("rainbow") : "white"}`,
 							);

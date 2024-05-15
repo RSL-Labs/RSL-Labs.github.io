@@ -1,74 +1,132 @@
-GTDICT = {
+function GTDICT(indexText){
+	let indexLanguage = navigator.language.toUpperCase();
+	if(indexLanguage.includes("EN")){
+		indexLanguage = "EN";
+	}
 
-	//DISPLAY TEXT
-	DISP1:{
-		EN:"",
-		JP:"",
-	},
-	DISP2:{
-		EN:"",
-		JP:"",
-	},
-	DISP3:{
-		EN:"",
-		JP:"",
-	},
+	if(gameMenu?.settings.language[0] == "日本語" || indexLanguage == "JP"){
+		indexLanguage = "JP"
+	}else{
+		indexLanguage = "EN"
+	}
 
-	//SYSTEM TEXT
-	MAINMENU:{
-		EN:"MAIN MENU",
-		JP:"メイン　メニュー",
-	},
-	GAMEMENU:{
-		EN:"MENU",
-		JP:"メニュー",
-	},
-	BAG:{
-		EN:"BAG",
-		JP:"バッグ",
-	},
-	SETTINGS:{
-		EN:"SETTINGS",
-		JP:"設定",
-	},
-	LANGUAGE:{
-		EN:"LANGUAGE",
-		JP:"言語",
-	},
+	let dictTable = {
+			//TEMPLATE
+					TEMP1:{
+						EN:"HELLO",
+						JP:"こんにちは",
+					},
 
-	//DESCRIPTION TEXT
-	DESC1:{
-		EN:"",
-		JP:"",
-	},
+			//DISPLAY TEXT
+					DISP1:{
+						EN:"",
+						JP:"",
+					},
 
-	//UI TEXT
-	UI1:{
-		EN:"",
-		JP:"",
-	},
-	UI2:{
-		EN:"",
-		JP:"",
-	},
-	UI3:{
-		EN:"",
-		JP:"",
-	},
+			//SYSTEM TEXT
+					MAINMENU:{
+						EN:"MAIN MENU",
+						JP:"メイン　メニュー",
+					},
+					START:{
+						EN:"START ADVENTURE",
+						JP:"冒険を始める",
+					},
+					CONTENTS:{
+						EN:"CHOOSE YOUR CONTENTS",
+						JP:"コンテンツを選ぼう",
+					},
+					DIFFICULTY:{
+						EN:"CHOOSE YOUR DIFFICULTY",
+						JP:"難易度を選ぼう",
+					},
+					EASY:{
+						EN:"EASY",
+						JP:"かんたん",
+					},
+					MEDIUM:{
+						EN:"MEDIUM",
+						JP:"ふつう",
+					},
+					HARD:{
+						EN:"HARD",
+						JP:"むずかしい",
+					},
+					CRAZY:{
+						EN:"CRAZY",
+						JP:"おバカ",
+					},
+					EASYDESC:{
+						EN:["   Answers: 3",	"   HP: +7", "   Mistake: No Penalty ", 			"   Enemy Speed: Slow", 		"   Enemy Count: 3", 	"   Hint: Always"],
+						JP:["   答えの数: 3",		"   HP: +7", "   間違え: ペナルティなし ", 				"   敵の速さ: おそい", 				"   敵の数: 3", 			"   ヒント: ずっと"],
+					},
+					MEDIUMDESC:{
+						EN:["   Answers: 4",	"   HP: +6", "   Mistake: Score ⁻100", 				"   Enemy Speed: Normal", 		"   Enemy Count: 4", 	"   Hint: On Mistake"],
+						JP:["   答えの数: 4",		"   HP: +6", "   間違え: スコアー　 ⁻100", 				"   敵の速さ: ふつう", 				"   敵の数: 4", 			"   ヒント: 間違えから"],
+					},
+					HARDDESC:{
+						EN:["   Answers: 5",	"   HP: +5", "   Mistake: Score ⁻100 ➜ HP ⁻1 ", 	"   Enemy Speed: Normal", 		"   Enemy Count: 5", 	"   Hint: On Mistake"],
+						JP:["   答えの数: 5",		"   HP: +5", "   間違え: スコアー　 ⁻100 ➜ HP ⁻1 ", 	"   敵の速さ: ふつう", 				"   敵の数: 5", 			"   ヒント: 間違えから"],
+					},
+					CRAZYDESC:{
+						EN:["   Answers: 5",	"   HP: +4", "   Mistake: Score ⁻100 & HP ⁻1", 		"   Enemy Speed: Fast Speed", 	"   Enemy Count: 5", 	"   Hint: None"],
+						JP:["   答えの数: 5",		"   HP: +4", "   間違え: スコアー　 ⁻100 & HP ⁻1", 		"   敵の速さ: はやい", 				"   敵の数: 5", 			"   ヒント: なし"],
+					},
+					STYLE:{
+						EN:"CHOOSE YOUR STYLE:",
+						JP:"様式を選ぼう",
+					},
+					 
+					STYLETEXTEN:{
+						EN:"JAPANESE to ENGLISH",
+						JP:"日本語　=>　英語",
+					},
+					STYLETEXTJP:{
+						EN:"ENGLISH to JAPANESE",
+						JP:"英語　　=>　日本語",
+					},
+					STYLEDESCEN:{
+						EN:["Goal Word in Japanese", "Map Answers in English."],
+						JP:["ゴールは日本語", "マップは英語"],
+					},
+					STYLEDESCJP:{
+						EN:["Goal Word in English", "Map Answers in Japanese."],
+						JP:["ゴールは英語", "マップは日本語"],
+					},
+					GAMEMENU:{
+						EN:"MENU",
+						JP:"メニュー",
+					},
+					BAG:{
+						EN:"BAG",
+						JP:"バッグ",
+					},
+					SETTINGS:{
+						EN:"SETTINGS",
+						JP:"設定",
+					},
+					LANGUAGE:{
+						EN:"LANGUAGE",
+						JP:"言語",
+					},
 
-	//GAME TEXT
-	GAME1:{
-		EN:"",
-		JP:"",
-	},
-	GAME2:{
-		EN:"",
-		JP:"",
-	},
-	GAME3:{
-		EN:"",
-		JP:"",
-	},
+			//DESCRIPTION TEXT
+
+			//UI TEXT
+					HINT:{
+						EN:"HINT",
+						JP:"ヒント",
+					},
+
+			//GAME TEXT
+					GAME1:{
+						EN:"",
+						JP:"",
+					},
+
+		}
+
+	return dictTable[indexText][indexLanguage];
 }
 
 class textBox{
@@ -128,21 +186,22 @@ class textBox{
 		//TEXT
 		ctx.fillStyle = this.colorText;
 		let defaultSize = 20
-		ctx.font = `normal ${defaultSize}px Noto Sans Japanese`;
+		ctx.font = `normal ${defaultSize}px Arial`;
 		let name_width_table = this.name.map(e => ctx.measureText(e).width);
-		let name_height = this.name.length*ctx.measureText("j").fontBoundingBoxAscent;
+		//let name_height = this.name.length*ctx.measureText("j").fontBoundingBoxAscent;
+		let name_height = ctx.measureText("j").fontBoundingBoxDescent+ctx.measureText("h").fontBoundingBoxAscent;
 
 		while(name_width_table.some(e => e > this.w-10) || name_height > this.h-10){
 			defaultSize--;
-			ctx.font = `normal ${defaultSize}px Noto Sans Japanese`;
+			ctx.font = `normal ${defaultSize}px Arial`;
 
 			name_width_table = this.name.map(e => ctx.measureText(e).width);
-			name_height = this.name.length*ctx.measureText("j").fontBoundingBoxAscent;
+			name_height = ctx.measureText("j").fontBoundingBoxDescent+ctx.measureText("h").fontBoundingBoxAscent;
 
 		}
 
 		let textX = this.centerX == true ? this.x+(this.w*0.5)-(ctx.measureText(this.name[0]).width*0.5)-tileSize : this.x+10-tileSize;
-		let textY = this.centerY == true ? (this.y+(this.h*0.5))-(name_height*0.5)-spacing(3) : this.y+10-tileSize*0.5;
+		let textY = this.centerY == true ? this.y+(this.h*0.5)-(name_height)-spacing(2.5) : this.y+10-tileSize*0.5;
 
 		if(this.name instanceof Array){
 
@@ -198,7 +257,7 @@ class menuButton extends textBox{
 		ctx.fill();
 
 		ctx.fillStyle = this.colorText;
-		ctx.font = "normal 14px Noto Sans Japanese";
+		ctx.font = "normal 14px Arial";
 		let textX = this.x;
 		let textY = this.y+12;
 
@@ -208,7 +267,7 @@ class menuButton extends textBox{
 			for(let i=0; i<this.name.length; i++){
 				if(i>0){ line_shrink = this.name.length - 2 };
 
-				ctx.font = "normal "+(12-(line_shrink*2))+"px Noto Sans Japanese";
+				ctx.font = "normal "+(12-(line_shrink*2))+"px Arial";
 				let centerX = (this.w/2) - ctx.measureText(this.name[i]).width/2;
 
 				ctx.fillText(this.name[i], textX+centerX, textY+(i*(14-(line_shrink*2))));	
@@ -238,8 +297,11 @@ class GameMenu{
 		this.currentOption = 0;
 		this.prevOption = 0;
 		this.lastOptionDir = 0;
-		this.language = navigator.language;
-		this.language = "en";
+		//this.language = "EN";
+		this.language = navigator.language.toUpperCase();
+		if(this.language.includes("EN")){
+			this.language = "EN"
+		}
 
 		this.defaults = {
 				header : "DEFAULT",
@@ -276,19 +338,19 @@ class GameMenu{
 		this.menuData = {
 			default: this.defaults,
 
-			title : {
-				header : "MAIN MENU",
-				text: "",
-				x : viewHalf*tileSize,
-				y : viewHalf*tileSize,
-				width : viewHalf*tileSize,
-				//heightOverride: spacing(8),
-				center: true,
-				border : "default",
-			},
+			// title : {
+			// 	header : GTDICT("TITLE"),
+			// 	text: "",
+			// 	x : viewHalf*tileSize,
+			// 	y : viewHalf*tileSize,
+			// 	width : viewHalf*tileSize,
+			// 	//heightOverride: spacing(8),
+			// 	center: true,
+			// 	border : "default",
+			// },
 
 			settings : {
-				header : this.language == "ja" ? "設定" : "SETTINGS",
+				header : GTDICT("SETTINGS"),
 				text: "",
 				x:this.currentMenus[0] == "mainMenu" ? (viewHalf+1)*tileSize : (numTilesX-4)*tileSize,
 				y:tileSize,
@@ -298,13 +360,13 @@ class GameMenu{
 				options:[
 					{menu_id:"SFX", text:"SFX: "+(this.settings.sfx ? "On" : "Off")},
 					{menu_id:"MSC", text:"BGM: "+(this.settings.music ? "On" : "Off")},
-					{menu_id:"LANG", text:`${this.language == "ja" ? "言語" : "Language"}: ${(this.settings.language[0])}`},
+					{menu_id:"LANG", text:`${GTDICT("LANGUAGE")}: ${(this.settings.language[0])}`},
 					//{menu_id:"BKGD", text:"BACKGROUND: "+toTitleCase(this.settings.colorBkgd[0])},
 					],
 			},
 
 			mainMenu : {
-				header : this.language == "ja" ? "メインメニュー" : "MAIN MENU",
+				header : GTDICT("MAINMENU"),
 				text: "",
 				x : viewHalf*tileSize+tileSize,
 				y : viewHalf*tileSize-tileSize/2,
@@ -313,13 +375,13 @@ class GameMenu{
 				center: true,
 				border : "default",
 				options:[ 
-					{menu_id:"STARTGAME",text:this.language == "ja" ? "冒険を始める" : "START ADVENTURE"},
-					{menu_id:"SETTINGS",text:this.language == "ja" ? "設定" : "SETTINGS"},
+					{menu_id:"STARTGAME",text:GTDICT("START")},
+					{menu_id:"SETTINGS",text:GTDICT("SETTINGS")},
 					],
 			},
 
 			contentSelect: {
-				header : this.language == "ja" ? "コンテンツを選ぼう" : "CHOOSE YOUR CONTENTS:",
+				header : GTDICT("CONTENTS"),
 				text: "",
 				x : viewHalf*spacing(4),
 				y : spacing(1),
@@ -332,7 +394,7 @@ class GameMenu{
 			},
 
 			difficultySelect : {
-				header : this.language == "ja" ? "難易度を選ぼう" : "CHOOSE YOUR DIFFICULTY:",
+				header : GTDICT("DIFFICULTY"),
 				text: "",
 				x : viewHalf*tileSize,
 				y : tileSize,
@@ -341,31 +403,19 @@ class GameMenu{
 				center: true,
 				border : "default",
 				options:[ 
-					{menu_id:"CHOOSEDIFFICULTY", text:"EASY", 	detail:["=======================",...this.language == "ja" ? 
-																		["   マップ: 6x6", 		"   答えの数: 3",		"   HP: +7", "   間違え: Score-0 / HP-0 ", 			"   敵の速さ: おそい", 				"   敵の数: 3", 			"   ヒント: ずっと"] 
-																		:["   Map: 6x6", 		"   Answers: 3",	"   HP: +7", "   Mistake: Score-0 / HP-0 ", 		"   Enemy Speed: Slow", 		"   Enemy Count: 3", 	"   Hint: Always"]
-																		]},
+					{menu_id:"CHOOSEDIFFICULTY", text:GTDICT("EASY"), 	detail:["=======================",...GTDICT("EASYDESC")]},
 
-					{menu_id:"CHOOSEDIFFICULTY", text:"MEDIUM", detail:["=======================",...this.language == "ja" ? 
-																		["   マップ: 6x6", 		"   答えの数: 4",		"   HP: +6", "   間違え: Score-100 / HP-0 ", 		"   敵の速さ: ふつう", 				"   敵の数: 4", 			"   ヒント: 間違えから"]
-																		:["   Map: 6x6", 		"   Answers: 4",	"   HP: +6", "   Mistake: Score-100 / HP-0 ", 		"   Enemy Speed: Normal", 		"   Enemy Count: 4", 	"   Hint: On Mistake"]
-																		]},
+					{menu_id:"CHOOSEDIFFICULTY", text:GTDICT("MEDIUM"), detail:["=======================",...GTDICT("MEDIUMDESC")]},
 
-					{menu_id:"CHOOSEDIFFICULTY", text:"HARD",	detail:["=======================",...this.language == "ja" ? 
-																		["   マップ: 6x6", 		"   答えの数: 5",		"   HP: +5", "   間違え: Score-100 => HP-1 ", 		"   敵の速さ: ふつう", 				"   敵の数: 5", 			"   ヒント: 間違えから"]
-																		:["   Map: 6x6", 		"   Answers: 5",	"   HP: +5", "   Mistake: Score-100 => HP-1 ", 		"   Enemy Speed: Normal", 		"   Enemy Count: 5", 	"   Hint: On Mistake"]
-																		]},
+					{menu_id:"CHOOSEDIFFICULTY", text:GTDICT("HARD"),	detail:["=======================",...GTDICT("HARDDESC")]},
 
-					{menu_id:"CHOOSEDIFFICULTY", text:"CRAZY",	detail:["=======================",...this.language == "ja" ?
-																		["   マップ: 6x6", 		"   答えの数: 5",		"   HP: +4", "   間違え: Score-100 & HP-1", 			"   敵の速さ: はやい", 				"   敵の数: 5", 			"   ヒント: なし"]
-																		:["   Map: 6x6", 		"   Answers: 5",	"   HP: +4", "   Mistake: Score-100 & HP-1", 		"   Enemy Speed: Fast Speed", 	"   Enemy Count: 5", 	"   Hint: None"]
-																		]},
+					{menu_id:"CHOOSEDIFFICULTY", text:GTDICT("CRAZY"),	detail:["=======================",...GTDICT("CRAZYDESC")]},
 					],
 				optionsDisplayLength:4,
 			},
 
 			methodSelect : {
-				header : this.language == "ja" ? "様式を選ぼう" : "CHOOSE YOUR STYLE:",
+				header : GTDICT("STYLE"),
 				text: "",
 				x : viewHalf*tileSize,
 				y : tileSize,
@@ -374,8 +424,8 @@ class GameMenu{
 				center: true,
 				border : "default",
 				options:[ 
-							{menu_id:"CHOOSEMETHOD", text:this.language == "ja" ? "日本語　=>　英語":`JAPANESE to ENGLISH`, method:1, detail:["=====================",...this.language == "ja" ? ["ゴールは日本語", "マップは英語"] : ["Goal Word in Japanese", "Map Answers in English."]]},
-							{menu_id:"CHOOSEMETHOD", text:this.language == "ja" ? "英語　=>　日本語":`ENGLISH to JAPANESE`, method:2, detail:["=====================",...this.language == "ja" ? ["ゴールは英語", "マップは日本語"] : ["Goal Word in English", "Map Answers in Japanese."]]},
+							{menu_id:"CHOOSEMETHOD", text:GTDICT("STYLETEXTEN"), method:1, detail:["=====================",...GTDICT("STYLEDESCEN")]},
+							{menu_id:"CHOOSEMETHOD", text:GTDICT("STYLETEXTJP"), method:2, detail:["=====================",...GTDICT("STYLEDESCJP")]},
 					],
 				optionsDisplayLength:2,
 			},
@@ -517,7 +567,7 @@ class GameMenu{
 
 		ctxMenu.globalAlpha = 1;
 		ctxMenu.fillStyle = opts.textColor;
-		ctxMenu.font = tWeight + opts.size + "px Noto Sans Japanese";
+		ctxMenu.font = tWeight + opts.size + "px Arial";
 		ctxMenu.strokeStyle = this.settings.colorText[1];
 	    ctxMenu.lineWidth = ((opts.size/14)*1);
 	    ctxMenu.lineJoin="round";
