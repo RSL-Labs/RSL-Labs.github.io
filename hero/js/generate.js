@@ -9,7 +9,7 @@ generate = {
 			tiles[i] = [];
 
 			for(let j=0; j<numTilesY; j++){
-				if(Math.random() < gameEngine.settings.difficulty*0.1 || !map.inBounds(i,j)){
+				if(Math.random() < (gameEngine.settings.difficulty+1)*0.1 || !map.inBounds(i,j)){
 					if(map.outBounds(i,j)){
 						tiles[i][j] = new Void({x:i, y:j});
 

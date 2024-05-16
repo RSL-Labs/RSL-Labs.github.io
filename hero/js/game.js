@@ -511,7 +511,7 @@ game = {
 
 		let frame_index = perClock(palettes["DECOR"]["WALL_TORCH_ANIM"].length, "milliseconds", palettes["DECOR"]["WALL_TORCH_ANIM"].length)-1;
 		draw.drawSprite(decor_spritesheet, palettes["DECOR"]["WALL_TORCH_ANIM"][frame_index], -0.25, 1.5, 2);
-		draw.drawSprite(decor_spritesheet, palettes["DECOR"]["WALL_TORCH_ANIM"][frame_index], 14, 1.5, 2);
+		draw.drawSprite(decor_spritesheet, palettes["DECOR"]["WALL_TORCH_ANIM"][frame_index], 8, 1.5, 2);
 
 		draw.drawScores();
 	},
@@ -523,19 +523,19 @@ game = {
 		gameState = "victory";
 
 		if(gameEngine.won){
-			draw.drawSprite(tileset_spritesheet, palettes["HERO"]["CHALICE"], (canvas.width/tileSize/2)-0.5, 0.75, 1);
+			draw.drawSprite(tileset_spritesheet, palettes["HERO"]["CHALICE"], 4.25, 0.75, 1);
 			draw.drawText(`VICTORY!`, 96, true, 0, 2.5*tileSize, "gold");
 			draw.drawText(`You are a hero!`, 45, true, 0, 3*tileSize, colorShift("rainbow"));
 
 		}else{
-			draw.drawSprite(tileset_spritesheet, palettes["HERO"]["DEFEAT"], (canvas.width/tileSize/2)-0.5, 0.75, 1);
+			draw.drawSprite(tileset_spritesheet, palettes["HERO"]["DEFEAT"], 4.25, 0.75, 1);
 			draw.drawText(`DEFEAT!`, 96, true, 0, 2.5*tileSize, "orange");
 			draw.drawText(`You are not the hero...`, 45, true, 0, 3*tileSize, colorShift("brown"));
 		}
 
 		let frame_index = perClock(palettes["DECOR"]["WALL_TORCH_ANIM"].length, "milliseconds", palettes["DECOR"]["WALL_TORCH_ANIM"].length)-1;
 		draw.drawSprite(decor_spritesheet, palettes["DECOR"]["WALL_TORCH_ANIM"][frame_index], -0.25, 1.5, 2);
-		draw.drawSprite(decor_spritesheet, palettes["DECOR"]["WALL_TORCH_ANIM"][frame_index], 13.25, 1.5, 2);
+		draw.drawSprite(decor_spritesheet, palettes["DECOR"]["WALL_TORCH_ANIM"][frame_index], 8, 1.5, 2);
 
 		draw.drawScores();
 	},

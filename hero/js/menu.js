@@ -120,6 +120,10 @@ function GTDICT(indexText){
 						EN:"SETTINGS",
 						JP:"設定",
 					},
+					BACKGROUND:{
+						EN:"BG COLOR",
+						JP:"背景色",
+					},
 					LANGUAGE:{
 						EN:"LANGUAGE",
 						JP:"言語",
@@ -254,7 +258,7 @@ function GTDICT(indexText){
 					},
 					CHEATDESC:{
 						EN:"Highlights all remaining correct answer tiles,\n　　but has a random penalty.",
-						JP:"残りの正解タイルをすべて強調表示しますが\n　　ランダムなペナルティがかかります。",
+						JP:"残りの正解タイルをすべて強調表示しますが\n　　ランダムなペナルティが発生します。",
 					},
 		}
 
@@ -454,7 +458,7 @@ class GameMenu{
 		this.settings = {
 				isMuted : false,
 
-				colorBkgd : ["blue","indigo","firebrick","orange","goldenrod","forestgreen","black","white","dimgray"],
+				colorBkgd : ["blue","firebrick","forestgreen","black","dimgray"],
 				colorOutline : this.defaults.border.color,
 				colorText : ["white","black"],
 				sfx : true,
@@ -484,16 +488,16 @@ class GameMenu{
 			settings : {
 				header : GTDICT("SETTINGS"),
 				text: "",
-				x:this.currentMenus[0] == "mainMenu" ? (viewHalf+1)*tileSize : (numTilesX-4)*tileSize,
-				y:tileSize,
-				width : 3*tileSize,
+				x:this.currentMenus[0] == "mainMenu" ? (viewHalf+1)*tileSize : 0.5*tileSize*stretchScale,//(numTilesX-4)*tileSize,
+				y:spacing(4),
+				width : 4*tileSize,
 				//heightOverride: spacing(4),
 				border : "default",
 				options:[
 					{menu_id:"SFX", text:"SFX: "+(this.settings.sfx ? "On" : "Off")},
 					{menu_id:"MSC", text:"BGM: "+(this.settings.music ? "On" : "Off")},
+					{menu_id:"BKGD", text:`${GTDICT("BACKGROUND")}: `+toTitleCase(this.settings.colorBkgd[0])},
 					{menu_id:"LANG", text:`${GTDICT("LANGUAGE")}: ${(this.settings.language[0])}`},
-					//{menu_id:"BKGD", text:"BACKGROUND: "+toTitleCase(this.settings.colorBkgd[0])},
 					],
 			},
 
@@ -501,8 +505,8 @@ class GameMenu{
 				header : GTDICT("MAINMENU"),
 				text: "",
 				x : viewHalf*tileSize+tileSize,
-				y : viewHalf*tileSize-tileSize/2,
-				width : spacing(12),
+				y : spacing(4),
+				width : spacing(16),
 				//heightOverride: spacing(3),
 				center: true,
 				border : "default",
@@ -535,13 +539,13 @@ class GameMenu{
 				center: true,
 				border : "default",
 				options:[ 
-					{menu_id:"CHOOSEDIFFICULTY", text:GTDICT("EASY"), 	detail:["=======================",...GTDICT("EASYDESC")]},
+					{menu_id:"CHOOSEDIFFICULTY", text:GTDICT("EASY"), 	diff:"EASY",	detail:["=======================",...GTDICT("EASYDESC")]},
 
-					{menu_id:"CHOOSEDIFFICULTY", text:GTDICT("MEDIUM"), detail:["=======================",...GTDICT("MEDIUMDESC")]},
+					{menu_id:"CHOOSEDIFFICULTY", text:GTDICT("MEDIUM"), diff:"MEDIUM",	detail:["=======================",...GTDICT("MEDIUMDESC")]},
 
-					{menu_id:"CHOOSEDIFFICULTY", text:GTDICT("HARD"),	detail:["=======================",...GTDICT("HARDDESC")]},
+					{menu_id:"CHOOSEDIFFICULTY", text:GTDICT("HARD"),	diff:"HARD",	detail:["=======================",...GTDICT("HARDDESC")]},
 
-					{menu_id:"CHOOSEDIFFICULTY", text:GTDICT("CRAZY"),	detail:["=======================",...GTDICT("CRAZYDESC")]},
+					{menu_id:"CHOOSEDIFFICULTY", text:GTDICT("CRAZY"),	diff:"CRAZY",	detail:["=======================",...GTDICT("CRAZYDESC")]},
 					],
 				optionsDisplayLength:4,
 			},
@@ -565,7 +569,7 @@ class GameMenu{
 			gameMain : {
 				header : GTDICT("MENU"),
 				text: "",
-				x : (numTilesX-3)*tileSize,
+				x : 0.5*tileSize*stretchScale,//(numTilesX-3)*tileSize,
 				y : tileSize,
 				width : tileSize*2,
 				border : "default",
@@ -582,9 +586,9 @@ class GameMenu{
 			bag : {
 				header : GTDICT("BAG"),
 				text: "",
-				x : (numTilesX-7)*tileSize,
+				x : 0.5*tileSize*stretchScale,//(numTilesX-7)*tileSize,
 				y : tileSize,
-				width:tileSize*6,
+				width:spacing(28),
 				heightOverride: spacing(16),
 				options:[{menu_id:"BAG", text:"DUMMY", icon:" ", color:"white", v_index:0, l_index:0}],
 				optionsDisplayLength:9,
@@ -616,9 +620,9 @@ class GameMenu{
 			dialog : {
 				header : " ",
 				text: [],
-				x: (numTiles*0.5)*tileSize-((numTiles-2)*tileSize)/2,
+				x: spacing(14),
 				y: uiTop+spacing(6),
-				width: (numTiles-1)*tileSize,
+				width: spacing(20),
 				heightOverride : spacing(4),
 				options:[],
 			},
@@ -626,9 +630,9 @@ class GameMenu{
 			gameOver : {
 				header : "GAME OVER",
 				text: "",
-				x : viewHalf*tileSize,
+				x : spacing(14),
 				y : viewHalf*tileSize,
-				width : viewHalf*tileSize,
+				width : spacing(20),
 				//heightOverride : spacing(3),
 				color: "black",
 				textColor: "red",
@@ -641,9 +645,9 @@ class GameMenu{
 			cancelOk : {
 				header : GTDICT("CONFIRM"),
 				text: "",
-				x : (viewHalf/2)*tileSize,
+				x : spacing(14),
 				y : (viewHalf/2)*tileSize,
-				width : viewHalf*1.25*tileSize,
+				width:spacing(20),
 				options: [
 					{menu_id:"CANCEL", text:GTDICT("CANCEL")},
 					// {menu_id:"ACCEPT", text:"OK"},
@@ -830,7 +834,7 @@ class GameMenu{
 					size:menuSettings.size || 16,
 					centered:true,
 					textX:menuSettings.x+spacing(2),
-					textY:textY+spacing(2*menuSettings.options.length)+(spacing(1.1)*(index+3)),
+					textY:textY+spacing(menuSettings.options.length+4),//+(spacing(1.1)*(index+3)),
 					textColor:this.settings.colorText[0],
 				})
 
@@ -1033,7 +1037,7 @@ class GameMenu{
 						this.difficultySelectMenu()
 					};
 
-					if(selection == "CHOOSEDIFFICULTY") {setupSettings.difficulty = options[this.currentOption].text; this.currentOption = 0; this.methodSelectMenu()};
+					if(selection == "CHOOSEDIFFICULTY") {setupSettings.difficulty = options[this.currentOption].diff; this.currentOption = 0; this.methodSelectMenu()};
 					if(selection == "CHOOSEMETHOD") {setupSettings.vocab_method = options[this.currentOption].method; this.nameMenu(options[this.currentOption].text, "Player One")};
 
 					if(selection == "BAG") {this.bagMenu(options[this.currentOption], "BAG_SORT_ITEM")};
@@ -1047,7 +1051,7 @@ class GameMenu{
 					if(selection == "SFX") this.settingsMenu("SFX");
 					if(selection == "MSC") this.settingsMenu("MSC");
 					if(selection == "LANG") this.settingsMenu("LANG");
-					// if(selection == "BKGD") this.settingsMenu("BKGD");
+					if(selection == "BKGD") this.settingsMenu("BKGD");
 					// if(selection == "TEXT") this.settingsMenu("TEXT");
 
 					if(selection == "QUIT") this.acceptMenu({msg:GTDICT("QUITTEXT") ,func:this.quitMenu.bind(this)});
@@ -1318,7 +1322,8 @@ class GameMenu{
 		if(this.currentMenus[0] == "mainMenu"){
 			menuSettings.x = (viewHalf+1)*tileSize;
 		}else{
-			menuSettings.x = (numTilesX-4)*tileSize;
+			//menuSettings.x = (numTilesX-4)*tileSize;
+			menuSettings.x = 0.5*tileSize*stretchScale
 		}
 
 		if(option == "SFX") this.settings.sfx = !this.settings.sfx;
@@ -1342,27 +1347,27 @@ class GameMenu{
 
 			this.applySettings();
 		}
-		// if(option == "BKGD"){
-		// 	this.settings.colorBkgd = rotateArray(this.settings.colorBkgd)
+		if(option == "BKGD"){
+			this.settings.colorBkgd = rotateArray(this.settings.colorBkgd)
 
-		// 	if(this.settings.colorBkgd[0] == "white"){
-		// 		while(this.settings.colorText[0] == "white"){
-		// 			this.settings.colorText = rotateArray(this.settings.colorText)
-		// 		}
+			if(this.settings.colorBkgd[0] == "white"){
+				while(this.settings.colorText[0] == "white"){
+					this.settings.colorText = rotateArray(this.settings.colorText)
+				}
 
-		// 	}else{
-		// 		while(this.settings.colorText[0] != "white"){
-		// 			this.settings.colorText = rotateArray(this.settings.colorText)
-		// 		}
-		// 	}
-		// };
+			}else{
+				while(this.settings.colorText[0] != "white"){
+					this.settings.colorText = rotateArray(this.settings.colorText)
+				}
+			}
+		};
 
 		if(option){
 			this.menuData.settings.options = [
 											{menu_id:"SFX", text:"SFX: "+(this.settings.sfx ? "On" : "Off")},
 											{menu_id:"MSC", text:"BGM: "+(this.settings.music ? "On" : "Off")},
+											{menu_id:"BKGD", text:`${GTDICT("BACKGROUND")}: `+toTitleCase(this.settings.colorBkgd[0])},
 											{menu_id:"LANG", text:`${GTDICT("LANGUAGE")}: ${(this.settings.language[0])}`},
-											//{menu_id:"BKGD", text:"BACKGROUND: "+toTitleCase(this.settings.colorBkgd[0])},
 										];
 		};
 	}
@@ -1423,16 +1428,17 @@ class GameMenu{
 		game.playSound("buttonAccept");
 		var menuSettings = this.setupSubmenu("codeEntry");
 
-		let codePrompt = prompt(GTDICT("ENTERCODE"),  "") || GTDICT("CANCEL");
+		let codePrompt = prompt(GTDICT("ENTERCODE"));
 
-		if(codePrompt.at(-1)=="*"){
-			setupSettings.special_dungeon = true;
-			codePrompt = codePrompt.substring(0, codePrompt.length-1);
-		}else{
-			setupSettings.special_dungeon = false;
-		}
 
-		if(codePrompt != "CANCEL") {
+		if(codePrompt != null) {
+			if(codePrompt.at(-1)=="*"){
+				setupSettings.special_dungeon = true;
+				codePrompt = codePrompt.substring(0, codePrompt.length-1);
+			}else{
+				setupSettings.special_dungeon = false;
+			}
+
 			if(Object.values(window[setupSettings.library]).some(e => e.CODE == codePrompt)){
 				setupSettings.code = codePrompt; 
 				this.currentOption = 0; 
@@ -1446,7 +1452,7 @@ class GameMenu{
 			}
 
 		}else{
-			//alert(this.language != "ja" ? "Wrong or Unknown Code, Please Try Again!" : "コードが間違っているか不明です。もう一度入力してください。")
+			//alert(GTDICT("CODEERROR"))
 			this.cancel();
 		};
 
