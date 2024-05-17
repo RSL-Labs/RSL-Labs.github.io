@@ -17,12 +17,6 @@ function GTDICT(indexText){
 						JP:"こんにちは",
 					},
 
-			//DISPLAY TEXT
-					DISP1:{
-						EN:"",
-						JP:"",
-					},
-
 			//MENU TEXT
 					MAINMENU:{
 						EN:"MAIN MENU",
@@ -119,6 +113,22 @@ function GTDICT(indexText){
 					SETTINGS:{
 						EN:"SETTINGS",
 						JP:"設定",
+					},
+					SFX:{
+						EN:"SFX",
+						JP:"音",
+					},
+					BGM:{
+						EN:"BGM",
+						JP:"音楽",
+					},
+					ON:{
+						EN:"ON",
+						JP:"オン",
+					},
+					OFF:{
+						EN:"OFF",
+						JP:"オッフ",
 					},
 					BACKGROUND:{
 						EN:"BG COLOR",
@@ -288,36 +298,30 @@ class textBox{
 	}
 
 	drawSelf(){
-		//BORDER
-		ctx.lineWidth = "10";
-		ctx.strokeStyle = "black";
-		ctx.beginPath();
-		ctx.roundRect(this.x, this.y, this.w, this.h, 8);
-		ctx.stroke();
-		ctx.lineWidth = "7";
-		ctx.strokeStyle = "grey";
-		ctx.beginPath();
-		ctx.roundRect(this.x, this.y, this.w, this.h, 8);
-		ctx.stroke();
-		ctx.lineWidth = "5";
-		ctx.strokeStyle = this.colorOutline;
-		ctx.beginPath();
-		ctx.roundRect(this.x, this.y, this.w, this.h, 8);
-		ctx.stroke();
-
 		//FILL
 		const gradient = ctx.createLinearGradient(0, this.y, 0, this.y+this.h);
 		const colorStops = nameToGradient(gameMenu.settings.colorBkgd[0]);
 		gradient.addColorStop(0, colorStops[0]);
 		gradient.addColorStop(0.5, colorStops[1]);
 		gradient.addColorStop(1, colorStops[2]);
-
 		ctx.globalAlpha = 0.9;
 		ctx.beginPath();
 		ctx.fillStyle = gradient;
 		ctx.roundRect(this.x, this.y, this.w, this.h, 8);
 		ctx.fill();
 		ctx.globalAlpha = 1;
+		
+		//BORDER
+		ctx.lineWidth = 4;
+		ctx.strokeStyle = "grey";
+		ctx.beginPath();
+		ctx.roundRect(this.x, this.y, this.w, this.h, 8);
+		ctx.stroke();
+		ctx.lineWidth = 2.5;
+		ctx.strokeStyle = "white";
+		ctx.beginPath();
+		ctx.roundRect(this.x, this.y, this.w, this.h, 8);
+		ctx.stroke();
 
 		//TEXT
 		ctx.fillStyle = this.colorText;
@@ -389,8 +393,8 @@ class menuButton extends textBox{
 		ctx.fillStyle = this.colorBkgd;
 		ctx.beginPath();
 		ctx.roundRect(this.x, this.y, this.w, this.h, 8);
-		ctx.stroke();
 		ctx.fill();
+		ctx.stroke();
 
 		ctx.fillStyle = this.colorText;
 		ctx.font = "normal 14px Arial";
@@ -458,7 +462,7 @@ class GameMenu{
 		this.settings = {
 				isMuted : false,
 
-				colorBkgd : ["blue","firebrick","forestgreen","black","dimgray"],
+				colorBkgd : ["blue","maroon","darkgreen","black","dimgray"],
 				colorOutline : this.defaults.border.color,
 				colorText : ["white","black"],
 				sfx : true,
@@ -494,8 +498,8 @@ class GameMenu{
 				//heightOverride: spacing(4),
 				border : "default",
 				options:[
-					{menu_id:"SFX", text:"SFX: "+(this.settings.sfx ? "On" : "Off")},
-					{menu_id:"MSC", text:"BGM: "+(this.settings.music ? "On" : "Off")},
+					{menu_id:"SFX", text:`${GTDICT("SFX")}: `+(this.settings.sfx ? `${GTDICT("ON")}` : `${GTDICT("OFF")}`)},
+					{menu_id:"MSC", text:`${GTDICT("BGM")}: `+(this.settings.music ? `${GTDICT("ON")}` : `${GTDICT("OFF")}`)},
 					{menu_id:"BKGD", text:`${GTDICT("BACKGROUND")}: `+toTitleCase(this.settings.colorBkgd[0])},
 					{menu_id:"LANG", text:`${GTDICT("LANGUAGE")}: ${(this.settings.language[0])}`},
 					],
@@ -765,9 +769,8 @@ class GameMenu{
 				x:menuSettings.x,
 				y:menuSettings.y-menuDefaults.border.width,
 				width:menuSettings.width,
-				//height:tileSize*1,
 				height:spacing(4),
-				color:this.settings.colorBkgd[0],
+				color:menuSettings?.colorBkgd ?? this.settings.colorBkgd[0],
 				alpha:menuSettings.alpha,
 			})
 
@@ -778,20 +781,10 @@ class GameMenu{
 				size:scaleFontToWidth(menuSettings.header, 20, menuSettings.width*0.8),
 				centered:true,
 				textX:menuSettings.x + (menuSettings.width/2) - Math.floor(ctx.measureText(menuSettings.header).width/2),
-				//textY:menuSettings.y+tileSize*0.75-menuDefaults.border.width*2,
 				textY:menuSettings.y+(spacing(2.5))-(ctx.measureText(menuSettings.header).fontBoundingBoxAscent*0.5),
 				textColor:this.settings.colorText[0],
 				weight:"bold ",
 			})
-
-			// this.drawBoxFill({
-			// 	x:menuSettings.x+20,
-			// 	y:menuSettings.y+tileSize,
-			// 	width:menuSettings.width-40,
-			// 	height:4,
-			// 	color:this.settings.colorText[0],
-			// 	alpha:1,
-			// })
 		}
 
 		//MENU LISTBOX
@@ -801,13 +794,12 @@ class GameMenu{
 				x:menuSettings.x,
 				y:menuSettings.y+tileSize*1,
 				width:menuSettings.width,
-				//height:menuSettings.height-tileSize*1,
 				height: menuSettings.heightOverride ? menuSettings.heightOverride
 						:menuSettings.optionsDisplayLength || 
 							(menuSettings?.options && menuSettings.options.some(opt => "desc" in opt)) ||
 							(menuSettings?.text && menuSettings.text.length) ? spacing(22)
 						:spacing(Math.max(3, menuSettings.options.length+1)*1.1),
-				color:this.settings.colorBkgd[0],
+				color:menuSettings?.colorBkgd ?? this.settings.colorBkgd[0],
 				alpha:menuSettings.alpha,
 			})
 		}
@@ -834,7 +826,7 @@ class GameMenu{
 					size:menuSettings.size || 16,
 					centered:true,
 					textX:menuSettings.x+spacing(2),
-					textY:textY+spacing(menuSettings.options.length+4),//+(spacing(1.1)*(index+3)),
+					textY:textY+spacing(menuSettings.options.length+4),
 					textColor:this.settings.colorText[0],
 				})
 
@@ -889,9 +881,7 @@ class GameMenu{
 
 				if(menuSettings.dir == "horizontal"){
 					textX=textX+(menuSettings.options[i][1].length*(14*i));
-					//textY=menuSettings.y+40;
 				}else{
-					//textX=textX;
 					textY=textY+((spacing(1.1))*i);
 				}
 
@@ -902,7 +892,6 @@ class GameMenu{
 					textX:textX,
 					textY:textY,
 					textColor:this.settings.colorText[0],
-					//color: typeof(menuSettings.options[i].color) == "string" ? menuSettings.options[i].color : menuSettings.textColor || menuDefaults.textColor,
 				});
 
 				//DRAW ICON IF INDEXED
@@ -935,8 +924,8 @@ class GameMenu{
 						(16*indexOffsetY),								//sheet y
 						16,												//sprite width
 						16,												//sprite height
-						textX-spacing(2),										//actual x
-						textY-spacing(1.25),										//actual y
+						textX-spacing(2),								//actual x
+						textY-spacing(1.25),							//actual y
 						tScale,											//scale x
 						tScale,											//scale y
 						);
@@ -969,7 +958,6 @@ class GameMenu{
 				x:menuSettings.x,
 				y:menuSettings.y+tileSize*1,
 				width:menuSettings.width,
-				//height:menuSettings.height-tileSize*1,
 				height: menuSettings.heightOverride ? menuSettings.heightOverride
 					:menuSettings.optionsDisplayLength || 
 						(menuSettings?.options && menuSettings.options.some(opt => "desc" in opt)) ||
@@ -982,7 +970,6 @@ class GameMenu{
 				x:menuSettings.x,
 				y:menuSettings.y+tileSize*1,
 				width:menuSettings.width,
-				//height:menuSettings.height-tileSize*1,
 				height: menuSettings.heightOverride ? menuSettings.heightOverride
 					:menuSettings.optionsDisplayLength || 
 						(menuSettings?.options && menuSettings.options.some(opt => "desc" in opt)) ||
@@ -1149,28 +1136,7 @@ class GameMenu{
 
 		}
 
-		// if(sortMethod !== undefined){
-		// 	//var sortedList;
-		// 	var sort_order;
-		// 	var sort_order_map = {} ;
-
-		// 	sortMethod == "BAG_SORT_ITEM" ? sort_order = ["ITEM","SCROLL"]
-		// 	: console.log("ERROR SORTING LIST!");
-
-
-		// 	//generate the sorting map
-		// 	sort_order.forEach((value, index) => sort_order_map[value] = index);
-
-		// 	//sort via the mapping then by name
-		// 	templist.sort((a,b) => ( sort_order_map[a.sort] - sort_order_map[b.sort] || a.text.localeCompare(b.text) ) );
-			
-		// 	//set new menu indices based on sorting
-		// 	templist.forEach((x,index) => {templist[index].v_index = index; templist[index].l_index = index});
-		// }
-
 		if(templist.length >= display_length){
-			//console.table([this.lastOptionDir, this.currentOption, list_current, list.length])
-
 			if(this.lastOptionDir == -1){
 				if(this.currentOption == display_length-1){
 					list_current = list.length-1;
@@ -1364,8 +1330,8 @@ class GameMenu{
 
 		if(option){
 			this.menuData.settings.options = [
-											{menu_id:"SFX", text:"SFX: "+(this.settings.sfx ? "On" : "Off")},
-											{menu_id:"MSC", text:"BGM: "+(this.settings.music ? "On" : "Off")},
+											{menu_id:"SFX", text:`${GTDICT("SFX")}: `+(this.settings.sfx ? `${GTDICT("ON")}` : `${GTDICT("OFF")}`)},
+											{menu_id:"MSC", text:`${GTDICT("BGM")}: `+(this.settings.music ? `${GTDICT("ON")}` : `${GTDICT("OFF")}`)},
 											{menu_id:"BKGD", text:`${GTDICT("BACKGROUND")}: `+toTitleCase(this.settings.colorBkgd[0])},
 											{menu_id:"LANG", text:`${GTDICT("LANGUAGE")}: ${(this.settings.language[0])}`},
 										];
@@ -1374,15 +1340,11 @@ class GameMenu{
 
 	contentSelectMenu(selection, option){
 		var menuSettings = this.setupSubmenu("contentSelect");
-		// var detail = !!option ? option.detail : menuSettings.options[this.currentOption].detail
-		// detail = this.language == "ja" ? detail["ja"] : detail["default"];
 
 		let libraries = window[setupSettings.library].map(lib => {
 			let local_library = {LIB: [{EN:"ENGLISH:", JP:"日本語:"},...lib.LIB]}
-			//local_library.LIB.unshift({EN:"ENGLISH", JP:"JAPANESE"})
-			
-			//let descText = [`${"ENGLISH:"+}　　　　${"日本語:"}`];
 			let descText = [];
+
 			local_library.LIB.forEach(entry => {
 				ctxMenu.font = "14px Arial";
 				let [entryEN, entryJP] = [entry.EN, entry.JP];
@@ -1430,7 +1392,6 @@ class GameMenu{
 
 		let codePrompt = prompt(GTDICT("ENTERCODE"));
 
-
 		if(codePrompt != null) {
 			if(codePrompt.at(-1)=="*"){
 				setupSettings.special_dungeon = true;
@@ -1452,7 +1413,6 @@ class GameMenu{
 			}
 
 		}else{
-			//alert(GTDICT("CODEERROR"))
 			this.cancel();
 		};
 
@@ -1491,27 +1451,6 @@ class GameMenu{
 		menuSettings.sub_current = menuSettings.options[this.currentOption]?.l_index ?? 0;		
 	}
 
-	// statusMenu(){
-	// 	var menuSettings = this.setupSubmenu("status");
-
-	// 	var statText = [
-	// 			`   `,
-	// 		];
-
-	// 	statText.join("\n")
-	// 	menuSettings.text = statText
-	// }
-
-	// messageMenu(selection){
-	// 	var menuSettings = this.setupSubmenu("message");
-		
-	// 	menuSettings.sub_current = selection.l_index || 0;
-	// 	menuSettings.options = [];
-	// 	menuSettings.options = this.util_scrollmenu("MESSAGE", gameEngine.messages.log, menuSettings.optionsDisplayLength, menuSettings.sub_current);
-	// 	menuSettings.sub_current = menuSettings.options[this.currentOption]?.l_index ?? 0;
-
-	// }
-
 	quitMenu(){
 		game.playSound("buttonAccept");
 		this.currentMenus = [];
@@ -1523,7 +1462,6 @@ class GameMenu{
 		ctxDOM.clearRect(0, 0, canvasDOM.width, canvasDOM.height);
 		ctx.clearRect(0, 0, canvas.width, canvas.height);
 		//gameState = "dead";
-		//reactMenu.render(React.createElement(ReactClose))
 
 		musicPlayer.newTrack("title");
 		game.showLoading();

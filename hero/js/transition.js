@@ -21,9 +21,9 @@ Transition = {
 
 			this.fadeTimer ++
 
-			ctxMenu.clearRect(0, 0, numTilesX*tileSize*stretchScale, numTilesY*tileSize);
+			ctxMenu.clearRect(0, 0, canvas.width, canvas.height);
 			ctxMenu.beginPath();
-			ctxMenu.rect(0, 0, numTilesX*tileSize*stretchScale, numTilesY*tileSize);
+			ctxMenu.rect(0, 0, canvas.width, canvas.height);
 			ctxMenu.fillStyle = `rgba(0,0,0,${1*((this.fadeTimer)/timerMax)})`;
 			ctxMenu.fill();
 
@@ -42,8 +42,6 @@ Transition = {
 				}
 			}
 		}
-		//if(on_finish){ on_finish() }
-
 
 		return true;
 	},
@@ -65,9 +63,9 @@ Transition = {
 
 			this.fadeTimer ++
 
-			ctxMenu.clearRect(0, 0, numTilesX*tileSize*stretchScale, numTilesY*tileSize);
+			ctxMenu.clearRect(0, 0, canvas.width, canvas.height);
 			ctxMenu.beginPath();
-			ctxMenu.rect(0, 0, numTilesX*tileSize*stretchScale, numTilesY*tileSize);
+			ctxMenu.rect(0, 0, canvas.width, canvas.height);
 			ctxMenu.fillStyle = `rgba(0,0,0,${1-((this.fadeTimer)/timerMax)})`;
 			ctxMenu.fill();
 

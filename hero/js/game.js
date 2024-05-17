@@ -197,26 +197,6 @@ draw = {
 									});
 		bottomBox.drawSelf();
 
-		//let hpText = `HP: ${"❤".repeat(player.hp)}${"♡".repeat(player.maxHp-player.hp)}`;
-		//let hpText = `HP: ${"▮".repeat(player.hp)}${"▯".repeat(player.maxHp-player.hp)}`;
-
-
-		// let statPanelText = gameMenu.language == "ja"　? [`コード: ${setupSettings.code}`,`難易度: ${gameEngine.settings.name}`,"",`レベル: ${gameEngine.level} / ${Object.keys(gameEngine.current_library).length}`,`スコアー: ${score}`, `ゴールド: ${gold}`," "," ",`${hpText}`,` `]
-		// 												:[`Code: ${setupSettings.code}`,`Difficulty: ${gameEngine.settings.name}`,"",`Level: ${gameEngine.level} / ${Object.keys(gameEngine.current_library).length}`, `Score: ${score}`,`Gold: ${gold}`," "," ",`${hpText}`,` `];
-		// let statPanelBox = new textBox({name:statPanelText, colorText:"gold", x:(uiStart)*tileSize, y:uiTop, w:4*tileSize, h:spacing(12), centerY:true});
-		// statPanelBox.drawSelf();
-
-		// if(player.equip.SWORD > 0){
-		// 	let swordPanelBox = new textBox({name:[`        ${"▮".repeat(player.equip.SWORD)}${"▯".repeat(6-player.equip.SWORD)}   ${gameMenu.language == "ja"?"攻撃":"ATK"}⇧`], colorText:"gold", x:(uiStart)*tileSize, y:uiTop+spacing(13), w:4*tileSize, h:spacing(2), centerY:true});
-		// 	swordPanelBox.drawSelf();
-		// 	draw.drawSprite(tileset_spritesheet, palettes["HERO"]["SWORD"], (uiStart+(2/16)), 3+(3/8), (3/8));
-		// }
-		// if(player.equip.ARMOR > 0){
-		// 	let armorPanelBox = new textBox({name:[`        ${"▮".repeat(player.equip.ARMOR)}${"▯".repeat(6-player.equip.ARMOR)}   ${gameMenu.language == "ja"?"防御":"DEF"}⇧`], colorText:"gold", x:(uiStart)*tileSize, y:uiTop+spacing(16), w:4*tileSize, h:spacing(2), centerY:true});
-		// 	armorPanelBox.drawSelf();
-		// 	draw.drawSprite(tileset_spritesheet, palettes["HERO"]["ARMOR"], (uiStart+(2/16)), 4+(1/8), (3/8));
-
-		// }
 		if(player.items.some(e => e != undefined)){
 			player.items.forEach((e, i, a) => {
 				if(e != undefined){
@@ -559,20 +539,14 @@ game = {
 
 		map.generateLevel();
 
-		// if(map.getTile(1,numTilesY-2).entity){
-		// 	map.getTile(1,numTilesY-2).entity.dead = true;
-		// 	map.getTile(1,numTilesY-2).entity = null
-		// };
 		player = new Player(map.randomPassableTile());
 
-		//player.warp(map.getTile(1,numTilesY-2));
 		let neighbor = player.tile.getAdjacentPassableNeighbors()[0];
 		player.lastMove = [neighbor.x-player.tile.x, neighbor.y-player.tile.y];
 		player.hp = playerHP;
 		gameEngine.remaining = checkRemaining(gameEngine.goal[0][0]);
 		
 		musicPlayer.newTrack(`dungeon${roll(3)}`);
-		//game.playMusic(`dungeon${roll(3)}`);
 	},
 
 	nextLevel: function(playerHP){
@@ -582,12 +556,6 @@ game = {
 		gameEngine.cheat = false;
 
 		map.generateLevel();
-		//player = new Player(map.randomPassableTile());
-		//player.warp(map.randomPassableTile());
-		// if(map.getTile(1,numTilesY-2).entity){
-		// 	map.getTile(1,numTilesY-2).entity.dead = true;
-		// 	map.getTile(1,numTilesY-2).entity = null
-		// };
 
 		player.warp(map.randomPassableTile());
 		let neighbor = player.tile.getAdjacentPassableNeighbors()[0];
