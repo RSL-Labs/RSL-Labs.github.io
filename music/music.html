@@ -99,21 +99,25 @@
 	.wrapper {
 	  display: flex;
 	  justify-content: center;
+	  height: 50px;
 	}
 
 
 	.spectrum {
-	  align-items: center;
+	  justify-content: center;
+	  align-self: flex-bottom;
 	  display: flex;
-	  height: 50px;
+	  height: 100px;
+
 	}
 
 	.spectrum-segment {
 	  background: gold;
-	  margin: 0 2px;
+	  margin: 0 4px;
 	  height: 100%;
 	  transition: transform 125ms linear;
-	  width: 4px;
+	  translate: 0 -10px;
+	  width: 2px;
 	}
 
 </style>
@@ -156,7 +160,7 @@
 		<tr>
 			<td colspan=4>
 				<div class="wrapper">
-					<div class="spectrum">
+					<div class="spectrum" style="align-items: flex-end">
 					</div>
 				</div>
 			</td>
@@ -439,7 +443,7 @@
 	  segmentElements.forEach((segmentElement, i) => {
 	    let value = 
 	      // normalize [-1, 1] => [0, 1]
-	      (noise.getValue(i * 0.1) + 1.5) / 2 
+	      (noise.getValue(i * 0.1) + 1) / 4 
 	      // multiply by random value
 	      * Math.random()
 	      * sample[i];
@@ -455,7 +459,10 @@
 
 
 	    // segmentElement.style.transition = `transform ${ jumpTime }ms linear`;
-	    segmentElement.style.transform = `scale3d(1, ${ value }, 1)`;  });
+	    //segmentElement.style.transform = `scale3d(1, ${ value }, 1)`;  
+	    segmentElement.style.transform = `scale(2, ${ value }) translate(0, -${100-value*200}%)`;
+
+		});
 	}
 
 	setInterval(() => requestAnimationFrame(jump), jumpTime);
