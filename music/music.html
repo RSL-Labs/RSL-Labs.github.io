@@ -239,7 +239,7 @@
 				lyricPath: "./songs/eliza.html"},
 			{track: 8, name: "The Pride of Aries", 
 				songPath: "./songs/The Pride of Aries - FinalFixed.mp3", 
-				artPath: "./songs/ARIES.png",
+				artPath: "./songs/ARIES3.png",
 				lyricPath: "./songs/pride-of-aries.html"},
 		]
 
@@ -253,6 +253,10 @@
 	    btnNext.click();
 	    audioPlayer.play()
 	});
+
+	window.onload = function() {
+	    audioPlayer.volume=0.5;
+	}
 
 	btnPrev.addEventListener('click', () => {
 		if(currentTrack == 0){
