@@ -124,12 +124,15 @@
 	  background-color: white;
 	  color: black;
 	  list-style: none;
+	  display: inline;
 	  padding: 1px;
 	  width:50%;
 	}
+
 	summary::marker{
 		color:white;
 	}
+
 	summary::-webkit-details-marker {
 	  display: none;
 	}
@@ -211,10 +214,10 @@
 			</td>
 		</tr>
 		<tr>
-			<td id="lyrics-cell" height="120px" min-height="140px" colspan="5" align="center" style="padding:5px;">
-				<br>
+			<td id="lyrics-cell" height="50px" colspan="5" align="center" valign="top" style="padding:16px;">
 				<details id="lyrics-details">
 					<summary><h3>▽ SHOW LYRICS ▽</h3></summary>
+						<br>
 						<br>
 						<iframe
 							id="lyrics-frame"
@@ -228,7 +231,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="5" align="center">
+			<td colspan="5" align="center" style="padding:0px">
 				<button id="top" type="button" style="display:none"><h3>△ TOP △</h3></button>
 			</td>
 		</tr>
@@ -286,7 +289,8 @@
 	let dataDiv = document.getElementById('song-data');
 	let audioPlayer = document.getElementById("song-audio");
 	let lyricDetails = document.getElementById("lyrics-details")
-	
+	let lyricsFrame = document.getElementById("lyrics-frame");
+
 	audioPlayer.addEventListener("ended", function() {
 	    btnNext.click();
 	    audioPlayer.play()
@@ -294,8 +298,7 @@
 
 	window.onload = function() {
 	    audioPlayer.volume=0.5;
-	    document.body.scrollTop = 30; // For Safari
-  		document.documentElement.scrollTop = 30; // For Chrome, Firefox, IE and Opera
+	    pageTop();
 	}
 
 	btnPrev.addEventListener('click', () => {
@@ -330,34 +333,42 @@
 		}
 	});
 
+	function pageTop(){
+  		scrollTo({top:"30", behavior:"smooth"})
+	}
+
 	btnTop.addEventListener('click', () => {
-		document.body.scrollTop = 30; // For Safari
-  		document.documentElement.scrollTop = 30; // For Chrome, Firefox, IE and Opera
+		lyricDetails.scrollIntoView({behavior: 'smooth', block: 'start'})
 	});
 
 	lyricDetails.addEventListener("toggle", (event) => {
-		let lyricsFrame = document.getElementById("lyrics-frame");
+		
 
 	 	if (lyricDetails.open) {
 	    	lyricDetails.children[0].innerHTML = "<h3>△ HIDE LYRICS △</h3>";
 		    btnTop.style.display = "block";
+		    btnTop.parentElement.style="padding:16px";
+
 	  	} else {
 	  		lyricDetails.children[0].innerHTML = "<h3>▽ SHOW LYRICS ▽</h3>";
 		    btnTop.style.display = "none";
+		    btnTop.parentElement.style="padding:0px";
+		    pageTop();
 	  	};
 
 	  	lyricsFrame.src = lyricsFrame.src;
+
 	});
 
 	window.addEventListener("message", sizeMessage, false);
 	function sizeMessage(event){
 		let lyricsFrame = document.getElementById("lyrics-frame");
 	  	
-	  	console.log(event)
 	  	if (lyricDetails.open) {
-	    	lyricsFrame.height = event.data+120;
+	    	lyricsFrame.height = event.data+100;
+	    	lyricDetails.scrollIntoView({behavior: 'smooth', block: 'start'})
 	  	} else {
-	    	lyricsFrame.height = "120px";
+	    	lyricsFrame.height = "100px";
 	  	};
 	}
 
