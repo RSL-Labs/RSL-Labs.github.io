@@ -120,10 +120,24 @@
 	  width: 2px;
 	}
 
+	summary {
+	  background-color: white;
+	  color: black;
+	  list-style: none;
+	  padding: 1px;
+	  width:50%;
+	}
+	summary::marker{
+		color:white;
+	}
+	summary::-webkit-details-marker {
+	  display: none;
+	}
+
 </style>
 <body>
 <div class="title-container">
-	<table id="song-data" align=center border=1 style="align:center; width:80%; table-layout: fixed;">
+	<table id="song-data" align=center border=1 style="align:center; width:80%; table-layout:fixed;">
 		<tr>
 			<td rowspan="6" align=left valign="top" style="width:30%; font-size: 16pt;">
 				<h2>Tracklist:</h2>
@@ -133,14 +147,14 @@
 				  <dt style="color: black">.</dt>
 				  <dt>2) Lament for Mina</dt>
 				  <dt style="color: black">.</dt>
-				  <dt>3) ミーナへの哀歌 </dt>
+				  <dt>3) ミーナへの<ruby>哀<rt>あい</rt>歌<rt>か</rt></ruby> </dt>
 				  <dd>- (Lament for Mina - JP Ver.)</dd>
 				  <dt style="color: black">.</dt>
 				  <dt>4) Dracula Online</dt>
 				  <dt style="color: black">.</dt>
 				  <dt>5) Time Will Come Around</dt>
 				  <dt style="color: black">.</dt>
-				  <dt>6) 時が巡ってくる</dt>
+				  <dt>6) <ruby>時<rt>とき</rt></ruby>が<ruby>巡<rt>めぐ</rt>ってくる</ruby></dt>
 				  <dd>- (Time Will Come Around</dd>
 				  <dd>  JP CLUBMIX)</dd>
 				  <dt style="color: black">.</dt>
@@ -156,8 +170,8 @@
 		</tr>
 		<tr>
 			<td colspan=4 style="width:60%">
-				<img id="cover-art" src="./songs/COVER-ART.png"  alt="CYBERVAMP" style="width:45%">
-				<img id="song-art" src="./songs/CITY-ENC.png"  alt="ALBUMART" style="object-fit: contain;">
+				<img id="cover-art" src="./songs/art/COVER-ART.png"  alt="CYBERVAMP" style="width:45%">
+				<img id="song-art" src="./songs/art/CITY-ENC.png"  alt="ALBUMART" style="object-fit: contain;">
 			</td>
 		</tr>
 		<tr>
@@ -176,7 +190,7 @@
 		<tr>
 			<td colspan=4>
 				<audio id="song-audio" controls controlsList="nodownload" style="width: 95%;">
-					<source id="audioSource" src="./songs/City of Eternal Night.mp3" type="audio/mpeg">
+					<source id="audioSource" src="./songs/mp3/City of Eternal Night.mp3" type="audio/mpeg">
 					Your browser does not support the audio element.
 				</audio>
 			</td>
@@ -187,13 +201,30 @@
 				<button id="prev" type="button"><h3>❚◀◀ PREV</h3></button>
 			</td>
 			<td style="width: 33%;padding:0">
-				<h1><a id="song-link" href="" target="popup" onClick="lyricPop()">see LYRICS</a></h1>
+				<h1><a id="song-link" href="" target="popup" onClick="lyricPop()"></a></h1>
 			</td>
 			<td align="center" style="width: 17%;padding:0">
 				<button id="next" type="button"><h3>NEXT ▶▶❚</h3></button>
 			</td>
 			<td align="center" style="width: 17%;padding:0">
 				<button class="buttonToggleOff" id="loop" type="button"><h3>LOOP ↻1▶</h3></button>
+			</td>
+		</tr>
+		<tr>
+			<td id="lyrics-cell" height="120px" min-height="140px" colspan="5" align="center" style="padding:5px;">
+				<br>
+				<details id="lyrics-details">
+					<summary><h3>▽ SHOW LYRICS ▽</h3></summary>
+						<br>
+						<iframe
+							id="lyrics-frame"
+							title="LYRICS:"
+							width="100%"
+							height="100px"
+							scrolling="no"
+							src="./songs/city-of-eternal-night.html">
+						</iframe>
+				</details>
 			</td>
 		</tr>
 	</table>
@@ -210,36 +241,36 @@
 
 	let songDataTable = [
 			{track: 1, name: "City of Eternal Night", 
-				songPath: "./songs/City of Eternal Night.mp3", 
-				artPath: "./songs/CITY-ENC.png",
+				songPath: "./songs/mp3/City of Eternal Night.mp3", 
+				artPath: "./songs/art/CITY-ENC.png",
 				lyricPath: "./songs/city-of-eternal-night.html"},
 			{track: 2, name: "Lament for Mina", 
-				songPath: "./songs/New Lament for Mina (1).mp3", 
-				artPath: "./songs/MINA1-1024.jpeg",
+				songPath: "./songs/mp3/New Lament for Mina (1).mp3", 
+				artPath: "./songs/art/MINA1-1024.jpeg",
 				lyricPath: "./songs/lament-for-mina.html"},
 			{track: 3, name: "ミーナへの哀歌 (Lament for Mina - JP Ver.)", 
-				songPath: "./songs/新ミーナへの哀歌.mp3", 
-				artPath: "./songs/MINA1-1024.jpeg",
+				songPath: "./songs/mp3/新ミーナへの哀歌.mp3", 
+				artPath: "./songs/art/MINA1-1024.jpeg",
 				lyricPath: "./songs/mina-he-no-aika2.html"},
 			{track: 4, name: "Dracula Online", 
-				songPath: "./songs/Dracula Online.mp3", 
-				artPath: "./songs/DRAC-ONLINE.jpg",
+				songPath: "./songs/mp3/Dracula Online.mp3", 
+				artPath: "./songs/art/DRAC-ONLINE.jpg",
 				lyricPath: "./songs/dracula-online.html"},
 			{track: 5, name: "Time Will Come Around", 
-				songPath: "./songs/Time Will Come Around - Flow - R5P1 - Full.mp3", 
-				artPath: "./songs/TIMEAROUND.jpg",
+				songPath: "./songs/mp3/Time Will Come Around - Flow - R5P1 - Full.mp3", 
+				artPath: "./songs/art/TIMEAROUND.jpg",
 				lyricPath: "./songs/time-will-come-around.html"},
 			{track: 6, name: "時が巡ってくる (Time Will Come Around - JP CLUBMIX)", 
-				songPath: "./songs/時が巡ってくる - R4 - FIXED.mp3", 
-				artPath: "./songs/TIMEAROUND.jpg",
+				songPath: "./songs/mp3/時が巡ってくる - R4 - FIXED.mp3", 
+				artPath: "./songs/art/TIMEAROUND.jpg",
 				lyricPath: "./songs/time-will-come-around-jp.html"},
 			{track: 7, name: "Electronic Life Intelligence Zenith Algorithm", 
-				songPath: "./songs/Codename ELIZA - R5 - Complete.mp3", 
-				artPath: "./songs/ELIZA1.png",
+				songPath: "./songs/mp3/Codename ELIZA - R5 - Complete.mp3", 
+				artPath: "./songs/art/ELIZA1.png",
 				lyricPath: "./songs/eliza.html"},
 			{track: 8, name: "The Pride of Aries", 
-				songPath: "./songs/The Pride of Aries - FinalFixed.mp3", 
-				artPath: "./songs/ARIES3.png",
+				songPath: "./songs/mp3/The Pride of Aries - FinalFixed.mp3", 
+				artPath: "./songs/art/ARIES3.png",
 				lyricPath: "./songs/pride-of-aries.html"},
 		]
 
@@ -248,6 +279,7 @@
 	let btnLoop = document.getElementById('loop');
 	let dataDiv = document.getElementById('song-data');
 	let audioPlayer = document.getElementById("song-audio");
+	let lyricDetails = document.getElementById("lyrics-details")
 	
 	audioPlayer.addEventListener("ended", function() {
 	    btnNext.click();
@@ -290,6 +322,30 @@
 		}
 	});
 
+	lyricDetails.addEventListener("toggle", (event) => {
+		let lyricsFrame = document.getElementById("lyrics-frame");
+
+	 	if (lyricDetails.open) {
+	    	lyricDetails.children[0].innerHTML = "<h3>△ HIDE LYRICS △</h3>";
+	  	} else {
+	  		lyricDetails.children[0].innerHTML = "<h3>▽ SHOW LYRICS ▽</h3>";
+	  	};
+
+	  	lyricsFrame.src = lyricsFrame.src;
+	});
+
+	window.addEventListener("message", sizeMessage, false);
+	function sizeMessage(event){
+		let lyricsFrame = document.getElementById("lyrics-frame");
+	  	
+	  	console.log(event)
+	  	if (lyricDetails.open) {
+	    	lyricsFrame.height = event.data+120;
+	  	} else {
+	    	lyricsFrame.height = "120px";
+	  	};
+	}
+
 	updateTrack(	songDataTable[currentTrack].name, 
 					songDataTable[currentTrack].artPath, 
 					songDataTable[currentTrack].songPath,
@@ -303,12 +359,14 @@
 
 		window.open(songLink.href, "popup", `width=800,height=600,top=${localY},left=${localX}`)
 	}
+
 	function updateTrack(text, art, song, link){
 		let coverArt = document.getElementById("cover-art");
 		let songArt = document.getElementById("song-art");
 		let songText = document.getElementById("song-text");
 		let songAudio = document.getElementById("song-audio");
 		let songLink = document.getElementById("song-link");
+		let lyricsFrame = document.getElementById("lyrics-frame");
 
 		let wasPlaying = (!songAudio.paused && songAudio.currentTime > 0 && !songAudio.ended);
 
@@ -323,6 +381,7 @@
 		songText.innerHTML = `<h2>${text}</h2>`;
 		songAudio.src = song;
 		songLink.href = link;
+		lyricsFrame.src = link;
 
 		if(wasPlaying){songAudio.play()}
 	}
@@ -466,11 +525,7 @@
 	    	value = 0.01;
 	    }
 
-	    //segmentElement.style.background = rainbowShift();
-
-
-	    // segmentElement.style.transition = `transform ${ jumpTime }ms linear`;
-	    //segmentElement.style.transform = `scale3d(1, ${ value }, 1)`;  
+	    //segmentElement.style.background = rainbowShift(); 
 	    segmentElement.style.transform = `scale(2, ${ value }) translate(0, -${100-value*200}%)`;
 
 		});
