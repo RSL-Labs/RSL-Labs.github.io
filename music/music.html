@@ -209,7 +209,7 @@
 				<button id="prev" type="button"><h3>❚◀◀ PREV</h3></button>
 			</td>
 			<td style="width: 33%;padding:0">
-				<h1><a id="song-link" href="" target="popup" onClick="lyricPop()"></a></h1>
+				<h1><a id="song-link" href="https://rslb.bandcamp.com/album/cybervamp" target="popup" onClick="lyricPop()">View on BANDCAMP!</a></h1>
 			</td>
 			<td align="center" style="width: 17%;padding:0">
 				<button id="next" type="button"><h3>NEXT ▶▶❚</h3></button>
@@ -392,7 +392,7 @@
 		let localY = (window.outerHeight / 2) - 300;  /* 0.5 * windowHeight - 0.5 * popupHeight */
 		let songLink = document.getElementById("song-link");
 
-		window.open(songLink.href, "popup", `width=800,height=600,top=${localY},left=${localX}`)
+		window.open(songLink.href, "popup", `top=${localY},left=${localX}`)
 	}
 
 	function updateTrack(text, art, song, link){
@@ -415,7 +415,7 @@
 
 		songText.innerHTML = `<h2>${text}</h2>`;
 		songAudio.src = song;
-		songLink.href = link;
+		//songLink.href = link;
 		lyricsFrame.src = link;
 
 		if(wasPlaying){songAudio.play()}
