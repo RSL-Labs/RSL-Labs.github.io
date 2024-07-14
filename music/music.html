@@ -366,10 +366,6 @@
 		}
 
 		updateTrackList("up");
-		// prevTrackList = document.getElementById(`track-list-${prevAlbum}`);
-		// currentTrackList = document.getElementById(`track-list-${currentAlbum}`);
-		// [prevTrackList.innerHTML, currentTrackList.innerHTML] = [currentTrackList.innerHTML,prevTrackList.innerHTML]
-	    // updateAlbum([songDataTable[currentAlbum]["name"], songDataTable[currentAlbum]["art"]]);
 	});
 
 	btnPrevTrack.addEventListener('click', () => {
@@ -506,7 +502,7 @@
 		if(songArt.offsetHeight >= coverArt.offsetHeight){
 			songArt.setAttribute("style", `object-fit:contain; height:${coverArt.offsetHeight != 0 ? coverArt.offsetHeight : coverArt.offsetWidth}px; width:${coverArt.offsetWidth}px`);
 		}else{
-			songArt.setAttribute("style", `object-fit:contain; width:45%`);
+			songArt.setAttribute("style", `object-fit:contain; width:95%`);
 		}
 		songArt.src = art;
 
