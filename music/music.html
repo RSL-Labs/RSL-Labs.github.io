@@ -142,10 +142,19 @@
 <div class="title-container">
 	<table id="song-data" align=center border=1 style="align:center; width:80%; table-layout:fixed;">
 		<tr>
-			<td rowspan="6" align=left valign="top" style="width:30%; font-size: 16pt;">
-				<h2>Tracklist:</h2>
+			<td>
+				<button id="prevAlbum" type="button"><h3>❚◀◀ PREV  ALBUM</h3><h3></h3></button>
+				<button id="nextAlbum" type="button"><h3>NEXT ▶▶❚  ALBUM</h3><h3></h3></button>
+			</td>
+			<td colspan="4">
+				<h1 id="album-title" style="color: gold">CYBERVAMP</h1>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="6" align=left valign="top" style="width:30%; font-size: 14pt;">
+				<h3>Tracklist:</h3>
 				
-				<dl>
+				<dl id="track-list-0">
 				  <dt>1) City of Eternal Night</dt>
 				  <dt style="color: black">.</dt>
 				  <dt>2) Lament for Mina</dt>
@@ -173,13 +182,19 @@
 				  <dt style="color: black">.</dt>
 				</dl>
 
+				<dl id="track-list-1">
+				  <dt>1) The Black Sphinx</dt>
+				  <dt style="color: black">.</dt>
+				</dl>
 					
 			</td>
 		</tr>
 		<tr>
-			<td colspan=4 style="width:60%">
-				<img id="cover-art" src="./songs/art/COVER-ART.png"  alt="CYBERVAMP" style="width:45%">
-				<img id="song-art" src="./songs/art/CITY-ENC.png"  alt="ALBUMART" style="object-fit: contain;">
+			<td colspan=2 style="width:30%">
+				<img id="cover-art" src="./CV/songs/art/COVER-ART.png"  alt="ALBUMART" style="width:95%">
+			</td>
+			<td colspan=2 style="width:30%">
+				<img id="song-art" src="./CV/songs/art/CITY-ENC.png"  alt="TRACKART" style="width:95%, object-fit: contain;">
 			</td>
 		</tr>
 		<tr>
@@ -198,7 +213,7 @@
 		<tr>
 			<td colspan=4>
 				<audio id="song-audio" controls controlsList="nodownload" style="width: 95%;">
-					<source id="audioSource" src="./songs/mp3/City of Eternal Night.mp3" type="audio/mpeg">
+					<source id="audioSource" src="./CV/songs/mp3/City of Eternal Night.mp3" type="audio/mpeg">
 					Your browser does not support the audio element.
 				</audio>
 			</td>
@@ -206,13 +221,13 @@
 		</tr>
 		<tr>
 			<td align="center" style="width: 33%;padding:0">
-				<button id="prev" type="button"><h3>❚◀◀ PREV</h3></button>
+				<button id="prevTrack" type="button"><h3>❚◀◀ PREV</h3></button>
 			</td>
 			<td style="width: 33%;padding:0">
 				<h2><a id="song-link" href="https://rslb.bandcamp.com/album/cybervamp" target="popup" onClick="lyricPop()">View on BANDCAMP!</a></h2>
 			</td>
 			<td align="center" style="width: 17%;padding:0">
-				<button id="next" type="button"><h3>NEXT ▶▶❚</h3></button>
+				<button id="nextTrack" type="button"><h3>NEXT ▶▶❚</h3></button>
 			</td>
 			<td align="center" style="width: 17%;padding:0">
 				<button class="buttonToggleOff" id="loop" type="button"><h3>LOOP ↻1▶</h3></button>
@@ -230,7 +245,7 @@
 							width="100%"
 							height="100px"
 							scrolling="no"
-							src="./songs/city-of-eternal-night.html">
+							src="./CV/songs/city-of-eternal-night.html">
 						</iframe>
 				</details>
 			</td>
@@ -251,50 +266,74 @@
 </body>
 <script type="text/javascript">
 	let currentTrack = 0;
+	let currentAlbum = 0;
 
 	let songDataTable = [
-			{track: 1, name: "City of Eternal Night", 
-				songPath: "./songs/mp3/01 - City of Eternal Night.mp3", 
-				artPath: "./songs/art/CITY-ENC.png",
-				lyricPath: "./songs/city-of-eternal-night.html"},
-			{track: 2, name: "Lament for Mina", 
-				songPath: "./songs/mp3/02 - Lament for Mina.mp3", 
-				artPath: "./songs/art/MINA1-1024.jpeg",
-				lyricPath: "./songs/lament-for-mina.html"},
-			{track: 3, name: "ミーナへの哀歌 (Lament for Mina - JP remix)", 
-				songPath: "./songs/mp3/03 - ミーナへの哀歌.mp3", 
-				artPath: "./songs/art/MINA1-1024.jpeg",
-				lyricPath: "./songs/mina-he-no-aika2.html"},
-			{track: 4, name: "Dracula Online", 
-				songPath: "./songs/mp3/04 - Dracula Online.mp3", 
-				artPath: "./songs/art/DRAC-ONLINE.jpg",
-				lyricPath: "./songs/dracula-online.html"},
-			{track: 5, name: "Time Will Come Around", 
-				songPath: "./songs/mp3/05 - Time Will Come Around.mp3", 
-				artPath: "./songs/art/TIMEAROUND.jpg",
-				lyricPath: "./songs/time-will-come-around.html"},
-			{track: 6, name: "時が巡ってくる (Time Will Come Around - JP remix)", 
-				songPath: "./songs/mp3/06 - 時が巡ってくる.mp3", 
-				artPath: "./songs/art/TIMEAROUND.jpg",
-				lyricPath: "./songs/time-will-come-around-jp.html"},
-			{track: 7, name: "Electronic Life Intelligence Zenith Algorithm", 
-				songPath: "./songs/mp3/07 - Electronic Life Intelligence Zenith Algorithm.mp3", 
-				artPath: "./songs/art/ELIZA1.png",
-				lyricPath: "./songs/eliza.html"},
-			{track: 8, name: "The Pride of Aries", 
-				songPath: "./songs/mp3/08 - The Pride of Aries.mp3", 
-				artPath: "./songs/art/ARIES3.png",
-				lyricPath: "./songs/pride-of-aries.html"},
-			{track: 9, name: "時が巡ってくる (Time Will Come Around - JP remix - ★BALLAD★)", 
-				songPath: "./songs/mp3/09 - 時が巡ってくる - Time Will Come  Around - BALLAD.mp3", 
-				artPath: "./songs/art/TIMEAROUNDrain.jpg",
-				lyricPath: "./songs/time-will-come-around-jp-ballad.html"},
+		{
+			name: "CYBERVAMP",
+			trackHtml: "",
+			art:"./CV/songs/art/COVER-ART.png",
+			data:[
+					{track: 1, name: "City of Eternal Night", 
+						songPath: "./CV/songs/mp3/01 - City of Eternal Night.mp3", 
+						artPath: "./CV/songs/art/CITY-ENC.png",
+						lyricPath: "./CV/songs/city-of-eternal-night.html"},
+					{track: 2, name: "Lament for Mina", 
+						songPath: "./CV/songs/mp3/02 - Lament for Mina.mp3", 
+						artPath: "./CV/songs/art/MINA1-1024.jpeg",
+						lyricPath: "./CV/songs/lament-for-mina.html"},
+					{track: 3, name: "ミーナへの哀歌 (Lament for Mina - JP remix)", 
+						songPath: "./CV/songs/mp3/03 - ミーナへの哀歌.mp3", 
+						artPath: "./CV/songs/art/MINA1-1024.jpeg",
+						lyricPath: "./CV/songs/mina-he-no-aika2.html"},
+					{track: 4, name: "Dracula Online", 
+						songPath: "./CV/songs/mp3/04 - Dracula Online.mp3", 
+						artPath: "./CV/songs/art/DRAC-ONLINE.jpg",
+						lyricPath: "./CV/songs/dracula-online.html"},
+					{track: 5, name: "Time Will Come Around", 
+						songPath: "./CV/songs/mp3/05 - Time Will Come Around.mp3", 
+						artPath: "./CV/songs/art/TIMEAROUND.jpg",
+						lyricPath: "./CV/songs/time-will-come-around.html"},
+					{track: 6, name: "時が巡ってくる (Time Will Come Around - JP remix)", 
+						songPath: "./CV/songs/mp3/06 - 時が巡ってくる.mp3", 
+						artPath: "./CV/songs/art/TIMEAROUND.jpg",
+						lyricPath: "./CV/songs/time-will-come-around-jp.html"},
+					{track: 7, name: "Electronic Life Intelligence Zenith Algorithm", 
+						songPath: "./CV/songs/mp3/07 - Electronic Life Intelligence Zenith Algorithm.mp3", 
+						artPath: "./CV/songs/art/ELIZA1.png",
+						lyricPath: "./CV/songs/eliza.html"},
+					{track: 8, name: "The Pride of Aries", 
+						songPath: "./CV/songs/mp3/08 - The Pride of Aries.mp3", 
+						artPath: "./CV/songs/art/ARIES3.png",
+						lyricPath: "./CV/songs/pride-of-aries.html"},
+					{track: 9, name: "時が巡ってくる (Time Will Come Around - JP remix - ★BALLAD★)", 
+						songPath: "./CV/songs/mp3/09 - 時が巡ってくる - Time Will Come  Around - BALLAD.mp3", 
+						artPath: "./CV/songs/art/TIMEAROUNDrain.jpg",
+							lyricPath: "./CV/songs/time-will-come-around-jp-ballad.html"},
+				],
+		},
+		{
+			name: "THE BLACK SPHINX",
+			trackHtml: "",
+			art:"./TBS/songs/art/TBS-COVER.png",
+			data:[
+					{track: 1, name: "The Black Sphinx", 
+						songPath: "./TBS/songs/mp3/The Black Sphinx.mp3", 
+						artPath: "./TBS/songs/art/SPHINX.png",
+						lyricPath: "./TBS/songs/the-black-sphinx.html"},
+				],
+		},
+
 		]
 
-	let btnPrev = document.getElementById('prev');
-	let btnNext = document.getElementById('next');
+	let btnPrevAlbum = document.getElementById('prevAlbum');
+	let btnNextAlbum = document.getElementById('nextAlbum');
+	let btnPrevTrack = document.getElementById('prevTrack');
+	let btnNextTrack = document.getElementById('nextTrack');
 	let btnLoop = document.getElementById('loop');
 	let btnTop = document.getElementById('top');
+	let albumTitle = document.getElementById('album-title');
+	let trackList = document.getElementById(`track-list-${currentAlbum}`);
 	let dataDiv = document.getElementById('song-data');
 	let audioPlayer = document.getElementById("song-audio");
 	let lyricDetails = document.getElementById("lyrics-details")
@@ -310,27 +349,45 @@
 	    pageTop();
 	}
 
-	btnPrev.addEventListener('click', () => {
+	btnPrevAlbum.addEventListener('click', () => {
+		if(currentAlbum == 0){
+			currentAlbum = songDataTable.length-1;
+		}else{
+			currentAlbum-=1;
+		}
+		updateTrackList("down");
+	});
+
+	btnNextAlbum.addEventListener('click', () => {
+		if(currentAlbum >= songDataTable.length-1){
+			currentAlbum = 0;
+		}else{
+			currentAlbum+=1;
+		}
+
+		updateTrackList("up");
+		// prevTrackList = document.getElementById(`track-list-${prevAlbum}`);
+		// currentTrackList = document.getElementById(`track-list-${currentAlbum}`);
+		// [prevTrackList.innerHTML, currentTrackList.innerHTML] = [currentTrackList.innerHTML,prevTrackList.innerHTML]
+	    // updateAlbum([songDataTable[currentAlbum]["name"], songDataTable[currentAlbum]["art"]]);
+	});
+
+	btnPrevTrack.addEventListener('click', () => {
 		if(currentTrack == 0){
-			currentTrack = songDataTable.length-1;
+			currentTrack = songDataTable[currentAlbum]["data"].length-1;
 		}else{
 			currentTrack-=1;
 		}
-	    updateTrack(	songDataTable[currentTrack].name, 
-					songDataTable[currentTrack].artPath, 
-					songDataTable[currentTrack].songPath,
-					songDataTable[currentTrack].lyricPath);
+	    updateTrack(songDataTable[currentAlbum]["data"][currentTrack]);
 	});
-	btnNext.addEventListener('click', () => {
-		if(currentTrack >= songDataTable.length-1){
+
+	btnNextTrack.addEventListener('click', () => {
+		if(currentTrack >= songDataTable[currentAlbum]["data"].length-1){
 			currentTrack = 0;
 		}else{
 			currentTrack+=1;
 		}
-	    updateTrack(	songDataTable[currentTrack].name, 
-					songDataTable[currentTrack].artPath, 
-					songDataTable[currentTrack].songPath,
-					songDataTable[currentTrack].lyricPath);
+	    updateTrack(songDataTable[currentAlbum]["data"][currentTrack]);
 	});
 
 	btnLoop.addEventListener('click', () => {
@@ -381,13 +438,9 @@
 	  	};
 	}
 
-	updateTrack(	songDataTable[currentTrack].name, 
-					songDataTable[currentTrack].artPath, 
-					songDataTable[currentTrack].songPath,
-					songDataTable[currentTrack].lyricPath);
+	updateTrack(songDataTable[currentAlbum]["data"][currentTrack]);
 
 	function lyricPop(){
-		console.log(window)
   		let localX = (window.outerWidth / 2) - 400;   /* 0.5 * windowWidth - 0.5 * popupWidth */
 		let localY = (window.outerHeight / 2) - 300;  /* 0.5 * windowHeight - 0.5 * popupHeight */
 		let songLink = document.getElementById("song-link");
@@ -395,7 +448,51 @@
 		window.open(songLink.href, "popup", `top=${localY},left=${localX}`)
 	}
 
-	function updateTrack(text, art, song, link){
+	function updateTrackList(dir){
+		let [trackListData, incAlbum] = [[], 0];
+
+		while(document.getElementById(`track-list-${incAlbum}`) !== null){
+			let docEL = document.getElementById(`track-list-${incAlbum}`)
+			trackListData.push(docEL.innerHTML)
+			incAlbum++;
+		}
+
+		if(dir=="down"){
+			trackListData.unshift(trackListData.pop());
+		}else{
+			trackListData.push(trackListData.shift());
+		}
+		trackListData.forEach((e,i)=> {
+										document.getElementById(`track-list-${i}`).innerHTML = e;
+										if(i == 0){
+											document.getElementById(`track-list-${i}`).style.visibility = "visible";
+										}else{
+											document.getElementById(`track-list-${i}`).style.visibility = "hidden";
+										}
+									})
+	    updateAlbum([songDataTable[currentAlbum]["name"], songDataTable[currentAlbum]["art"]]);
+	}
+
+	function updateAlbum(inputData){
+		let [albumTitleData, albumArt] = Object.values(inputData);
+
+		let albumTitle = document.getElementById('album-title');
+		let trackList = document.getElementById('track-list');
+		let coverArt = document.getElementById("cover-art");
+		let songAudio = document.getElementById("song-audio");
+
+		let wasPlaying = (!songAudio.paused && songAudio.currentTime > 0 && !songAudio.ended);
+		if(wasPlaying){songAudio.pause(); songAudio.currentTime = 0;}
+
+		coverArt.src = albumArt;
+		albumTitle.innerHTML = albumTitleData;
+
+		currentTrack = 0;
+		updateTrack(songDataTable[currentAlbum]["data"][currentTrack]);
+	}
+
+	function updateTrack(inputData){
+		let [track, text, song, art, link] = Object.values(inputData);
 		let coverArt = document.getElementById("cover-art");
 		let songArt = document.getElementById("song-art");
 		let songText = document.getElementById("song-text");
