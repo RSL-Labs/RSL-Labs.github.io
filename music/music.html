@@ -127,6 +127,7 @@
 	  display: inline;
 	  padding: 1px;
 	  width:50%;
+	  transition-duration: 1s;
 	}
 
 	summary::marker{
@@ -143,7 +144,7 @@
 	<table id="song-data" align=center border=1 style="align:center; width:80%; table-layout:fixed;">
 		<tr>
 			<td>
-				<button id="prevAlbum" type="button"><h3>❚◀◀ PREV  ALBUM</h3><h3></h3></button>
+				<button id="prevAlbum" type="button" disabled><h3>❚◀◀ PREV  ALBUM</h3><h3></h3></button>
 				<button id="nextAlbum" type="button"><h3>NEXT ▶▶❚  ALBUM</h3><h3></h3></button>
 			</td>
 			<td colspan="4">
@@ -159,41 +160,28 @@
 				  <dt style="color: black">.</dt>
 				  <dt>2) Lament for Mina</dt>
 				  <dt style="color: black">.</dt>
-				  <dt>3) ミーナへの<ruby>哀<rt>あい</rt>歌<rt>か</rt></ruby> </dt>
+				  <dt>3) ミーナへの哀歌</dt>
 				  <dd>- (Lament for Mina - JP Ver.)</dd>
 				  <dt style="color: black">.</dt>
 				  <dt>4) Dracula Online</dt>
 				  <dt style="color: black">.</dt>
 				  <dt>5) Time Will Come Around</dt>
 				  <dt style="color: black">.</dt>
-				  <dt>6) <ruby>時<rt>とき</rt></ruby>が<ruby>巡<rt>めぐ</rt>ってくる</ruby></dt>
-				  <dd>- (Time Will Come Around</dd>
-				  <dd>  JP Ver.)</dd>
+				  <dt>6) 時が巡ってくる</dt>
+				  <dd>- (Time Will Come AroundJP Ver.)</dd>
 				  <dt style="color: black">.</dt>
-				  <dt>7) Electronic Life Intelligence</dt>
-				  <dd>   Zenith Algorithm</dd>
+				  <dt>7) Electronic Life</dt>
+				  <dd>Intelligence Zenith Algorithm</dd>
 				  <dt style="color: black">.</dt>
 				  <dt>8) The Pride of Aries</dt>
 				  <dt style="color: black">.</dt>
-				  <dt>9) BONUS TRACK:</dt>
-				  <dd> <ruby>時<rt>とき</rt></ruby>が<ruby>巡<rt>めぐ</rt>ってくる</ruby></dd>
-				  <dd>- (Time Will Come Around</dd>
-				  <dd>  JP Ver. ★BALLAD★)</dd>
+				  <dt>9) 時が巡ってくる</dt>
+				  <dd>- (Time Will Come AroundJP Ver. ★BALLAD★)</dd>
 				  <dt style="color: black">.</dt>
 				</dl>
-
-				<dl id="track-list-1">
-				  <dt>1) Secrets of the Ancients</dt>
-				  <dt style="color: black">.</dt>
-				  <dt>2) The Black Sphinx</dt>
-				  <dt style="color: black">.</dt>
-				  <dt>3) The Black Sphinx - (Club Remix)</dt>
-				  <dt style="color: black">.</dt>
-				</dl>
-					
 			</td>
 		</tr>
-		<tr>
+		<tr style="height: 400px;">
 			<td colspan=2 style="width:30%">
 				<img id="cover-art" src="./CV/songs/art/COVER-ART.png"  alt="ALBUMART" style="width:95%">
 			</td>
@@ -214,7 +202,7 @@
 				DUMMY TEXT
 			</td>
 		</tr>
-		<tr>
+		<tr style="height: 60px;">
 			<td colspan=4>
 				<audio id="song-audio" controls controlsList="nodownload" style="width: 95%;">
 					<source id="audioSource" src="./CV/songs/mp3/City of Eternal Night.mp3" type="audio/mpeg">
@@ -223,12 +211,12 @@
 			</td>
 		</tr>
 		</tr>
-		<tr>
+		<tr style="height: 80px;">
 			<td align="center" style="width: 33%;padding:0">
 				<button id="prevTrack" type="button"><h3>❚◀◀ PREV</h3></button>
 			</td>
 			<td style="width: 33%;padding:0">
-				<h2><a id="song-link" href="https://rslb.bandcamp.com/album/cybervamp" target="popup" onClick="lyricPop()">View on BANDCAMP!</a></h2>
+				<h2><a id="bandcamp-link" href="https://rslb.bandcamp.com/album/cybervamp" target="popup" onClick="getPop()">Get it on BANDCAMP!</a></h2>
 			</td>
 			<td align="center" style="width: 17%;padding:0">
 				<button id="nextTrack" type="button"><h3>NEXT ▶▶❚</h3></button>
@@ -281,39 +269,57 @@
 					{track: 1, name: "City of Eternal Night", 
 						songPath: "./CV/songs/mp3/01 - City of Eternal Night.mp3", 
 						artPath: "./CV/songs/art/CITY-ENC.png",
-						lyricPath: "./CV/songs/city-of-eternal-night.html"},
+						lyricPath: "./CV/songs/city-of-eternal-night.html",
+						tracklistData: ["City of Eternal Night"],
+						},
 					{track: 2, name: "Lament for Mina", 
 						songPath: "./CV/songs/mp3/02 - Lament for Mina.mp3", 
 						artPath: "./CV/songs/art/MINA1-1024.jpeg",
-						lyricPath: "./CV/songs/lament-for-mina.html"},
+						lyricPath: "./CV/songs/lament-for-mina.html",
+						tracklistData: ["Lament for Mina"],
+						},
 					{track: 3, name: "ミーナへの哀歌 (Lament for Mina - JP remix)", 
 						songPath: "./CV/songs/mp3/03 - ミーナへの哀歌.mp3", 
 						artPath: "./CV/songs/art/MINA1-1024.jpeg",
-						lyricPath: "./CV/songs/mina-he-no-aika2.html"},
+						lyricPath: "./CV/songs/mina-he-no-aika2.html",
+						tracklistData: ["ミーナへの哀歌"," (Lament for Mina - JP remix)"],
+						},
 					{track: 4, name: "Dracula Online", 
 						songPath: "./CV/songs/mp3/04 - Dracula Online.mp3", 
 						artPath: "./CV/songs/art/DRAC-ONLINE.jpg",
-						lyricPath: "./CV/songs/dracula-online.html"},
+						lyricPath: "./CV/songs/dracula-online.html",
+						tracklistData: ["Dracula Online"],
+						},
 					{track: 5, name: "Time Will Come Around", 
 						songPath: "./CV/songs/mp3/05 - Time Will Come Around.mp3", 
 						artPath: "./CV/songs/art/TIMEAROUND.jpg",
-						lyricPath: "./CV/songs/time-will-come-around.html"},
+						lyricPath: "./CV/songs/time-will-come-around.html",
+						tracklistData: ["Time Will Come Around"],
+						},
 					{track: 6, name: "時が巡ってくる (Time Will Come Around - JP remix)", 
 						songPath: "./CV/songs/mp3/06 - 時が巡ってくる.mp3", 
 						artPath: "./CV/songs/art/TIMEAROUND.jpg",
-						lyricPath: "./CV/songs/time-will-come-around-jp.html"},
+						lyricPath: "./CV/songs/time-will-come-around-jp.html",
+						tracklistData: ["時が巡ってくる","(Time Will Come Around - JP remix)"],
+						},
 					{track: 7, name: "Electronic Life Intelligence Zenith Algorithm", 
 						songPath: "./CV/songs/mp3/07 - Electronic Life Intelligence Zenith Algorithm.mp3", 
 						artPath: "./CV/songs/art/ELIZA1.png",
-						lyricPath: "./CV/songs/eliza.html"},
+						lyricPath: "./CV/songs/eliza.html",
+						tracklistData: ["Electronic Life","Intelligence Zenith Algorithm"],
+						},
 					{track: 8, name: "The Pride of Aries", 
 						songPath: "./CV/songs/mp3/08 - The Pride of Aries.mp3", 
 						artPath: "./CV/songs/art/ARIES3.png",
-						lyricPath: "./CV/songs/pride-of-aries.html"},
+						lyricPath: "./CV/songs/pride-of-aries.html",
+						tracklistData: ["The Pride of Aries"],
+						},
 					{track: 9, name: "時が巡ってくる (Time Will Come Around - JP remix - ★BALLAD★)", 
 						songPath: "./CV/songs/mp3/09 - 時が巡ってくる - Time Will Come  Around - BALLAD.mp3", 
 						artPath: "./CV/songs/art/TIMEAROUNDrain.jpg",
-							lyricPath: "./CV/songs/time-will-come-around-jp-ballad.html"},
+						lyricPath: "./CV/songs/time-will-come-around-jp-ballad.html",
+						tracklistData: ["時が巡ってくる","(Time Will Come Around - JP remix - ★BALLAD★)"],
+						},
 				],
 		},
 		{
@@ -324,15 +330,21 @@
 					{track: 1, name: "Secrets of the Ancients", 
 						songPath: "./TBS/songs/mp3/Secrets of the Ancients.mp3", 
 						artPath: "./TBS/songs/art/SECRETS.jpeg",
-						lyricPath: "./TBS/songs/secrets-of-the-ancients.html"},
+						lyricPath: "./TBS/songs/secrets-of-the-ancients.html",
+						tracklistData: ["Secrets of the Ancients"],
+						},
 					{track: 2, name: "The Black Sphinx", 
 						songPath: "./TBS/songs/mp3/The Black Sphinx.mp3", 
 						artPath: "./TBS/songs/art/SPHINX.png",
-						lyricPath: "./TBS/songs/the-black-sphinx.html"},
+						lyricPath: "./TBS/songs/the-black-sphinx.html",
+						tracklistData: ["The Black Sphinx"],
+						},
 					{track: 3, name: "The Black Sphinx - (Club Remix)", 
 						songPath: "./TBS/songs/mp3/The Black Sphinx - Clubmix.mp3", 
 						artPath: "./TBS/songs/art/SPHINX.png",
-						lyricPath: "./TBS/songs/the-black-sphinx.html"},
+						lyricPath: "./TBS/songs/the-black-sphinx.html",
+						tracklistData: ["The Black Sphinx","(Club Remix)"],
+						},
 				],
 		},
 
@@ -368,6 +380,13 @@
 			currentAlbum-=1;
 		}
 		updateTrackList("down");
+
+		btnNextAlbum.removeAttribute("disabled")
+		if(currentAlbum == 0){
+			btnPrevAlbum.setAttribute("disabled", true)
+		}else{
+			btnPrevAlbum.removeAttribute("disabled")
+		}
 	});
 
 	btnNextAlbum.addEventListener('click', () => {
@@ -378,6 +397,13 @@
 		}
 
 		updateTrackList("up");
+
+		btnPrevAlbum.removeAttribute("disabled")
+		if(currentAlbum >= songDataTable.length-1){
+			btnNextAlbum.setAttribute("disabled", true)
+		}else{
+			btnNextAlbum.removeAttribute("disabled")
+		}
 	});
 
 	btnPrevTrack.addEventListener('click', () => {
@@ -448,36 +474,27 @@
 
 	updateTrack(songDataTable[currentAlbum]["data"][currentTrack]);
 
-	function lyricPop(){
+	function getPop(){
   		let localX = (window.outerWidth / 2) - 400;   /* 0.5 * windowWidth - 0.5 * popupWidth */
 		let localY = (window.outerHeight / 2) - 300;  /* 0.5 * windowHeight - 0.5 * popupHeight */
-		let songLink = document.getElementById("song-link");
+		let bandcampLink = document.getElementById("bandcamp-link");
 
-		window.open(songLink.href, "popup", `top=${localY},left=${localX}`)
+		window.open(bandcampLink.href, "popup", `top=${localY},left=${localX}`)
 	}
 
 	function updateTrackList(dir){
-		let [trackListData, incAlbum] = [[], 0];
+		let trackListData = "";
 
-		while(document.getElementById(`track-list-${incAlbum}`) !== null){
-			let docEL = document.getElementById(`track-list-${incAlbum}`)
-			trackListData.push(docEL.innerHTML)
-			incAlbum++;
+		for(let i = 0; i < songDataTable[currentAlbum]["data"].length; i++){
+			let trackData = songDataTable[currentAlbum]["data"][i].tracklistData
+			trackListData += `<dt>${i+1}) ${trackData[0]}<\/dt>`;
+			if(trackData[1]){
+				trackListData += `<dd>${trackData[1]}<\/dd>`;
+			}
+			trackListData += `<dt style=\"color: black\">.<\/dt>`;
 		}
 
-		if(dir=="down"){
-			trackListData.unshift(trackListData.pop());
-		}else{
-			trackListData.push(trackListData.shift());
-		}
-		trackListData.forEach((e,i)=> {
-										document.getElementById(`track-list-${i}`).innerHTML = e;
-										if(i == 0){
-											document.getElementById(`track-list-${i}`).style.visibility = "visible";
-										}else{
-											document.getElementById(`track-list-${i}`).style.visibility = "hidden";
-										}
-									})
+		document.getElementById(`track-list-0`).innerHTML = trackListData;
 	    updateAlbum([songDataTable[currentAlbum]["name"], songDataTable[currentAlbum]["art"]]);
 	}
 
@@ -488,12 +505,14 @@
 		let trackList = document.getElementById('track-list');
 		let coverArt = document.getElementById("cover-art");
 		let songAudio = document.getElementById("song-audio");
+		let bandcampLink = document.getElementById("bandcamp-link");
 
 		let wasPlaying = (!songAudio.paused && songAudio.currentTime > 0 && !songAudio.ended);
 		if(wasPlaying){songAudio.pause(); songAudio.currentTime = 0;}
 
 		coverArt.src = albumArt;
 		albumTitle.innerHTML = albumTitleData;
+		bandcampLink.href = `https://rslb.bandcamp.com/album/${songDataTable[currentAlbum]["name"].toLowerCase().replace(/\s/g, '')}`
 
 		currentTrack = 0;
 		updateTrack(songDataTable[currentAlbum]["data"][currentTrack]);
@@ -505,7 +524,6 @@
 		let songArt = document.getElementById("song-art");
 		let songText = document.getElementById("song-text");
 		let songAudio = document.getElementById("song-audio");
-		let songLink = document.getElementById("song-link");
 		let lyricsFrame = document.getElementById("lyrics-frame");
 
 		let wasPlaying = (!songAudio.paused && songAudio.currentTime > 0 && !songAudio.ended);
@@ -520,7 +538,6 @@
 
 		songText.innerHTML = `<h2>${text}</h2>`;
 		songAudio.src = song;
-		//songLink.href = link;
 		lyricsFrame.src = link;
 
 		if(wasPlaying){songAudio.play()}
