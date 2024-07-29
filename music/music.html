@@ -222,7 +222,7 @@
 				<button id="nextTrack" type="button"><h3>NEXT ▶▶❚</h3></button>
 			</td>
 			<td align="center" style="width: 17%;padding:0">
-				<button class="buttonToggleOff" id="loop" type="button"><h3>LOOP ↻1▶</h3></button>
+				<button class="buttonToggleOff" id="loop" type="button"><h3>LOOP ↻NONE▶</h3></button>
 			</td>
 		</tr>
 		<tr>
@@ -269,6 +269,7 @@
 <script type="text/javascript">
 	let currentTrack = 0;
 	let currentAlbum = 0;
+	let loopState = {value:0,text:["LOOP ↻OFF▶","LOOP ↻SONG▶","LOOP ↻ALBUM▶","LOOP ↻ALL▶"]}
 
 	let songDataTable = [
 		{
@@ -387,8 +388,29 @@
 	let lyricsFrame = document.getElementById("lyrics-frame");
 
 	audioPlayer.addEventListener("ended", function() {
-	    btnNextTrack.click();
-	    audioPlayer.play()
+
+	    if(loopState.value == 1){
+		    //player handles track looping automatically
+
+	    }else if(loopState.value == 2){
+	    	//player needs to be advanced a track
+	    	btnNextTrack.click();
+		    audioPlayer.play();
+
+	    }else if(loopState.value == 3){
+	    	//player needs to be advanced but also check for album end
+	    	if(currentTrack >= songDataTable[currentAlbum]["data"].length-1){
+	    		nextAlbum();
+
+			}else{
+	    		btnNextTrack.click();
+
+			}
+	    	audioPlayer.play();
+
+	    }else{
+	    	//No looping occurs
+	    }
 	});
 
 	window.onload = function() {
@@ -397,37 +419,45 @@
 	}
 
 	btnPrevAlbum.addEventListener('click', () => {
+		prevAlbum();
+	});
+	function prevAlbum(){
 		if(currentAlbum == 0){
 			currentAlbum = songDataTable.length-1;
+			btnNextAlbum.setAttribute("disabled", true);
+			btnPrevAlbum.removeAttribute("disabled");
 		}else{
 			currentAlbum-=1;
+			btnNextAlbum.removeAttribute("disabled");
+			
+			if(currentAlbum == 0){
+				btnPrevAlbum.setAttribute("disabled", true);
+			}
 		}
-		updateTrackList("down");
 
-		btnNextAlbum.removeAttribute("disabled")
-		if(currentAlbum == 0){
-			btnPrevAlbum.setAttribute("disabled", true)
-		}else{
-			btnPrevAlbum.removeAttribute("disabled")
-		}
-	});
+		updateTrackList("down");
+	}
 
 	btnNextAlbum.addEventListener('click', () => {
+		nextAlbum();
+	});
+	function nextAlbum(){
 		if(currentAlbum >= songDataTable.length-1){
 			currentAlbum = 0;
+			btnPrevAlbum.setAttribute("disabled", true)
+			btnNextAlbum.removeAttribute("disabled");
 		}else{
 			currentAlbum+=1;
+			btnPrevAlbum.removeAttribute("disabled");
+			
+			if(currentAlbum >= songDataTable.length-1){
+				btnNextAlbum.setAttribute("disabled", true);
+			}
 		}
 
 		updateTrackList("up");
 
-		btnPrevAlbum.removeAttribute("disabled")
-		if(currentAlbum >= songDataTable.length-1){
-			btnNextAlbum.setAttribute("disabled", true)
-		}else{
-			btnNextAlbum.removeAttribute("disabled")
-		}
-	});
+	}
 
 	btnPrevTrack.addEventListener('click', () => {
 		if(currentTrack == 0){
@@ -448,11 +478,22 @@
 	});
 
 	btnLoop.addEventListener('click', () => {
-		audioPlayer.loop = !audioPlayer.loop;
-		if(audioPlayer.loop){
-			btnLoop.setAttribute("class", "buttonToggleOn");
-		}else{
+		loopState.value = loopState.value < 3 ? loopState.value + 1 : 0
+		btnLoop.innerHTML=`<h3>${loopState.text[loopState.value]}</h3>`
+		
+		if(loopState.value == 0){
 			btnLoop.setAttribute("class", "buttonToggleOff");
+			audioPlayer.loop = false;
+
+		}else{
+			btnLoop.setAttribute("class", "buttonToggleOn");
+
+			if(loopState.value == 1){
+				audioPlayer.loop = true;
+
+			}else{
+				audioPlayer.loop = false;
+			}
 		}
 	});
 
