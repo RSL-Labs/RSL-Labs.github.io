@@ -392,7 +392,7 @@
 						songPath: "./Singles/songs/mp3/私たちの終わり.mp3", 
 						artPath: "./Singles/songs/art/END.jpeg",
 						lyricPath: "./Singles/songs/watashitachi-no-owari.html",
-						tracklistData: ["私たちの終わり", "(The End of Us JP-cover)"],
+						tracklistData: ["私たちの終わり", "(The End of Us","JP-cover)"],
 						},
 				],
 		},
@@ -441,6 +441,8 @@
 	window.onload = function() {
 	    audioPlayer.volume=0.5;
 	    pageTop();
+	    nextAlbum()
+	    nextAlbum()
 	}
 
 	btnPrevAlbum.addEventListener('click', () => {
@@ -564,8 +566,8 @@
 	updateTrack(songDataTable[currentAlbum]["data"][currentTrack]);
 
 	function getPop(){
-  		let localX = (window.outerWidth / 2) - 400;   /* 0.5 * windowWidth - 0.5 * popupWidth */
-		let localY = (window.outerHeight / 2) - 300;  /* 0.5 * windowHeight - 0.5 * popupHeight */
+  		let localX = (window.outerWidth / 2) - 400;
+		let localY = (window.outerHeight / 2) - 300; 
 		let bandcampLink = document.getElementById("bandcamp-link");
 
 		window.open(bandcampLink.href, "popup", `top=${localY},left=${localX}`)
@@ -577,8 +579,11 @@
 		for(let i = 0; i < songDataTable[currentAlbum]["data"].length; i++){
 			let trackData = songDataTable[currentAlbum]["data"][i].tracklistData
 			trackListData += `<dt>${i+1}) ${trackData[0]}<\/dt>`;
-			if(trackData[1]){
-				trackListData += `<dd>${trackData[1]}<\/dd>`;
+			console.log(trackData)
+			if(trackData.length > 1){
+				for(let j = 1; j < trackData.length; j++){
+					trackListData += `<dd>${trackData[j]}<\/dd>`;	
+				}
 			}
 			trackListData += `<dt style=\"color: black\">.<\/dt>`;
 		}
