@@ -1,0 +1,171 @@
+[IMAGE]
+https://perchance.org/ai-anime-generator
+[PROMPT]
+(((((high-quality))))), (((((high-detail))))),
+
+[FILTER]
+low-quality,
+
+[STYLE]
+Vintage Anime
+
+[SONG]
+[STYLE]
+clear deep pop-rock male voice, heavy industrial grunge rock, protest anthem style, dark haunting vibes, hateful regret
+
+HEAVY dramatic dark gothic 80's rock style, hair-metal male voice, BITTER ANGRY sad feeling, SYNTHS and GUITARS,no pop!
+
+
+[LYRICS]
+optional:
+[female speaking voice]
+I can't live without youuu
+and you are nothing without me.
+Can't you seeee
+The more things change,
+the more we'll always be the same~~
+(We're not done!)
+(We're not done!)
+
+[BASE FLOW]
+
+
+[electric guitar intro]
+[drum build up]
+[Big Drop]
+
+[Verse 1]
+Our love was once so bright
+But now it's just a fight
+and we can't see the light
+We're lost in endless night
+
+[Verse 2]
+Your words are silent tears
+that echo in my ears
+I know I can't stay here
+That much now, is crystal-clear
+
+[Chorus]
+I can't be with youuu
+Any more than you can be with me.
+Can't you seeee
+The more things change,
+The more we'll never be the same~~
+(And I'm done!!)
+(And I'm done!!)
+
+[short guitar break]
+
+[Bridge]
+The dreams we used to share
+Now vanished in thin air
+I can no longer bear
+drowning in this despair
+
+[Long Instrumental Break]
+
+[Chorus]
+I can't be with youuu
+Any more than you can be with me.
+Can't you seeee
+The more things change,
+The more we'll never be the same~~
+(And I'm done!!)
+(And I'm done!!)
+
+[Verse 3]
+All the promises we made
+like photographs they fade
+Love's a gilded masquerade
+feelings now are all mislaid
+
+[short guitar break]
+
+[Big finish]
+I can't be with youuu
+Any more than you can be with me.
+Can't you seeee
+The more things change,
+The more we'll never be the same~~
+(And I'm done!!)
+(And I'm done!!)
+
+[Fade Out]
+(And I'm done...)
+(And I'm done...)
+(And I'm done...)
+
+[End]
+
+====
+====
+====
+[electric guitar intro]
+[drum build up]
+[Big Drop]
+
+[Verse 1]
+私たちの愛はかつて、
+とても明るかった。
+でも今はただの喧嘩。
+光が見えず、夜に迷う。
+
+[Verse 2]
+きみの言葉は静かな涙が、
+私の耳に響いている。
+ここに留まらないことは、
+今、はっきりとわかっている。
+
+[Chorus]
+一緒にいることができなく、
+きみができないと同じように。
+わからないのか～～、
+私たちが変わりつつ、
+以前と同じではなくなる～～
+(もう終わりだ!!)
+(もう終わりだ!!)
+
+[short guitar break]
+
+[Bridge]
+共有していた夢は、
+跡形もなく消え去った。
+この絶望に溺れることは、
+もう耐えられない。
+
+[Long Instrumental Break]
+
+[Chorus]
+一緒にいることができなく、
+きみができないと同じように。
+わからないのか～～、
+私たちが変わりつつ、
+以前と同じではなくなる～～
+(もう終わりだ!!)
+(もう終わりだ!!)
+
+[Verse 3]
+交わした約束は、
+写真のように色あせていく。
+愛は嘘のマスカレード、
+感情はすべて失われている。
+
+[short guitar break]
+
+[Big finish]
+一緒にいることができなく、
+きみができないと同じように。
+わからないのか～～、
+私たちが変わりつつ、
+以前と同じではなくなる～～
+(もう終わりだ!!)
+(もう終わりだ!!)
+
+
+[Fade Out]
+(もう終わりだ!!)
+(もう終わりだ!!)
+(もう終わりだ!!)
+
+[End]
