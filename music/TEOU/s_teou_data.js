@@ -1,0 +1,20 @@
+s_teou_data = {
+	name: "SINGLE - The End of Us",
+	trackHtml: "",
+	art:"END.jpeg",
+	directory:"./TEOU/",
+	data:[
+			{	name: "The End of Us", 
+				songPath: "The End of Us.mp3", 
+				artPath: "END.jpeg",
+				lyricPath: "the-end-of-us.html",
+				tracklistData: ["The End of Us"],
+				},
+			{	name: "私たちの終わり　(The End of Us JP-cover)", 
+				songPath: "私たちの終わり.mp3", 
+				artPath: "END.jpeg",
+				lyricPath: "watashitachi-no-owari.html",
+				tracklistData: ["私たちの終わり", "(The End of Us","JP-cover)"],
+				},
+		],
+}
