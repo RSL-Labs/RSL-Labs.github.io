@@ -3,10 +3,11 @@
 function loadMusicData(){
 	//this must contain the shorthand name of each album in the order you want it to load
 	//names of actual indices are NAME+"_data.js"
-	let album_data_index = ["cv","tbs","s_teou","bitwise"]
+	let album_data_index = ["cv","tbs","s_teou","bitwise","nac"]
 	let parsed_data = []
 
 	for(let entry of album_data_index){
+		console.log(entry)
 		let album_directory = window[entry+"_data"].directory
 		let new_album = {
 			name: window[entry+"_data"].name,
