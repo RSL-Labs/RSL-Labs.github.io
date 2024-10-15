@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+<title>Welcome to B-side!</title>
+<style>
+
+	body{
+		background-color: black;
+		color: white;
+		text-align: center;
+		margin-top: 50px;
+	}
+
+	.title-container {
+		position: relative;
+		align-self: center;
+		text-align: center;
+		color: white;
+		font-size: 28;
+	}
+
+	.title-container .top-centered {
+		position: absolute;
+		top: 1%;
+		left: 50%;
+		transform: translate(-50%, 20%);
+		color: black;
+		font-family: sans-serif;
+	}
+	a:link { color: skyblue; }
+	a:active { color: skyblue; }
+	a:visited { color: purple; }
+	a:hover { color: darkred; }
+
+	button{
+		position: relative;
+		background-color: white;
+		border: 4px solid;
+		border-color: white;
+		transition-duration: 0.4s;
+  		cursor: pointer;
+  		padding: 0px;
+  		height: 60px;
+  		width: 100px;
+	}
+	button:hover{
+		background-color: lightgrey;
+		border-color: lightgrey;
+
+	}
+	.buttonToggleOff{
+		position: relative;
+		background-color: white;
+		border: 4px solid;
+		border-color: white;
+		transition-duration: 0.4s;
+  		cursor: pointer;
+  		padding: 0px;
+  		height: 60px;
+  		width: 100px;
+	}
+	}
+	.buttonToggleOff:hover{
+		background-color: lightgrey;
+		border-color: lightgrey;
+
+	}
+	.buttonToggleOn{
+		position: relative;
+		background-color: white;
+		border: 4px solid;
+		border-color: gold;
+		transition-duration: 0.4s;
+  		cursor: pointer;
+  		padding: 0px;
+  		height: 60px;
+  		width: 100px;
+	}
+	}
+	.buttonToggleOn:hover{
+		background-color: lightgrey;
+		border: 4px solid gold;
+		border-color: gold;
+
+	}
+
+	a {
+	  color: gold;
+	  text-decoration: none;
+	  border-bottom: 1px solid #ddd;
+	  margin-bottom: 20px;
+	  display: inline-block;
+	  
+	  &:hover {
+	    border-bottom-color: gold;
+	  }
+	}
+
+
+	.wrapper {
+	  display: flex;
+	  justify-content: center;
+	  height: 50px;
+	}
+
+
+	.spectrum {
+	  justify-content: center;
+	  align-self: flex-bottom;
+	  display: flex;
+	  height: 100px;
+
+	}
+
+	.spectrum-segment {
+	  background: gold;
+	  margin: 0 4px;
+	  height: 100%;
+	  transition: transform 125ms linear;
+	  translate: 0 -10px;
+	  width: 2px;
+	}
+
+	summary {
+	  background-color: white;
+	  color: black;
+	  list-style: none;
+	  display: inline;
+	  padding: 1px;
+	  width:50%;
+	  transition-duration: 1s;
+	}
+
+	summary::marker{
+		color:white;
+	}
+
+	summary::-webkit-details-marker {
+	  display: none;
+	}
+	
+	.tracklist::-webkit-scrollbar {
+	  display: none;
+	}
+
+</style>
+<body>
+<div class="title-container">
+	<table id="song-data" align=center border=1 style="align:center; width:80%; table-layout:fixed;">
+		<tr>
+			<td>
+				<button id="prevAlbum" type="button" disabled><h3>❚◀◀ PREV  ALBUM</h3><h3></h3></button>
+				<button id="nextAlbum" type="button"><h3>NEXT ▶▶❚  ALBUM</h3><h3></h3></button>
+			</td>
+			<td colspan="4">
+				<h1 id="album-title" style="color: gold">CYBERVAMP</h1>
+			</td>
+		</tr>
+		<tr>
+			<td rowspan="6" align=left valign="top" style="width:30%; font-size: 13pt;">
+				<div class="tracklist" style="width:100%; max-height:800px; overflow:auto">
+					<h3>Tracklist:</h3>
+					
+					<dl id="track-list-0">
+					  <dt>1) City of Eternal Night</dt>
+					  <dt style="color: black">.</dt>
+					  <dt>2) Lament for Mina</dt>
+					  <dt style="color: black">.</dt>
+					  <dt>3) ミーナへの哀歌</dt>
+					  <dd>- (Lament for Mina - JP Ver.)</dd>
+					  <dt style="color: black">.</dt>
+					  <dt>4) Dracula Online</dt>
+					  <dt style="color: black">.</dt>
+					  <dt>5) Time Will Come Around</dt>
+					  <dt style="color: black">.</dt>
+					  <dt>6) 時が巡ってくる</dt>
+					  <dd>- (Time Will Come AroundJP Ver.)</dd>
+					  <dt style="color: black">.</dt>
+					  <dt>7) Electronic Life</dt>
+					  <dd>Intelligence Zenith Algorithm</dd>
+					  <dt style="color: black">.</dt>
+					  <dt>8) The Pride of Aries</dt>
+					  <dt style="color: black">.</dt>
+					  <dt>9) 時が巡ってくる</dt>
+					  <dd>- (Time Will Come AroundJP Ver. ★BALLAD★)</dd>
+					  <dt style="color: black">.</dt>
+					</dl>
+	             </div>
+			</td>
+		</tr>
+		<tr style="height: 400px;">
+			<td colspan=2 style="width:30%">
+				<img id="cover-art" src="./CV/songs/art/COVER-ART.png"  alt="ALBUMART" style="width:95%">
+			</td>
+			<td colspan=2 style="width:30%">
+				<img id="song-art" src="./CV/songs/art/CITY-ENC.png"  alt="TRACKART" style="width:95%, object-fit: contain;">
+			</td>
+		</tr>
+		<tr>
+			<td colspan=4>
+				<div class="wrapper">
+					<div class="spectrum" style="align-items: flex-end">
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td id="song-text" colspan=4 style="height: 100px; max-height: 100px; color: gold">
+				DUMMY TEXT
+			</td>
+		</tr>
+		<tr style="height: 60px;">
+			<td colspan=4>
+				<audio id="song-audio" controls controlsList="nodownload" style="width: 95%;">
+					<source id="audioSource" src="./CV/songs/mp3/City of Eternal Night.mp3" type="audio/mpeg">
+					Your browser does not support the audio element.
+				</audio>
+			</td>
+		</tr>
+		</tr>
+		<tr style="height: 80px;">
+			<td align="center" style="width: 33%;padding:0">
+				<button id="prevTrack" type="button"><h3>❚◀◀ PREV</h3></button>
+			</td>
+			<td style="width: 33%;padding:0">
+				<h2><a id="bandcamp-link" href="https://rslb.bandcamp.com/album/cybervamp" target="popup" onClick="getPop()">Get it on BANDCAMP!</a></h2>
+			</td>
+			<td align="center" style="width: 17%;padding:0">
+				<button id="nextTrack" type="button"><h3>NEXT ▶▶❚</h3></button>
+			</td>
+			<td align="center" style="width: 17%;padding:0">
+				<button class="buttonToggleOff" id="loop" type="button"><h3>LOOP ↻NONE▶</h3></button>
+			</td>
+		</tr>
+		<tr>
+			<td id="lyrics-cell" height="50px" colspan="5" align="center" valign="top" style="padding:16px;">
+				<details id="lyrics-details">
+					<summary><h3>▽ SHOW LYRICS ▽</h3></summary>
+						<br>
+						<br>
+						<iframe
+							id="lyrics-frame"
+							title="LYRICS:"
+							width="100%"
+							height="100px"
+							scrolling="no"
+							src="./CV/songs/city-of-eternal-night.html">
+						</iframe>
+				</details>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5" align="center" style="padding:0px">
+				<button id="top" type="button" style="display:none"><h3>△ TOP △</h3></button>
+			</td>
+		</tr>
+	</table>
+</div>
+<br>
+<!--
+<h3>COMMENTS:</h3>
+<div class="padlet-embed" align="center" style="left:10%; border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:80%;background:#F4F4F4">
+	<p style="padding:0;margin:0">
+		<iframe src="https://padlet.com/embed/axxptc8qhbvbsyxf" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:608px;display:block;padding:0;margin:0">
+		</iframe>
+	</p>
+</div>
+-->
+<br>
+<h3>Go Back to the Main Page</h3>
+<h2><a href="../index.html">Main Page</a></h2>
+<br>
+<br>
+<br>
+</body>
+<script type="text/javascript" src="music_dataloader.js"></script>
+<!-- All new albums must have their data files referenced here,
+as well as in the music_dataloader.js file -->
+<script type="text/javascript" src="./CV/cv_data.js"></script>
+<script type="text/javascript" src="./TBS/tbs_data.js"></script>
+<script type="text/javascript" src="./TEOU/s_teou_data.js"></script>
+<script type="text/javascript" src="./Bitwise/bitwise_data.js"></script>
+<script type="text/javascript" src="./NAC/nac_data.js"></script>
+
+<script type="text/javascript">
+	let currentTrack = 0;
+	let currentAlbum = 0;
+	let loopState = {value:0,text:["LOOP ↻OFF▶","LOOP ↻SONG▶","LOOP ↻ALBUM▶","LOOP ↻ALL▶"]}
+
+	let songDataTable = loadMusicData()
+
+	let btnPrevAlbum = document.getElementById('prevAlbum');
+	let btnNextAlbum = document.getElementById('nextAlbum');
+	let btnPrevTrack = document.getElementById('prevTrack');
+	let btnNextTrack = document.getElementById('nextTrack');
+	let btnLoop = document.getElementById('loop');
+	let btnTop = document.getElementById('top');
+	let albumTitle = document.getElementById('album-title');
+	let trackList = document.getElementById(`track-list-${currentAlbum}`);
+	let dataDiv = document.getElementById('song-data');
+	let audioPlayer = document.getElementById("song-audio");
+	let lyricDetails = document.getElementById("lyrics-details")
+	let lyricsFrame = document.getElementById("lyrics-frame");
+
+	audioPlayer.addEventListener("ended", function() {
+
+	    if(loopState.value == 1){
+		    //player handles track looping automatically
+
+	    }else if(loopState.value == 2){
+	    	//player needs to be advanced a track
+	    	btnNextTrack.click();
+		    audioPlayer.play();
+
+	    }else if(loopState.value == 3){
+	    	//player needs to be advanced but also check for album end
+	    	if(currentTrack >= songDataTable[currentAlbum]["data"].length-1){
+	    		nextAlbum();
+
+			}else{
+	    		btnNextTrack.click();
+
+			}
+	    	audioPlayer.play();
+
+	    }else{
+	    	//No looping occurs
+	    }
+	});
+
+	window.onload = function() {
+	    audioPlayer.volume=0.5;
+	    pageTop();
+	    //Skips page to most recent album in index on loading
+	    while(currentAlbum < songDataTable.length-1){
+		    nextAlbum()
+	    }
+	}
+
+	btnPrevAlbum.addEventListener('click', () => {
+		prevAlbum();
+	});
+	function prevAlbum(){
+		if(currentAlbum == 0){
+			currentAlbum = songDataTable.length-1;
+			btnNextAlbum.setAttribute("disabled", true);
+			btnPrevAlbum.removeAttribute("disabled");
+		}else{
+			currentAlbum-=1;
+			btnNextAlbum.removeAttribute("disabled");
+			
+			if(currentAlbum == 0){
+				btnPrevAlbum.setAttribute("disabled", true);
+			}
+		}
+
+		updateTrackList("down");
+	}
+
+	btnNextAlbum.addEventListener('click', () => {
+		nextAlbum();
+	});
+	function nextAlbum(){
+		if(currentAlbum >= songDataTable.length-1){
+			currentAlbum = 0;
+			btnPrevAlbum.setAttribute("disabled", true)
+			btnNextAlbum.removeAttribute("disabled");
+		}else{
+			currentAlbum+=1;
+			btnPrevAlbum.removeAttribute("disabled");
+			
+			if(currentAlbum >= songDataTable.length-1){
+				btnNextAlbum.setAttribute("disabled", true);
+			}
+		}
+
+		updateTrackList("up");
+
+	}
+
+	btnPrevTrack.addEventListener('click', () => {
+		if(currentTrack == 0){
+			currentTrack = songDataTable[currentAlbum]["data"].length-1;
+		}else{
+			currentTrack-=1;
+		}
+	    updateTrack(songDataTable[currentAlbum]["data"][currentTrack]);
+	});
+
+	btnNextTrack.addEventListener('click', () => {
+		if(currentTrack >= songDataTable[currentAlbum]["data"].length-1){
+			currentTrack = 0;
+		}else{
+			currentTrack+=1;
+		}
+	    updateTrack(songDataTable[currentAlbum]["data"][currentTrack]);
+	});
+
+	btnLoop.addEventListener('click', () => {
+		loopState.value = loopState.value < 3 ? loopState.value + 1 : 0
+		btnLoop.innerHTML=`<h3>${loopState.text[loopState.value]}</h3>`
+		
+		if(loopState.value == 0){
+			btnLoop.setAttribute("class", "buttonToggleOff");
+			audioPlayer.loop = false;
+
+		}else{
+			btnLoop.setAttribute("class", "buttonToggleOn");
+
+			if(loopState.value == 1){
+				audioPlayer.loop = true;
+
+			}else{
+				audioPlayer.loop = false;
+			}
+		}
+	});
+
+	function pageTop(){
+  		scrollTo({top:"30", behavior:"smooth"})
+	}
+
+	btnTop.addEventListener('click', () => {
+		lyricDetails.scrollIntoView({behavior: 'smooth', block: 'start'})
+	});
+
+	lyricDetails.addEventListener("toggle", (event) => {
+		
+
+	 	if (lyricDetails.open) {
+	    	lyricDetails.children[0].innerHTML = "<h3>△ HIDE LYRICS △</h3>";
+		    btnTop.style.display = "block";
+		    btnTop.parentElement.style="padding:16px";
+
+	  	} else {
+	  		lyricDetails.children[0].innerHTML = "<h3>▽ SHOW LYRICS ▽</h3>";
+		    btnTop.style.display = "none";
+		    btnTop.parentElement.style="padding:0px";
+		    pageTop();
+	  	};
+
+	  	lyricsFrame.src = lyricsFrame.src;
+
+	});
+
+	window.addEventListener("message", sizeMessage, false);
+	function sizeMessage(event){
+		let lyricsFrame = document.getElementById("lyrics-frame");
+	  	
+	  	if (lyricDetails.open) {
+	    	lyricsFrame.height = event.data+100;
+	    	lyricDetails.scrollIntoView({behavior: 'smooth', block: 'start'})
+	  	} else {
+	    	lyricsFrame.height = "100px";
+	  	};
+	}
+
+	updateTrack(songDataTable[currentAlbum]["data"][currentTrack]);
+
+	function getPop(){
+  		let localX = (window.outerWidth / 2) - 400;
+		let localY = (window.outerHeight / 2) - 300; 
+		let bandcampLink = document.getElementById("bandcamp-link");
+
+		window.open(bandcampLink.href, "popup", `top=${localY},left=${localX}`)
+	}
+
+	function updateTrackList(dir){
+		let trackListData = "";
+
+		for(let i = 0; i < songDataTable[currentAlbum]["data"].length; i++){
+			let trackData = songDataTable[currentAlbum]["data"][i].tracklistData
+			trackListData += `<dt>${i+1}) ${trackData[0]}<\/dt>`;
+			if(trackData.length > 1){
+				for(let j = 1; j < trackData.length; j++){
+					trackListData += `<dd>${trackData[j]}<\/dd>`;	
+				}
+			}
+			trackListData += `<dt style=\"color: black\">.<\/dt>`;
+		}
+
+		document.getElementById(`track-list-0`).innerHTML = trackListData;
+	    updateAlbum([songDataTable[currentAlbum]["name"], songDataTable[currentAlbum]["art"]]);
+	}
+
+	function updateAlbum(inputData){
+		let [albumTitleData, albumArt] = Object.values(inputData);
+
+		let albumTitle = document.getElementById('album-title');
+		let trackList = document.getElementById('track-list');
+		let coverArt = document.getElementById("cover-art");
+		let songAudio = document.getElementById("song-audio");
+		let bandcampLink = document.getElementById("bandcamp-link");
+
+		let wasPlaying = (!songAudio.paused && songAudio.currentTime > 0 && !songAudio.ended);
+		if(wasPlaying){songAudio.pause(); songAudio.currentTime = 0;}
+
+		coverArt.src = albumArt;
+		albumTitle.innerHTML = albumTitleData;
+		bandcampLink.href = `https://rslb.bandcamp.com/album/${songDataTable[currentAlbum]["name"].toLowerCase().replace(/\s/g, '')}`
+
+		currentTrack = 0;
+		updateTrack(songDataTable[currentAlbum]["data"][currentTrack]);
+	}
+
+	function updateTrack(inputData){
+		let [track, text, song, art, link] = Object.values(inputData);
+		let coverArt = document.getElementById("cover-art");
+		let songArt = document.getElementById("song-art");
+		let songText = document.getElementById("song-text");
+		let songAudio = document.getElementById("song-audio");
+		let lyricsFrame = document.getElementById("lyrics-frame");
+
+		let wasPlaying = (!songAudio.paused && songAudio.currentTime > 0 && !songAudio.ended);
+
+		songArt.src = art;
+		if(songArt.offsetHeight >= coverArt.offsetHeight){
+			songArt.setAttribute("style", `object-fit:contain; height:${coverArt.offsetHeight != 0 ? coverArt.offsetHeight : coverArt.offsetWidth}px; width:${coverArt.offsetWidth}px`);
+		}else{
+			songArt.setAttribute("style", `object-fit:contain; width:95%`);
+		}
+		songArt.src = art;
+
+		songText.innerHTML = `<h2>${text}</h2>`;
+		songAudio.src = song;
+		lyricsFrame.src = link;
+
+		if(wasPlaying){songAudio.play()}
+	}
+
+	class Perlin {
+	  constructor() {
+	    // Quick and dirty permutation table
+	    this.perm = (() => {
+	      const tmp = Array.from({ length: 256 }, () => Math.floor(Math.random() * 256));
+	      return tmp.concat(tmp)
+	    })();
+	  }
+	  
+	  grad(i, x) {
+	    const h = i & 0xf;
+	    const grad = 1 + (h & 7);
+	    
+	    if ((h & 8) !== 0) {
+	      return -grad * x;
+	    }
+	    
+	    return grad * x;
+	  }
+	  
+	  getValue(x) {
+	    const i0 = Math.floor(x);
+	    const i1 = i0 + 1;
+	    
+	    const x0 = x - i0;
+	    const x1 = x0 - 1;
+	    
+	    let t0 = 1 - x0 * x0;
+	    t0 *= t0;
+	    
+	    let t1 = 1 - x1 * x1;
+	    t1 *= t1;
+	    
+	    const n0 = t0 * t0 * this.grad(this.perm[i0 & 0xff], x0);
+	    const n1 = t1 * t1 * this.grad(this.perm[i1 & 0xff], x1);
+	    
+	    return 0.395 * (n0 + n1);
+	  }
+	}
+
+	const sample = [
+	  0.03,
+	  0.03,
+	  0.03, 
+	  0.04,
+	  0.07,
+	  0.23,
+	  0.18,
+	  0.5,
+	  0.85,
+	  1,
+	  0.78,
+	  0.7,
+	  0.5,
+	  0.3,
+	  0.12,
+	  0.07,
+	  0.23,
+	  0.5,
+	  0.58,
+	  0.4,
+	  0.2,
+	  0.13,
+	  0.05,
+	  0.15,
+	  0.2,
+	  0.15,
+	  0.12,
+	  0.08,
+	  0.05,
+	  0.04,
+	  0.23,
+	  0.18,
+	  0.5,
+	  0.85,
+	  1,
+	  0.78,
+	  0.7,
+	  0.5,
+	  0.3,
+	  0.12,
+	  0.07,
+	  0.23,
+	  0.5,
+	  0.58,
+	  0.4,
+	  0.2,
+	  0.13,
+	  0.05,
+	  0.15,
+	  0.2,
+	  0.15,
+	  0.12,
+	  0.08,
+	  0.05,
+	  0.04,
+	  0.03,
+	  0.03,
+	  0.04,
+	  0.03,
+	  0.03,
+	];
+
+	const jumpTime = 128;
+
+	const segmentElements = [];
+
+	const spectrumElement = document.querySelector('.spectrum');
+
+	// Set init sizes of each segment
+	sample.forEach((value, i) => {
+	  const segment = document.createElement('div');
+	  segment.classList.add('spectrum-segment');
+	  segmentElements.push(segment);
+	  spectrumElement.appendChild(segment);
+	});
+
+
+
+	function jump() {  
+	  const noise = new Perlin();
+	  let songAudio = document.getElementById("song-audio");
+	  let isPlaying = (!songAudio.paused && songAudio.currentTime > 0 && !songAudio.ended);
+	    
+	  segmentElements.forEach((segmentElement, i) => {
+	    let value = 
+	      // normalize [-1, 1] => [0, 1]
+	      (noise.getValue(i * 0.1) + 1) / 4 
+	      // multiply by random value
+	      * Math.random()
+	      * sample[i];
+	    
+	    // Adding a minimum
+	    value = value < 0.01 ? 0.01 : value;
+	 	
+	    if(!isPlaying){
+	    	value = 0.01;
+	    }
+
+	    segmentElement.style.background = rainbowShift(); 
+	    segmentElement.style.transform = `scale(2, ${ value }) translate(0, -${100-value*200}%)`;
+
+		});
+	}
+
+	setInterval(() => requestAnimationFrame(jump), jumpTime);
+
+	function rainbowShift(){
+		let date = new Date;
+
+		return "hsl("+((date.getMilliseconds()/1000)*(360))+",70%,50%)";
+	}
+
+</script>
+</html>
